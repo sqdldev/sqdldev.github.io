@@ -1,0 +1,14 @@
+*{scroll-behavior: smooth}
+body {font-size:11vw;}
+@font-face {font-family: 'regular'; src: url("../fonts/sen/regular.ttf");}
+@font-face {font-family: 'bold'; src: url("../fonts/sen/bold.ttf");}
+table  {border-spacing: 0;margin-left: auto;margin-right: auto;background-color: white;}
+thead  {position: sticky;top: 0;background-color: white;}
+table td{border-color: black; border-style: solid; border-width: 1px; font-family: regular; font-size: inherit; overflow: hidden; padding: 20px 10px; word-break: normal; outline: solid; outline-color: #00000000; outline-offset: 0; transition: 0.1s; white-space: nowrap;}
+table td:hover:not(:first-of-type):nth-last-child(n+5){outline: solid; outline-color: yellow; outline-offset: 3pt; transition:0.1s;}
+table td:active:not(:first-of-type):nth-last-child(n+5){outline: solid; outline-color: yellow; outline-offset: 1pt; transition:0.1s;}
+table th{border-color:black; border-style:solid; border-width:1px; font-family:bold; font-size:inherit; font-weight:normal; overflow:hidden; padding:10pt 15pt; word-break:normal;}
+tr {background-color: #00000000; transition:0.5s;}
+tr:hover {background-color: #0000000f; transition:0.2s;}
+.creatornote {font-size: 15pt; padding: 10pt;}
+tbody {user-select: none;}

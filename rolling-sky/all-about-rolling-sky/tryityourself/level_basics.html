@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Level Demo</title>
+      <link rel="shortcut icon" type="image/png" href="https://sqdldev.github.io/assets/favicon.png">
+      <style>
+         @font-face {
+         font-family: 'regular';
+         src: url("../../fonts/sen/regular.ttf");
+         }
+         *{font-family:regular !important; font-size: 20pt;}
+         body {
+         display: flex;
+         flex-direction: column;
+         align-content: center;
+         align-items: center;
+         justify-content: center;
+         }
+         .pagecontainer {
+         display: flex;
+         flex-direction: column;
+         flex-wrap: nowrap;
+         align-content: center;
+         justify-content: flex-start;
+         align-items: center;
+         }
+         .page {
+         background: #909090;
+         width: min-content;
+         display: flex;
+         flex-direction: column;
+         flex-wrap: nowrap;
+         align-content: center;
+         justify-content: flex-start;
+         align-items: center;
+         padding: 10pt;
+         border-radius: 10pt;
+         }
+         #container{
+         width: 125pt;
+         height: 250pt;
+         display: flex;
+         flex-direction: row;
+         flex-wrap: wrap;
+         justify-content: flex-start;
+         align-content: flex-start;
+         }
+         #container>*{
+         width: 25pt;
+         height: 25pt;
+         background-position: center;
+         background-size: contain;
+         display: flex;
+         align-content: center;
+         flex-wrap: nowrap;
+         flex-direction: row;
+         justify-content: center;
+         align-items: center;
+         }
+         .\30 {
+         background: transparent;
+         }
+         .\31 {
+         background-image: url('tiles/ground.png');
+         }
+         .\32 {
+         background-image: url('tiles/jump.png');
+         }
+         .\33 {
+         background-image: url('tiles/fragile.png');
+         }
+         .\34 {
+         background-image: url('tiles/riser.png');
+         }
+         .\35 {
+         background-image: url('tiles/crusher.png');
+         }
+         .\35::after {
+         position: absolute;
+         z-index: 50;
+         content: '';
+         width: 20pt;
+         height: 20pt;
+         background-repeat: no-repeat;
+         background-size: contain;
+         background-image: url('tiles/crusher_anim.png');
+         transform: rotate(0deg) scale(1.25);
+         animation: crusherRotate 5s infinite linear;
+         }
+         .\36 {
+         background-image: url('tiles/star.png');
+         }
+         .\37 {
+         background-image: url('tiles/pickup.png');
+         }
+         .\37::after {
+         position: absolute;
+         z-index: 50;
+         content: '';
+         width: 20pt;
+         height: 20pt;
+         background-repeat: no-repeat;
+         background-size: contain;
+         background-image: url('tiles/pickup_anim.png');
+         transform: rotate(0deg) scale(1.25);
+         animation: pickupRotate 6s infinite linear;
+         }
+         #input {
+         cursor: default;
+         width: 9ch;
+         height: 21.5ch;
+         margin: 0;
+         margin-top: 15pt;
+         padding: 10pt 15pt;
+         border: none;
+         outline: none;
+         resize: none;
+         text-align: center;
+         word-break: break-all;
+         font-size: 20pt;
+         border-radius: 10pt;
+         font-family: monospace !important;
+         background: #787878;
+         color: white;
+         box-sizing: content-box;
+         overflow: hidden;
+         }
+         .textareacontainer{
+         display: flex;
+         flex-direction: row;
+         flex-wrap: wrap;
+         justify-content: center;
+         align-content: center;
+         }
+         .small {
+         font-size:10pt
+         }
+         .nmb {
+         margin-bottom: 0;
+         margin-top: 0;
+         }
+         .header {
+         margin-top: 10pt;
+         margin-bottom:5pt;
+         font-size:40pt;
+         font-weight: 900;
+         }
+         .key {
+         background-color: #787878;
+         padding: 15pt 17pt;
+         border-radius: 10pt;
+         margin-top: 15pt;
+         }
+         .key>div {
+         left: 8pt;
+         position: relative;
+         width: 100pt;
+         height: 200pt;
+         background-color: transparent;
+         background-repeat: no-repeat;
+         background-size: contain;
+         background-image: url('tiles/tilekey.png');
+         }
+         @keyframes crusherRotate {
+         0%{transform: rotate(0deg) scale(1.25);}
+         100%{transform: rotate(360deg) scale(1.25);}
+         }
+         @keyframes pickupRotate {
+         0%{transform: rotate(0deg) scale(1.25);}
+         100%{transform: rotate(360deg) scale(1.25);}
+         }
+         .credit {
+         color: white;
+         font-size: 14pt;
+         margin-top: 7pt;
+         margin-bottom: 0;
+         }
+         .credit>a {
+         color: #7adfff;
+         font-size: 14pt;
+         margin-top: 7pt;
+         margin-bottom: 0;
+         }
+      </style>
+   </head>
+   <body>
+      <p class="header">Online Interactive Level Demo</p>
+      <p class="nmb">Make sure that you add a new line every time you need a new row!</p>
+      <p class="small">*Note that these obstacle IDs are not the real ones used in the game, the ones here are made to be easy to use.</p>
+      <div class="pagecontainer">
+         <div class="page">
+            <div id="container">
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+               <div class="0"></div>
+            </div>
+            <div class="textareacontainer">
+               <textarea id="input" rows=5 cols=5>4,4,1,4,4
+5,1,1,1,5
+3,1,4,1,3
+3,1,1,1,3
+3,4,7,4,3
+3,4,4,4,3
+6,1,1,1,6
+6,1,4,1,6
+1,1,2,1,1
+4,1,1,1,4</textarea>
+               <div class="key">
+                  <div></div>
+               </div>
+            </div>
+            <script src="level_basics.js"></script>
+            <p class="credit">Made by <a target="_blank" href="https://www.youtube.com/channel/UCtRHiongiDb63nAL9KU6BtA">sqdldev</a></p>
+         </div>
+      </div>
+   </body>
+</html>

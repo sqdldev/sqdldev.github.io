@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Buffer Inspector</title>
+      <style>
+         @font-face {
+         font-family: 'regular';
+         src: url("../fonts/sen/regular.ttf");
+         }
+         *{font-family:regular !important;font-size:20pt;}
+      </style>
+   </head>
+   <body>
+      <div class="container" style="margin: 10pt 20pt;">
+         <h2>What is a GeoBuffer?</h2>
+         <p>
+            A Geobuffer tells and controls what objects are in the level, and it defines the objects through their classified type, and how much of them can be loaded/rendered in one render section. (F018救星✨#2614 on Discord)
+         </p>
+         <h2>GeoBuffer Inspector</h2>
+         <p>
+            Input a GeoBuffer line, ex. '17,4,41' or '20,4,18'<br>
+			(If it doesn't automatically update, press Enter or click off)
+         </p>
+         <input id="bufferInput" onchange="Process();" value="0,0,100"></input>
+         <p id="bufferOutput">
+            GeoBuffer Name: <a target="_blank" href="https://sqdldev.github.io/rolling-sky/geobuffer-ids/#0">TileX</a><br>
+            GeoBuffer Type: Ground<br>
+            GeoBuffer Limit: 100
+         </p>
+      </div>
+      <script src="index.js"></script>
+   </body>
+</html>
