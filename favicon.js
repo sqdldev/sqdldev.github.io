@@ -1,4 +1,4 @@
-var favNumber = Math.floor(Math.random() * 10);
+var favNumber = Math.floor(Math.random() * 10)+1;
 var fav = document.createElement('link');
 fav.rel = 'icon';
 fav.href = '../../assets/favicon/Ball'+favNumber+'.png';
