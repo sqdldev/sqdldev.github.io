@@ -5,7 +5,7 @@ var levelFile = document.getElementById('levelFile');
 var geoBufferFileTitle = document.getElementById('geoBufferFileTitle');
 var geoBufferFile = document.getElementById('geoBufferFile');
 
-setInterval(function(){
+function Update() {
 	for (var i = 0; i < names.length; i++) {
 		var num = similarity(names[i].toString(), input.value);
 		if (num >= 0.65) {
@@ -24,7 +24,19 @@ setInterval(function(){
 			geoBufferFileTitle.innerHTML = "GeoBuffer File of Ignite";
 			geoBufferFile.innerHTML = geobuffers[32];
 	}
-});
+}
+
+document.onkeydown = function (e) {
+	Update();
+};
+
+document.onkeyup = function (e) {
+	Update();
+};
+
+document.onkeypress = function (e) {
+	Update();
+};
 
 function similarity(e, a) {
     var b = e, f = a;
