@@ -1,0 +1,62 @@
+<html><head>
+<title>Level File Locator</title>
+<style>
+*{scroll-behavior: smooth;font-family:regular}
+@font-face {
+font-family: 'regular';
+src: url("../fonts/sen/regular.ttf");
+}
+html,body{
+margin: 0;
+}
+#background{
+margin: 0pt;
+background-size: cover;
+background-position: 0 15%;
+filter: blur(5px);
+width: 100%;
+height: 100%;
+position: fixed;
+z-index: -100;
+background-repeat: no-repeat;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+opacity: 0.5;
+}
+.bgcontain{
+display: flex;
+flex-wrap: wrap;
+flex-direction: column;
+align-content: flex-start;
+justify-content: center;
+align-items: stretch;
+}
+</style>
+<script src="../../favicon.js"></script>
+</head>
+<body>
+<div id="background" style="background-image: url('assets/Background1.png');"></div>
+<div style="margin: 10pt 15pt;">
+<h2 style="margin-bottom: 0;">Type a level name</h2>
+<div style="margin-bottom: 20px;">(It doesn't update until you type)</div>
+<div>
+<input id="owo" style="width: 100%;font-size: 12.5pt;padding: 7pt;" placeholder="Type a level...">
+<div id="percent" style="margin-top: 5pt;">(Type Something!)</div>
+</div>
+<hr style="margin-top: 15pt;">
+<h2 id="levelFileTitle"></h2>
+<div id="levelFile"></div>
+<h2 id="geoBufferFileTitle"></h2>
+<div id="geoBufferFile"></div>
+<h3>*Geobuffer0 is in 57a36bca015df3c459021c1348132f99</h3>
+<hr>
+<h2>Textures (Click to Download)</h2>
+<div class="bgcontain">
+<img id="bgdisplay" src="assets/Enemy1.png" style="width: 250pt;border-style: outset;border-radius: 10pt;" class="gallery" onerror="this.style.display='none'">
+<input placeholder="Type in a texture (Ex. Enemy1)" id="bginp"></input>
+</div>
+<script src="index.js" onchange="Update();"></script>
+</div>
+</body>
+</html>
