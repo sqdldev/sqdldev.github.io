@@ -20,6 +20,7 @@ text-decoration: none;
 display: flex;
 align-items: center;
 transition: all 0.15s ease 0s;
+-webkit-transition: all 0.15s ease 0s;
 }
 .list:hover {
 background: #151f36;
@@ -34,16 +35,19 @@ align-content: flex-start;
 flex-wrap: nowrap;
 align-items: stretch;
 transition: all 0.25s ease 0s;
+-webkit-transition: all 0.25s ease 0s;
 }
 a>img {
 height: 30pt;
 margin-right: 10pt;
 border-radius: 5pt;
 transition: all 0.1s ease 0s;
+-webkit-transition: all 0.1s ease 0s;
 }
 a:hover>img {
 transform: scale(1.1);
 transition: all 0.1s ease 0s;
+-webkit-transition: all 0.1s ease 0s;
 }
 #back {
 z-index: 512;
@@ -56,12 +60,14 @@ font-size: 15pt;
 padding: 7pt 20pt;
 border-radius: 10pt;
 transition: all 0.15s ease 0s;
+-webkit-transition: all 0.15s ease 0s;
 border: none;
 color: white;
 }
 #back:hover {
 background: #5d1852;
 transition: all 0.15s ease 0s;
+-webkit-transition: all 0.15s ease 0s;
 }
 .credit {
 top: -10pt;
