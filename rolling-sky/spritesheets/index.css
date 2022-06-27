@@ -22,9 +22,12 @@ align-items: center;
 transition: all 0.15s ease 0s;
 -webkit-transition: all 0.15s ease 0s;
 }
-.list:hover {
+.list:not(.disabled):hover {
 background: #151f36;
 transition: all 0.15s ease 0s;
+}
+.list.disabled {
+opacity: 0.6;
 }
 #container {
 display: flex;
@@ -44,7 +47,7 @@ border-radius: 5pt;
 transition: all 0.1s ease 0s;
 -webkit-transition: all 0.1s ease 0s;
 }
-a:hover>img {
+a:not(.disabled):hover>img {
 transform: scale(1.1);
 transition: all 0.1s ease 0s;
 -webkit-transition: all 0.1s ease 0s;
@@ -76,4 +79,7 @@ margin: 5pt 1pt;
 }
 a:not(.list){
 color: #3eb3ff;
+}
+.link{
+user-select: none;
 }
