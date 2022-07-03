@@ -1,7 +1,7 @@
 https://sqdldev.github.io/rolling-sky/level-utils/
-0.004
-Added Changelog
-Edited labels for Level2DES file selector
+0.005
+Minor improvement fixes
+No GeoBuffer creator because everyone ignored me :(
 
 
 
