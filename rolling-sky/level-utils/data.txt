@@ -1,7 +1,7 @@
 https://sqdldev.github.io/rolling-sky/level-utils/
-0.005
-Minor improvement fixes
-No GeoBuffer creator because everyone ignored me :(
+0.006
+Fixed issue with newlines in the Level2DES converter
+
 
 
 
