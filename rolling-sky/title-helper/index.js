@@ -14,6 +14,6 @@ function generate() {
 	alltxt.push(b);
 	}
 
-	var a = alltxt.toString().replaceAll(',','\n');
+	var a = alltxt.join("\n");
 	target.value = a;
 }
