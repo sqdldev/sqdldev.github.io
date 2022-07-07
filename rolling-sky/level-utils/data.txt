@@ -1,6 +1,6 @@
 https://sqdldev.github.io/rolling-sky/level-utils/
-0.006
-Fixed issue with newlines in the Level2DES converter
+0.007
+Fixed Level Error Detection in Level2DES
 
 
 
