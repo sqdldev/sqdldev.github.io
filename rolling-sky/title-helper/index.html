@@ -3,6 +3,11 @@
 <html>
 <head>
 <title>Rolling Sky Title Helper</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="pagename" content="Rolling Sky Title Helper">
+<meta name="description" content="A guide to changing Rolling Sky Level Names.">
+<meta property="og:image" content="https://sqdldev.github.io/rolling-sky/title-helper/webicon.png"/>
+<link rel="image_src" href="https://sqdldev.github.io/rolling-sky/title-helper/webicon.png">
 <style>
 *{scroll-behavior: smooth;font-family:regular}
 @font-face {
@@ -17,27 +22,57 @@ padding: 10pt;
 border-radius: 10pt;
 margin: 10pt 5pt;
 }
+.container {
+display: flex;flex-direction: column;flex-wrap: nowrap;align-content: stretch;align-items: stretch;width: 450px;justify-content: flex-start;
+}
+textarea#target {
+writing-mode: horizontal-tb !important;font-style: ;font-variant-ligatures: ;font-variant-caps: ;font-variant-numeric: ;font-variant-east-asian: ;font-weight: ;font-stretch: ;font-size: ;font-family: regular;text-rendering: auto;color: fieldtext;letter-spacing: normal;word-spacing: normal;line-height: normal;text-transform: none;text-indent: 0px;text-shadow: none;display: inline-block;text-align: start;appearance: auto;-webkit-rtl-ordering: logical;resize: auto;cursor: text;white-space: pre-wrap;overflow-wrap: break-word;background-color: field;column-count: initial !important;margin: 0em;border-width: 1px;border-style: solid;border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));border-image: initial;padding: 2px;width: 450px;min-height: 200px;resize: vertical;outline: none;max-height: 1024px;
+}
+button.generate {
+appearance: auto;writing-mode: horizontal-tb !important;font-style: ;font-variant-ligatures: ;font-variant-caps: ;font-variant-numeric: ;font-variant-east-asian: ;font-weight: ;font-stretch: ;font-size: ;font-family: regular;text-rendering: auto;color: buttontext;letter-spacing: normal;word-spacing: normal;line-height: normal;text-transform: none;text-indent: 0px;text-shadow: none;display: inline-block;text-align: center;align-items: flex-start;cursor: default;box-sizing: border-box;background-color: buttonface;margin: 0em;padding: 1px 6px;border-width: 2px;border-style: outset;border-color: buttonborder;border-image: initial;width: 456px;border-top: none;border-width: 1px;
+}
 </style>
 <script src="../../favicon.js"></script>
 </head>
-<body>
-<body>
+<body style="padding: 0pt 7.5pt;">
+<h1>A Guide to Renaming Levels</h1>
+<div style="padding: 0pt 7.5pt;">
+<p>I promise everything you need to know is on this page. Follow the instructions <b style="color: #ff0000;"><u>to the letter</b></u>.</p>
+<h2>Setting Up</h2>
+<p>I recommend using Notepad++, it's the easiest to use in my opinion.<br>
+If you use Notepad++, select the following option shown in the image below.</p>
+<img src="showall.png" style="width: 440pt;">
 <h2>How to Use</h2>
-<p>Type in or paste in level names separated by new lines. Sometimes, the generator will output a {CR} or a {LF}, which you need to replace manually because copy and paste will just turn those into a whole different character.<br>
-<h2>In Notepad++, the characters can be replaced like this:</h2><i>(Replace {CR} with \r and {LF} with \n, both using Extended mode)</i>
+<p>Type in or paste in level names separated by new lines.<br>
+Sometimes, the generator will output a {CR} or a {LF}, which you need to replace manually because copy and paste will just turn those into a whole different character.<br>
+<h2>In Notepad++, the characters can be replaced like this:</h2><i>(Replace {CR} with \r and {LF} with \n, both using <b>Extended</b> mode)</i>
 <br>
 <br>
-<img src="crlf.png" style="width: 300pt;">
+<img src="crlf.png" style="width: 370pt;">
 <br>
 <h2>Generator</h2>Type your level names into the generator (Each line is a seperate name).</p>
-<textarea id="target" style="width: 450px; height: 230px;"></textarea><br>
-<button onclick="generate();">Generate</button>
+<div class="container">
+<textarea id="target" placeholder="Example:
+
+Massif v2
+Sky v2
+Forest v2
+
+Would generate
+
+Massif v2
+Sky v2
+Forest v2"></textarea>
+<button class="generate" onclick="generate();">Generate</button>
+</div>
 <h2>How to rename levels</h2>
 <p>First, find your level with CTRL+F, make sure its only your level and not a text containing your level.<br>
-Then, replace the level name with <u><b>and character infront of it</b></u> with the output from the generator.<br>
+Then, replace the level name with <u><b>and character infront of it</b></u><i style="color: #ff0000;"> (Ex. In the case with Massif, replace the BS character)</i> with the output from the generator.<br>
 <img src="nul.png" style="width: 275pt;">
 <br>
 <h2>Enjoy!</h2>
+<p>If the game is crashing, you did something wrong.<br>
+You should re-read the second line of "How to Use".</p>
 <br>
 <br>
 <br>
@@ -53,6 +88,7 @@ Then, replace the level name with <u><b>and character infront of it</b></u> with
 <br>
 <br>
 </p>
+</div>
 <script src="index.js"></script>
 </body>
 </html>
