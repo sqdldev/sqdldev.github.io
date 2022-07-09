@@ -29,3 +29,17 @@ padding: 10pt;
 border-radius: 10pt;
 margin: 10pt 5pt;
 }
+li {
+padding: 2.5pt 0pt;
+}
+hr {
+display: block;
+unicode-bidi: isolate;
+margin-block-start: 0.5em;
+margin-block-end: 0.5em;
+margin-inline-start: auto;
+margin-inline-end: auto;
+overflow: hidden;
+border-style: inset;
+border-width: 1px;
+}
