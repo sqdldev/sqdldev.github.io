@@ -72,6 +72,7 @@ document.onmouseup = function (e) {
     e = e || window.event;
     evt = e;
 	//svun(e);
+	setprevlevel(canvas.innerHTML);
 }
 
 function draw(e) {
@@ -219,18 +220,28 @@ function back() {
 	startmenu.innerHTML = startmenuhtm;
 	startmenu.id = "startmenu";
 	document.body.appendChild(startmenu);
+	setprevlevel(prevlevel);
 }
 
 function loadprevlevel() {
-	canvas.innerHTML = prevlevel;
+	getprevlevelauto();
 	window.scrollTo(0, document.body.scrollHeight);
 	document.getElementById('startmenu').remove();
 }
 
 function setprevlevel(val) {
-    document.cookie = val;
+    document.cookie = "level="+val;
 }
-function getCookie(name) {
+
+function getprevlevelauto() {
+	var lvc = getprevlevel("level");
+	if (lvc != null)
+		canvas.innerHTML = lvc;
+	else {
+		alert('You do not have a previous level stored.');
+	}
+}
+function getprevlevel(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
     for(var i=0;i < ca.length;i++) {
