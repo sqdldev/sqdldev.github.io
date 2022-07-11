@@ -1,164 +1,171 @@
 body {
-	background-color: #e6e6e6 !important;
+   background-color: #e6e6e6 !important;
+   touch-action: manipulation;
 }
 
-c-tile, c-sel {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-around;
-    flex-direction: row;
+c-tile,
+c-sel {
+   display: flex;
+   align-items: stretch;
+   justify-content: space-around;
+   flex-direction: row;
 }
 
-c-tile, c-sel:after
-{
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+c-tile,
+c-sel:after {
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
 }
 
 c-tile {
-    width: 20%;
-    height: 0;
-    padding-bottom: 20%;
-	background-color: #00000030 !important;
+   width: 20%;
+   height: 0;
+   padding-bottom: 20%;
+   background-color: #00000030 !important;
+   outline: solid;
+   outline-width: 1px;
 }
 
 c-sel {
-	width: 64px;
-	height: 64px;
-	transition: 0.15s;
+   width: 64px;
+   height: 64px;
+   transition: 0.15s;
 }
 
-c-sel, c-tile {
-	opacity: 1;
-	transition: background-image 0.2s;
-	background-repeat: no-repeat;
+c-sel,
+c-tile {
+   opacity: 1;
+   transition: background-image 0.2s;
+   background-repeat: no-repeat;
 }
 
 c-sel:hover {
-	opacity: 0.85;
-	transition: opacity 0.2s;
+   opacity: 0.85;
+   transition: opacity 0.2s;
 }
 
-c-sel:active{
-	opacity: 0.7;
-	transition: 0.2s;
+c-sel:active {
+   opacity: 0.7;
+   transition: 0.2s;
 }
 
 #canvas {
-    width: 320px;
-    height: 100%;
-    border: none;
-    display: flex;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    user-select: none;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 140pt;
-    margin-top: 50pt;
+   width: 320px;
+   height: 100%;
+   border: none;
+   display: flex;
+   align-content: flex-start;
+   flex-wrap: wrap;
+   flex-direction: row;
+   align-items: flex-start;
+   justify-content: flex-start;
+   user-select: none;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 140pt;
+   margin-top: 50pt;
 }
 
 #selmenu {
-    width: 100%;
-    height: 20%;
-    border: none;
-    display: flex;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    overflow-y: scroll;
-    bottom: 0;
-    background: #4d4d4d;
-    border-top: solid;
-    border-color: #7d7d7d;
-	user-select: none;
+   width: 100%;
+   height: 20%;
+   border: none;
+   display: flex;
+   align-content: flex-start;
+   flex-wrap: wrap;
+   flex-direction: row;
+   align-items: flex-start;
+   justify-content: center;
+   position: fixed;
+   left: 50%;
+   transform: translateX(-50%);
+   overflow-y: scroll;
+   bottom: 0;
+   background: #4d4d4d;
+   border-top: solid;
+   border-color: #7d7d7d;
+   user-select: none;
+   z-index: 64;
 }
 
 #startmenu {
-    width: 100%;
-    height: 100%;
-    width: -webkit-fill-available;
-    height: -webkit-fill-available;
-    background: #fff;
-    display: flex;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-    z-index: 500000;
-    align-content: flex-start;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 20pt;
-    align-items: flex-start;
-    justify-content: flex-start;
+   width: 100%;
+   height: 100%;
+   width: -webkit-fill-available;
+   height: -webkit-fill-available;
+   background: #fff;
+   display: flex;
+   bottom: 0;
+   top: 0;
+   left: 0;
+   right: 0;
+   position: absolute;
+   z-index: 32767;
+   align-content: flex-start;
+   flex-direction: column;
+   flex-wrap: wrap;
+   padding: 20pt;
+   align-items: flex-start;
+   justify-content: flex-start;
 }
 
 #exportmenu {
-    width: 100%;
-    height: 100%;
-    width: -webkit-fill-available;
-    height: -webkit-fill-available;
-    background: #e6e6e6;
-    display: flex;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-    z-index: 5000000;
-    align-content: flex-start;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 20pt;
-    align-items: flex-start;
-    justify-content: flex-start;
+   width: 100%;
+   height: 100%;
+   width: -webkit-fill-available;
+   height: -webkit-fill-available;
+   background: #e6e6e6;
+   display: flex;
+   bottom: 0;
+   top: 0;
+   left: 0;
+   right: 0;
+   position: absolute;
+   z-index: 32768;
+   align-content: flex-start;
+   flex-direction: column;
+   flex-wrap: wrap;
+   padding: 20pt;
+   align-items: flex-start;
+   justify-content: flex-start;
 }
 
 h2 {
-	margin-bottom: 0;
+   margin-bottom: 0;
 }
 
 .header {
-    width: 100%;
-    background: #adadad;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    padding: 15pt 0;
-    position: fixed;
-    left: 0;
-    top: 0;
+   width: 100%;
+   background: #adadad;
+   display: flex;
+   align-items: center;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   align-content: center;
+   padding: 15pt 0;
+   position: fixed;
+   left: 0;
+   top: 0;
+   z-index: 64;
 }
 
 .backcontainer {
-    left: 0;
-    position: absolute;
-    padding: 15pt 5pt;
-	display: none;
+   left: 0;
+   position: absolute;
+   padding: 15pt 5pt;
+   display: none;
 }
 
 .savecontainer {
-    left: 0;
-    position: absolute;
-    padding: 15pt 5pt;
+   left: 0;
+   position: absolute;
+   padding: 15pt 5pt;
 }
 
-.\30{background: #f3f3f3 !important;opacity: 1;outline: solid;outline-width: 0.5pt;}
-c-sel.\30{background: url(eraser.png) !important;background-size: 75% !important;background-position: center !important;background-repeat: no-repeat !important; opacity: 1;}
+.\30{background: #f3f3f3 !important;opacity: 1;outline: solid;outline-width: 1px;z-index: 16;}
+c-sel.\30{background: url(eraser.png) !important;background-size: 75% !important;background-position: center !important;background-repeat: no-repeat !important; opacity: 1;border: none;outline: none;}
 .\31{background: url(../tileset/tileset01.png) -0px -0px; opacity: 1;}
 .\32{background: url(../tileset/tileset01.png) -64px -0px; opacity: 1;}
 .\33{background: url(../tileset/tileset01.png) -128px -0px; opacity: 1;}
