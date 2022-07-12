@@ -6,15 +6,6 @@ body {
    background-color: #e6e6e6 !important;
 }
 
-.container {
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch !important;
-    width: 100% !important;
-    height: 100% !important;
-    width: -webkit-fill-available !important;
-    height: -webkit-fill-available !important;
-}
-
 c-tile,
 c-sel {
    display: flex;
