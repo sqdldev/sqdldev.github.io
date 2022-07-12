@@ -23,7 +23,7 @@ c-tile {
    width: 20%;
    height: 0;
    padding-bottom: 20%;
-   background-color: #00000030 !important;
+   background-color: #fff !important;
    outline: solid;
    outline-width: 1px;
 }
@@ -32,13 +32,14 @@ c-sel {
    width: 64px;
    height: 64px;
    transition: 0.15s;
+   z-index: 8;
 }
 
 c-sel,
 c-tile {
    opacity: 1;
    transition: background-image 0.2s;
-   background-repeat: no-repeat;
+   background-repeat: no-repeat !important;
 }
 
 c-sel:hover {
@@ -164,7 +165,7 @@ h2 {
    padding: 15pt 5pt;
 }
 
-.\30{background: #f3f3f3 !important;opacity: 1;outline: solid;outline-width: 1px;z-index: 16;}
+.\30{background: url(../tileset/tileset01.png) 64px 64px; opacity: 1;}
 c-sel.\30{background: url(eraser.png) !important;background-size: 75% !important;background-position: center !important;background-repeat: no-repeat !important; opacity: 1;border: none;outline: none;}
 .\31{background: url(../tileset/tileset01.png) -0px -0px; opacity: 1;}
 .\32{background: url(../tileset/tileset01.png) -64px -0px; opacity: 1;}
