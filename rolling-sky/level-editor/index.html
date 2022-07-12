@@ -12,17 +12,22 @@
 <h1 style="margin-bottom: 0;">Level Creator Alpha by sqdldev</h1>
 <p>Please note that this is still in alpha testing and there definitely will be bugs and glitches.</p>
 <h2>Create Level</h2>
-<p>Enter Level Length. Note that you cannot change this after creating the level.</p>
+<p>Enter Level Length. Note that you cannot change this after creating the level.<br>
+<b style="color: #f00">This will overwrite the previous stored level if you have one stored.</b></p>
 <input id="length" placeholder="Enter Level Length" type="number" value="1200">
 <p>
 <button onclick="autostart();">Create Blank Level</button>
 </p>
 <h2>Upload Level</h2>
-<p>Upload a full level file.</p>
+<p>Upload a full level file.<br>
+<b style="color: #f00">This will overwrite the previous stored level if you have one stored.</b></p>
 <input id="upload" type="file" onchange="changefile();">
 <p>
 <button onclick="upload();">Create Level From Upload</button>
 </p>
+<h2>Load Previous Level</h2>
+<p>Load the last level you opened if you have one.</p>
+<button onclick="getprevlevelauto();">Load Previous Level</button>
 </div>
 <div id="level" style="visibility: hidden;">
 <div class="checkcontainer">
