@@ -23,9 +23,9 @@ c-tile {
    width: 20%;
    height: 0;
    padding-bottom: 20%;
-   background-color: #fff !important;
    outline: solid;
    outline-width: 1px;
+   background-color: #aaa !important;
 }
 
 c-sel {
@@ -165,7 +165,7 @@ h2 {
    padding: 15pt 5pt;
 }
 
-.\30{background: url(../tileset/tileset01.png) 64px 64px; opacity: 1;}
+.\30{background: url(../tileset/tileset01.png) 64px 64px; opacity: 1;background-color: #fff !important;}
 c-sel.\30{background: url(eraser.png) !important;background-size: 75% !important;background-position: center !important;background-repeat: no-repeat !important; opacity: 1;border: none;outline: none;}
 .\31{background: url(../tileset/tileset01.png) -0px -0px; opacity: 1;}
 .\32{background: url(../tileset/tileset01.png) -64px -0px; opacity: 1;}
