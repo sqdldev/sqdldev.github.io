@@ -25,15 +25,21 @@
 </p>
 </div>
 <div id="level" style="visibility: hidden;">
+<div class="checkcontainer">
+<div class="checksubcontainer">
+<label for="check">Lock Scroll
+<input type="checkbox" id="check" onclick="oncheck();"></label>
+<label for="check2">Edit Mode
+<input type="checkbox" id="check2" onclick="ontoggleedit();"></label>
+</div>
+<c-sel class="0"></c-sel>
+</div>
 <div class="header">
 <div class="backcontainer">
 <button class="back" onclick="back();">Back (ERASES LEVEL)</button>
 </div>
 <div class="savecontainer">
 <button class="save" onclick="openexport();">Generate Level File</button>
-</div>
-<div class="lockcontainer">
-Lock Scroll <input type="checkbox" id="check" onclick="oncheck();">
 </div>
 </div>
 <div id="canvas">
@@ -51,7 +57,6 @@ Lock Scroll <input type="checkbox" id="check" onclick="oncheck();">
 </p>
 </div>
 <div id="selmenu">
-<c-sel class="0"></c-sel>
 <c-sel class="1"></c-sel>
 <c-sel class="2"></c-sel>
 <c-sel class="3"></c-sel>

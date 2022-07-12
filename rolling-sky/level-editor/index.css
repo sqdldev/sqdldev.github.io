@@ -56,22 +56,21 @@ c-sel:active {
 }
 
 #canvas {
-   width: 320px;
-   height: 100%;
-   border: none;
-   display: flex;
-   align-content: flex-start;
-   flex-wrap: wrap;
-   flex-direction: row;
-   align-items: flex-start;
-   justify-content: flex-start;
-   user-select: none;
-   margin-left: auto;
-   margin-right: auto;
-   margin-bottom: 140pt;
-   margin-top: 50pt;
-   touch-action: none;
-   user-select: none;
+    width: 320px;
+    height: 100%;
+    border: none;
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    user-select: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 190pt;
+    margin-top: 50pt;
+    user-select: none;
 }
 
 #selmenu {
@@ -170,14 +169,33 @@ h2 {
    padding: 15pt 5pt;
 }
 
-.lockcontainer {
-	position: fixed;
-    right: 0;
-    padding-right: 10pt;
+.checkcontainer {
+    bottom: 22%;
+    background: #4d4d4d;
+    color: white;
+    border-radius: 10pt;
+    padding: 12pt 12pt;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    height: 15pt;
+    width: 210pt;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.checksubcontainer {
+	display: flex;
+    justify-content: space-evenly;
+    width: 85%;
 }
 
 .\30{background: url(../tileset/tileset01.png) 64px 64px; opacity: 1;background-color: #fff !important;}
-c-sel.\30{background: url(eraser.png) !important;background-size: 75% !important;background-position: center !important;background-repeat: no-repeat !important; opacity: 1;border: none;outline: none;}
+c-sel.\30{background: url(eraser.png) !important;background-position: center !important;background-repeat: no-repeat !important;opacity: 1;border: none;outline: none;z-index: 500;transform: scale(0.5);position: absolute;right: 0;}
 .\31{background: url(../tileset/tileset01.png) -0px -0px; opacity: 1;}
 .\32{background: url(../tileset/tileset01.png) -64px -0px; opacity: 1;}
 .\33{background: url(../tileset/tileset01.png) -128px -0px; opacity: 1;}
