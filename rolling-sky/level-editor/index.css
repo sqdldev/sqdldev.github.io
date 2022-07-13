@@ -267,7 +267,8 @@ c-tile.\32 53::after{
     transform: scale(4);
 }
 
-c-tile.\31 65::after,c-tile.\31 66::after,c-tile.\31 67::after,c-tile.\31 68::after{
+c-tile.\31 65::after,c-tile.\31 66::after,c-tile.\31 67::after,c-tile.\31 68::after,c-tile.\34 40::after,c-tile.\35 95::after{
+	background: url(stencils/laserbeam.png);
     content: '.';
     color: transparent;
     background-size: 100% 100% !important;
@@ -278,6 +279,20 @@ c-tile.\31 65::after,c-tile.\31 66::after,c-tile.\31 67::after,c-tile.\31 68::af
     top: 39px;
     opacity: 1;
 	pointer-events: none;
+}
+
+c-tile.\31 49::after{
+    background: url(stencils/laserbeamalt.png);
+    content: '.';
+    color: transparent;
+    background-size: 100% 100% !important;
+    position: relative;
+    width: 52px;
+    height: 255px;
+    z-index: 16;
+    top: 64px;
+    opacity: 1;
+    pointer-events: none;
 }
 
 c-tile.\33 09::after,c-tile.\33 10::after{
