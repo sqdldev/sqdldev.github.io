@@ -182,7 +182,7 @@ h2 {
     align-items: center;
     justify-content: flex-start;
     height: 15pt;
-    width: 210pt;
+    width: 220pt;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
@@ -191,7 +191,28 @@ h2 {
 .checksubcontainer {
 	display: flex;
     justify-content: space-evenly;
-    width: 85%;
+    width: 72%;
+}
+
+.clp {
+	background: url(colorpicker.png) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    opacity: 1;
+    border: none;
+    outline: none;
+    z-index: 500;
+    transform: scale(0.45);
+    position: absolute;
+    right: 32pt;
+	filter: brightness(80%) sepia(0) saturate(75) hue-rotate(165deg);
+	transition: filter 0.15s;
+}
+
+.clp.selected {
+	filter: brightness(100%) sepia(100) saturate(75) hue-rotate(165deg);
+	transition: filter 0.15s;
 }
 
 .\30{background: url(../tileset/tileset01.png) 64px 64px; opacity: 1;background-color: #fff !important;}
