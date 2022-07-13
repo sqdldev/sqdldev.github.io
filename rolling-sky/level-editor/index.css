@@ -230,7 +230,7 @@ h2 {
 }*/
 
 c-tile.\32 50::after,c-tile.\32 51::after,c-tile.\32 52::after,c-tile.\32 53::after{
-	background-size: 100%;
+	background-size: 100% !important;
 	color: transparent;
 	content: '.';
 	opacity: 0.75;
@@ -270,7 +270,7 @@ c-tile.\32 53::after{
 c-tile.\31 65::after,c-tile.\31 66::after,c-tile.\31 67::after,c-tile.\31 68::after{
     content: '.';
     color: transparent;
-    background-size: 100% 100%;
+    background-size: 100% 100% !important;
     position: relative;
     width: 52px;
     height: 280px;
