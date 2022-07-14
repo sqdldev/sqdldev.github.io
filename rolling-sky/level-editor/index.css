@@ -100,10 +100,10 @@ c-sel:active {
 
 #startmenu {
     width: 100%;
-    height: 125%;
+    height: 115%;
     width: -webkit-fill-available;
     /* height: -webkit-fill-available; */
-    background: #fff;
+    background: #e6e6e6;
     display: flex;
     bottom: 0;
     top: 0;
