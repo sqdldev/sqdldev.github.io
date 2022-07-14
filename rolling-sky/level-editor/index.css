@@ -71,6 +71,7 @@ c-sel:active {
     margin-bottom: 32vh;
     margin-top: 50pt;
     user-select: none;
+	touch-action: none;
 }
 
 #selmenu {
