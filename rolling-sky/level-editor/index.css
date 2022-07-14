@@ -1,5 +1,6 @@
 * {
 	touch-action: manipulation;
+	overscroll-behavior: none;
 }
 
 body {
@@ -29,6 +30,7 @@ c-tile {
    outline: solid;
    outline-width: 1px;
    background-color: #aaa !important;
+	touch-action: none !important;
 }
 
 c-sel {
@@ -71,7 +73,7 @@ c-sel:active {
     margin-bottom: 32vh;
     margin-top: 50pt;
     user-select: none;
-	touch-action: none;
+	touch-action: none !important;
 }
 
 #selmenu {
