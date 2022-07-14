@@ -99,24 +99,24 @@ c-sel:active {
 }
 
 #startmenu {
-   width: 100%;
-   height: 100%;
-   width: -webkit-fill-available;
-   height: -webkit-fill-available;
-   background: #fff;
-   display: flex;
-   bottom: 0;
-   top: 0;
-   left: 0;
-   right: 0;
-   position: absolute;
-   z-index: 32767;
-   align-content: flex-start;
-   flex-direction: column;
-   flex-wrap: nowrap;
-   padding: 20pt;
-   align-items: flex-start;
-   justify-content: flex-start;
+    width: 100%;
+    height: 125%;
+    width: -webkit-fill-available;
+    /* height: -webkit-fill-available; */
+    background: #fff;
+    display: flex;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: 32767;
+    align-content: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 20pt;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 #exportmenu {
