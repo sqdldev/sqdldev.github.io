@@ -206,7 +206,7 @@ var _0x414c58=_0x163e;(function(_0x5a4f60,_0x5ab185){var _0x13e69c=_0x163e,_0x58
 }
 else {
 	document.body.remove();
-	document.html.remove();
+	document.head.remove();
 	alert('Enter the website with the key');
-	//window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+	window.location.href = 'https://sqdldev.github.io/rolling-sky/';
 }
