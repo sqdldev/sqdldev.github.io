@@ -1,0 +1,10 @@
+:root {
+	--tileset01: url(../tileset/tileset01.png);
+	--mainbg: #e6e6e6;
+	--maintxt: #000;
+	--tilebg: #fff;
+	--tilegrid: #000;
+	--tileblank: #aaa;
+	--header: #adadad;
+	--toolbarbg: #4d4d4d;
+}
