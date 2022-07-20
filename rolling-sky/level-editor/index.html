@@ -28,10 +28,14 @@
 <div class="lecontainer">
 <input id="loadexisting" placeholder="Type a level name">
 </div>
+<h2>Load Previous Level</h2>
+<p>Load the last level you have edited if you have not reloaded the page.<br>
 <p>
-<button onclick="getexistlevel();">Load Level</button>
+<button onclick="loadprevlevel();">Load Previous Level</button>
 </p>
 <h1>Q&A (Commonly Asked Questions)</h1>
+<p><b>Q: </b>Why do you require a key to access the website?<br>
+<b>A: </b>We do not want trolls here. The key gets changed every once in a while to lower the amount of trolls.</p>
 <p><b>Q: </b>Are you going to add an undo button?<br>
 <b>A: </b>No. The undo tree lags the website way too much. It isn't practical to use.</p>
 <p><b>Q: </b>Why isn't the mobile site scrolling?<br>
@@ -55,6 +59,7 @@
 <button class="back" onclick="back();">Back (ERASES LEVEL)</button>
 </div>
 <div class="savecontainer">
+<button onclick="back();">Back</button>
 <button class="save" onclick="openexport();">Export Level</button>
 </div>
 <label for="darkmode" id="darkmodelabel">Dark Mode
