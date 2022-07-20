@@ -1,3 +1,7 @@
+:root {
+	--rows-number-start: 1200;
+}
+
 * {
 	touch-action: manipulation;
 	overscroll-behavior: none;
@@ -321,15 +325,49 @@ h2 {
     display: inline-block;
 }
 
+#canvas {
+  list-style-type: none;
+  counter-reset: number-rows var(--rows-number-start);
+}
+
+#canvas c-tile:nth-child(5n+1) {
+  counter-increment: number-rows -1;
+}
+
+c-tile:nth-child(5n+1):after {
+    content: counter(number-rows);
+    left: -35px;
+    top: 23px;
+    position: relative;
+    font-size: 10px;
+    text-align: center;
+    margin-left: 4pt;
+    height: min-content;
+    width: min-content;
+    padding: 3px;
+    border-top-left-radius: 3pt;
+    border-bottom-left-radius: 3pt;
+    background: rgb(85,85,85);
+    background: -moz-linear-gradient(90deg, var(--mainbg) 0%, var(--mainbg) 54%, rgba(0,0,0,0) 54.01%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(90deg, var(--mainbg) 0%, var(--mainbg) 54%, rgba(0,0,0,0) 54.01%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(90deg, var(--mainbg) 0%, var(--mainbg) 54%, rgba(0,0,0,0) 54.01%, rgba(0,0,0,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="var(--mainbg)",endColorstr="#000000",GradientType=1);
+}
+
 c-tile.\32 50::after,c-tile.\32 51::after,c-tile.\32 52::after,c-tile.\32 53::after{
-	background-size: 100% !important;
-	color: transparent;
-	content: '.';
-	opacity: 0.75;
-	pointer-events: none;
-	position: relative;
-	width: 100%;
-	z-index: 16;
+    background-size: 100% !important;
+    color: transparent;
+    content: '.';
+    opacity: 0.75;
+    pointer-events: none;
+    position: relative;
+    width: 100%;
+    z-index: 16;
+    margin: auto;
+    font-size: initial;
+    text-align: initial;
+    padding: initial;
+    top: auto;
 }
 c-tile.\32 50::after{
     background: url(stencils/binary01.png);
@@ -371,6 +409,11 @@ c-tile.\31 65::after,c-tile.\31 66::after,c-tile.\31 67::after,c-tile.\31 68::af
     top: 39px;
     opacity: 1;
     pointer-events: none;
+    left: auto;
+    font-size: initial;
+    text-align: initial;
+    margin: auto;
+    padding: initial;
 }
 
 c-tile.\31 49::after{
@@ -385,6 +428,11 @@ c-tile.\31 49::after{
     top: 64px;
     opacity: 1;
     pointer-events: none;
+    left: auto;
+    margin: auto;
+    font-size: initial;
+    text-align: initial;
+    padding: initial;
 }
 
 c-tile.\33 09::after,c-tile.\33 10::after{
@@ -398,7 +446,13 @@ c-tile.\33 09::after,c-tile.\33 10::after{
     bottom: 128px;
     opacity: 0.65;
     transform: scale(5);
-	pointer-events: none;
+    pointer-events: none;
+    left: auto;
+    top: auto;
+    font-size: initial;
+    text-align: initial;
+    margin: auto;
+    padding: initial;
 }
 
 c-tile.\33 09::after{
@@ -420,7 +474,13 @@ c-tile.\37 91::after,c-tile.\37 92::after,c-tile.\37 93::after,c-tile.\37 94::af
     bottom: 128px;
     opacity: 0.65;
     transform: scale(5);
-	pointer-events: none;
+    pointer-events: none;
+    margin: auto;
+    font-size: initial;
+    text-align: initial;
+    padding: initial;
+    top: auto;
+    left: auto;
 }
 
 c-tile.\37 91::after{
@@ -451,6 +511,12 @@ c-tile.\38 28::after,c-tile.\38 29::after,c-tile.\38 30::after,c-tile.\38 31::af
     z-index: 16;
     opacity: 0.65;
 	pointer-events: none;
+    margin: auto;
+    font-size: initial;
+    text-align: initial;
+    padding: initial;
+    top: auto;
+    left: auto;
 }
 
 c-tile.\38 28::after{
