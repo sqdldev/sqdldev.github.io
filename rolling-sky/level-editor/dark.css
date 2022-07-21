@@ -1,10 +1,19 @@
 :root {
     --tileset01: url(../tileset/tileset01.png);
-    --mainbg: #555;
-    --maintxt: #fff;
-    --tilebg: #4c4c4c;
-    --tilegrid: #d8d8d8 /*#8d8d8d*/;
+    --mainbg: #42474d;
+    --maintxt: #d5e3ed;
+    --tilebg: #393e43;
+    --tilegrid: #6e7d8f;
     --tileblank: #00000000;
-    --header: #444;
-    --toolbarbg: #3c3c3c;
+    --header: #31373d;
+    --toolbarbg: #2a3135;
+    --hropacity: 30%;
+	
+    --inputbg: #4a535d;
+    --input-brd-sty: solid;
+    --input-brd-col: #515d6a;
+    --button-brd-sty: solid;
+    --button-brd-col: #647280;
+    --buttonbg-def: #53606e;
+    --buttonbg-hov: #fff;
 }

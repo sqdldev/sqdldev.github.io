@@ -9,32 +9,52 @@
 <script src="../../favicon.js"></script>
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 </head>
+<body>
 <div id="startmenu">
 <h1 style="margin-bottom: 0;">Rolling Sky Web Editor by sqdldev</h1>
 <p>Please report any bugs and glitches to sqdl_#8597 on Discord.</p>
-<h2>Create Level</h2>
+
+<hr>
+
+<h2>Create Blank Level</h2>
 <p>Enter Level Length. Note that you cannot change this after creating the level.<br>
 <input id="length" placeholder="Enter Level Length" type="number" value="1200">
-<p>
+<p class="nomargintop">
 <button onclick="autostart();">Create Blank Level</button>
 </p>
+
+<hr>
+
 <h2>Upload Level</h2>
 <p>Upload a full level file.<br>
 <input id="upload" type="file" onchange="changefile();">
-<p>
+<p class="nomargintop">
 <button onclick="upload();">Create Level From Upload</button>
+</p>
+
+<hr>
+
 <h2>Load Existing Level</h2>
 <p>Load a level from Rolling Sky.<br>
-<div class="lecontainer">
-<input id="loadexisting" placeholder="Type a level name">
-</div>
+<input id="loadexisting" placeholder="Type a level name" type="text">
+</p>
+<p class="nomargintop">
+<button onclick="getexistlevel();">Load Existing Level</button>
+</p>
+
+<hr>
+
 <h2>Load Previous Level</h2>
-<p>Load the last level you have edited if you have not reloaded the page.<br>
-<p>
+<p>Load the last level you have edited even if you have reloaded the page.<br>
+</p>
+<p class="nomargintop">
 <button onclick="loadprevlevel();">Load Previous Level</button>
 </p>
+
+<hr>
+
 <h1>Q&A (Commonly Asked Questions)</h1>
-<p><b>Q: </b>Why do you require a key to access the website?<br>
+<p><b>Q: </b>Why isn't the website working / Why do you require a key to access the website?<br>
 <b>A: </b>We do not want trolls here. The key gets changed every once in a while to lower the amount of trolls.</p>
 <p><b>Q: </b>Are you going to add an undo button?<br>
 <b>A: </b>No. The undo tree lags the website way too much. It isn't practical to use.</p>

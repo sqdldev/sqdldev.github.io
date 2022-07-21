@@ -241,6 +241,61 @@ h2 {
 	transition: filter 0.15s;
 }
 
+hr {
+	width: 100%;
+    border: solid;
+    border-width: 2px;
+    background: var(--toolbarbg);
+    border-color: var(--toolbarbg);
+    opacity: var(--hropacity);
+}
+
+input[type="text"], input[type="number" i] {
+	color: var(--maintxt);
+	background-color: var(--inputbg);
+	border: var(--input-brd-sty);
+	border-color: var(--input-brd-col);
+    border-radius: 5pt;
+    padding: 2pt 5pt;
+    margin: 10pt 0 -5pt 0;
+	outline: none;
+}
+
+input::placeholder {
+	color: var(--maintxt);
+	opacity: 0.4;
+}
+
+input[type="file"] {
+	margin-top: 10pt;
+}
+
+button {
+	color: var(--maintxt);
+	background-color: var(--buttonbg-def);
+	border: var(--button-brd-sty);
+	border-color: var(--button-brd-col);
+    padding: 2pt 5pt;
+    border-radius: 5pt;
+}
+
+.header button {
+	color: var(--maintxt);
+	background-color: transparent;
+	border: transparent;
+	border-color: var(--button-brd-col);
+    padding: 2pt 5pt;
+    border-radius: 5pt;
+}
+
+button:hover {
+	color: var(--buttonbg-hov);
+}
+
+.nomargintop {
+	margin-top: 0;
+}
+
 /*c-tile.\33 01::after{
 	background: url(stencils/jumpquad.png) 0px 0px;
 	bottom: 1154px;
@@ -296,24 +351,28 @@ h2 {
 }*/
 
 .autocomplete-items {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  top: 100%;
-  left: 0;
-  right: 0;
-  color: black;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    color: black;
+    border-bottom-left-radius: 5pt;
+    border-bottom-right-radius: 5pt;
+    overflow: hidden;
 }
 .autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-  background-color: #fff;
-  border-bottom: 1px solid #d4d4d4;
+    padding: 10px;
+    cursor: pointer;
+    background-color: var(--buttonbg-def);
+    color: var(--maintxt);
+}
+.autocomplete-items div:not(:last-child) {
+    border-bottom: 1px solid var(--header);
 }
 .autocomplete-items div:hover {
-  background-color: #e9e9e9;
+  color: var(--buttonbg-hov);
 }
 .autocomplete-active {
   background-color: DodgerBlue !important;
@@ -352,6 +411,24 @@ c-tile:nth-child(5n+1):after {
     background: -webkit-linear-gradient(90deg, var(--mainbg) 0%, var(--mainbg) 54%, rgba(0,0,0,0) 54.01%, rgba(0,0,0,0) 100%);
     background: linear-gradient(90deg, var(--mainbg) 0%, var(--mainbg) 54%, rgba(0,0,0,0) 54.01%, rgba(0,0,0,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="var(--mainbg)",endColorstr="#000000",GradientType=1);
+}
+
+.extendable {
+    width: 64px;
+    height: 64px;
+    margin: 0;
+    padding: 0;
+    z-index: 16;
+}
+
+.extendable .tiles {
+    position: relative;
+    display: flex;
+    width: 64px;
+}
+
+.extendable:hover .tiles{
+	width: min-content;
 }
 
 c-tile.\32 50::after,c-tile.\32 51::after,c-tile.\32 52::after,c-tile.\32 53::after{
