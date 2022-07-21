@@ -393,7 +393,7 @@ button:hover {
   counter-increment: number-rows -1;
 }
 
-c-tile:nth-child(5n+1):after {
+c-tile:nth-child(5n+1)::after {
     content: counter(number-rows);
     left: -35px;
     top: 23px;
@@ -411,6 +411,16 @@ c-tile:nth-child(5n+1):after {
     background: -webkit-linear-gradient(90deg, var(--mainbg) 0%, var(--mainbg) 54%, rgba(0,0,0,0) 54.01%, rgba(0,0,0,0) 100%);
     background: linear-gradient(90deg, var(--mainbg) 0%, var(--mainbg) 54%, rgba(0,0,0,0) 54.01%, rgba(0,0,0,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="var(--mainbg)",endColorstr="#000000",GradientType=1);
+}
+
+c-tile:nth-last-child(35n)::after {
+	color: var(--alttxt);
+	text-shadow: 0 0 7px var(--alltxt);
+}
+
+c-tile:nth-last-child(35n):not(.\31 81):not(.\31 82):not(.\31 83):not(.\31 84):not(.\31 85):not(.\31 86):not(.\31 87):not(.\31 88), c-tile:nth-last-child(35n-1):not(.\31 81):not(.\31 82):not(.\31 83):not(.\31 84):not(.\31 85):not(.\31 86):not(.\31 87):not(.\31 88), c-tile:nth-last-child(35n-2):not(.\31 81):not(.\31 82):not(.\31 83):not(.\31 84):not(.\31 85):not(.\31 86):not(.\31 87):not(.\31 88), c-tile:nth-last-child(35n-3):not(.\31 81):not(.\31 82):not(.\31 83):not(.\31 84):not(.\31 85):not(.\31 86):not(.\31 87):not(.\31 88), c-tile:nth-last-child(35n-4):not(.\31 81):not(.\31 82):not(.\31 83):not(.\31 84):not(.\31 85):not(.\31 86):not(.\31 87):not(.\31 88) {
+    outline-color: var(--alttxt);
+    z-index: 1;
 }
 
 .extendable {
