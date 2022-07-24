@@ -618,8 +618,8 @@ c-tile.\38 28::after{
 c-tile.\38 29::after{
     background: url(stencils/vr02.png);
     width: 256px;
-    height: 192px;
-    bottom: 320px;
+    height: 213px;
+    bottom: 363px;
     transform: scale(3);
 }
 
