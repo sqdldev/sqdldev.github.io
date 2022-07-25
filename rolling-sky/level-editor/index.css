@@ -6,6 +6,8 @@
 	scroll-behavior: inherit !important;
 	touch-action: manipulation;
 	overscroll-behavior: none;
+overflow-y: scroll !important;
+
 }
 
 body {
