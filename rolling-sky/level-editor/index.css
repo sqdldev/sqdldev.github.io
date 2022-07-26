@@ -6,8 +6,6 @@
 	scroll-behavior: inherit !important;
 	touch-action: manipulation;
 	overscroll-behavior: none;
-overflow-y: scroll !important;
-
 }
 
 body {
@@ -396,6 +394,47 @@ button:hover {
   counter-increment: number-rows -1;
 }
 
+/* Loader */
+
+#loader {
+	background: #000;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	z-index: 98304;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	opacity: 1;
+	transition: 0.5s;
+}
+#loadersvg {
+	width: 30vh;
+	height: 30vh;
+}
+#outer {
+	animation: outer 2s infinite linear;
+}
+#inner {
+	animation: inner 2s infinite linear;
+}
+@keyframes outer {
+	0% {transform: matrix(1, 0, 0, 1, 256, 256) rotate(0deg);}
+	100% {transform: matrix(1, 0, 0, 1, 256, 256) rotate(360deg);}
+}
+@keyframes inner {
+	0% {transform: matrix(1, 0, 0, 1, 256, 256) rotate(90deg);}
+	100% {transform: matrix(1, 0, 0, 1, 256, 256) rotate(-450deg);}
+}
+
+/* End Loader */
+
 c-tile:nth-child(5n+1)::after {
     content: counter(number-rows);
     left: -35px;
@@ -639,6 +678,90 @@ c-tile.\38 31::after{
     width: 100%;
     height: 51px;
     bottom: 91px;
+}
+
+/* Powerup Destinations */
+
+c-tile.\32 55::after, c-tile.\33 31::after{
+    content: '.';
+    color: transparent;
+    position: relative;
+    background-size: contain !important;
+    z-index: 16;
+    opacity: 0.65;
+    pointer-events: none;
+    margin: auto;
+    font-size: initial;
+    text-align: initial;
+    padding: initial;
+    top: auto;
+    left: -23px;
+    width: 4px;
+    background: #66d7ff;
+    height: 478px;
+    bottom: 464px;
+}
+
+c-tile.\32 55::before, c-tile.\33 31::before{
+    content: '.';
+    color: transparent;
+    background-size: contain !important;
+    z-index: 16;
+    opacity: 0.65;
+    pointer-events: none;
+    margin: auto;
+    font-size: initial;
+    text-align: initial;
+    padding: initial;
+    top: auto;
+    left: 9px;
+    background: #66d7ff;
+    height: 32px;
+    width: 32px;
+    bottom: 496px;
+    position: relative;
+    border-radius: 100px;
+}
+
+c-tile.\35 50::after{
+    content: '.';
+    color: transparent;
+    position: relative;
+    background-size: contain !important;
+    z-index: 16;
+    opacity: 0.85;
+    pointer-events: none;
+    margin: auto;
+    font-size: initial;
+    text-align: initial;
+    padding: initial;
+    top: auto;
+    left: -23px;
+    width: 4px;
+    background: #56b77d;
+    height: 2142px;
+    bottom: 2128px;
+}
+
+c-tile.\35 50::before{
+    content: '.';
+    color: transparent;
+    background-size: contain !important;
+    z-index: 16;
+    opacity: 0.85;
+    pointer-events: none;
+    margin: auto;
+    font-size: initial;
+    text-align: initial;
+    padding: initial;
+    top: auto;
+    left: 9px;
+    background: #56b77d;
+    height: 32px;
+    width: 32px;
+    bottom: 2160px;
+    position: relative;
+    border-radius: 100px;
 }
 
 .\30{background: var(--tileset01) 64px 64px; opacity: 1;background-color: var(--tilebg) !important;}
