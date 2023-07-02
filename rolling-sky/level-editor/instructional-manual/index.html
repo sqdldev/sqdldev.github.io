@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<title>Rolling Sky WebEditor Instructional Manual</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--<script src="../../../favicon.js"></script>-->
+		<link rel="icon" href="../../../assets/favicon.png">
+		<link rel="stylesheet" href="../../global.css">
+		<script src="../../global.js"></script>
+		<style>
+		html {
+			scroll-padding-top: 15pt !important;
+		}
+		
+		body {
+			margin: 0;
+		}
+		
+		#background {
+			background-image: url('assets/Background57.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 100vw;
+			min-width: 100vh;
+			height: 100vh;
+			z-index: 1;
+			position: fixed;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		
+		c-indent {
+			display: block;
+			margin-left: 10pt;
+		}
+		
+		h1, h2, h3 {
+			margin-bottom: 0;
+			display: block;
+		}
+		
+		p.bottom {
+			margin-top: 0;
+		}
+		
+		c-h4 {
+		    display: block;
+			font-weight: 700;
+		}
+		
+		img {
+		    display: block;
+			border-radius: 10pt;
+			width: 475pt;
+			max-width: 100%;
+			margin-top: 10pt;
+		}
+		
+		img.half {
+		    width: 205pt;
+		}
+		
+		img.quad {
+			width: 90pt;
+		}
+		
+		img.quadAlt {
+		    display: block;
+			margin-bottom: 10pt;
+		}
+		
+		.content {
+		    position: relative;
+			width: auto;
+			max-width: 1000px;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: #000000bb;
+			padding: 10pt 35pt;
+			padding-bottom: 35pt;
+			z-index: 10;
+		}
+		
+		br {
+		    margin-bottom: 9pt;
+			display: block;
+			content: '';
+		}
+		
+		.notranslate {
+			/* background: red; */		/* Debugging purposes */
+		}
+		
+		</style>
+	</head>
+	<body lang="en-US">
+		<div id="background"></div>
+		<div class="content">
+			<h1><span class="notranslate" translate="no">Rolling Sky</span> <span class="notranslate" translate="no">WebEditor</span> Instructional Manual</h1>
+			Please do not be overwhelmed by the amount of information on this page. If you want to be knowledgeable of the <span class="notranslate" translate="no">WebEditor</span>, be sure to read all of the sections. All information about the <span class="notranslate" translate="no">WebEditor</span> will be documented here. The instructions are very detailed, but if you feel like something should be changed, <span class="notranslate" translate="no">DM</span> <span class="notranslate" translate="no">sqdl_#8597</span> on <span class="notranslate" translate="no">Discord</span>.
+			<h2 id="0">0: Website Basics</h2>
+				<c-indent>
+					<h3 id="0.1">0.1 Your Data</h3>
+					Your level data is not stored on a server, which means you are responsible for saving your level file to your device. We do not save any sensitive data.
+					<br>Any settings that are saved will be saved as cookies on the webpage. We do not abuse cookie use, and you can verify this for yourself by entering the <span class="notranslate" translate="no">DevTools</span> of any <span class="notranslate" translate="no">Chromium</span> based browser <span class="notranslate" translate="no">(ex. Google Chrome)</span> or FireFox and navigating to the tab labeled <span class="notranslate" translate="no">&quot;Application&quot;</span> and scrolling down to <span class="notranslate" translate="no">&quot;Cookies.&quot;</span>
+					<br>Google Analytics will be active on the page at all times. This is for us to better understand users.
+					<h3 id="0.2">0.2 Device Dependent Features</h3>
+					Features on the <span class="notranslate" translate="no">WebEditor</span> may vary depending on your device. If you have any questions about device-dependent features, please <span class="notranslate" translate="no">DM</span> <span class="notranslate" translate="no">sqdl_#8597</span> on <span class="notranslate" translate="no">Discord</span>.
+					<h3 id="0.3">0.3 Dialog Prompt Permissions</h3>
+					The <span class="notranslate" translate="no">WebEditor</span> uses dialog prompts to recieve information. If you are on a mobile device and have accidentally pressed <span class="notranslate" translate="no">"Supress Dialogs,"</span> simply save your level to your device and repload the page.
+				</c-indent>
+			<h2 id="1">1: Getting Started</h2>
+				<c-indent>
+					<h3 id="1.1">1.1 Creating a Blank Level</h3>
+					To create a blank level at a specified length, navigate to the section labeled <span class="notranslate" translate="no">&quot;Create Blank Level.&quot;</span>
+					<br>Enter your level length into the input box. Please note that you cannot change this value after level creation, since it would be easy to accidentally delete a part of your level.
+					<br>Once you have made sure that the level length is correct, click the button below the input box labeled <span class="notranslate" translate="no">&quot;Create Blank Level.&quot;</span>
+					<img src="assets/level_create_blank.png"></img>
+					<h3 id="1.2">1.2 Uploading a Level</h3>
+					To upload a level, navigate to the section labeled <span class="notranslate" translate="no">&quot;Upload Level.&quot</span>
+					<br>Select your level file by clicking on the file input. <span class="notranslate" translate="no">UI</span> may vary between operating systems. You may upload either a <span class="notranslate" translate="no">Rolling Sky</span> <span class="notranslate" translate="no">TXT Level</span> or a <span class="notranslate" translate="no">Tiled TMX</span> file. Depending on the size of the level, the time the website takes to process and load the level file may vary.
+					<br>Once you have chosen your level, click the button labeled <span class="notranslate" translate="no">"Create Level From Upload."</span>
+					<img src="assets/level_create_upload.png"></img>
+					<h3 id="1.3">1.3 Editing an Existing <span class="notranslate" translate="no">Rolling Sky</span> Level</h3>
+					To edit a level from the game, navigate to the section labeled <span class="notranslate" translate="no">&quot;Load Existing Level.&quot;</span>
+					<br>Start typing the level name in the input box. The input box is case insensitive, meaning that capitalization is not important. Feel free to use the autocomplete to assist with your level choice.
+					<img src="assets/level_create_type.png"></img>
+					<h3 id="1.4">1.4 Understanding Game Logic</h3>
+					<span class="notranslate" translate="no">Rolling Sky</span> tile logic is slightly different than <span class="notranslate" translate="no">Rolling Sky Remake</span>, so if you are transitioning over from <span class="notranslate" translate="no">Rolling Sky Remake</span>, this section will be essential to editing.
+					<br>One of the most different features is movers. Movers in <span class="notranslate" translate="no">Rolling Sky Remake</span> have custom mover tiles that can be separated from regular ground tiles. In <span class="notranslate" translate="no">Rolling Sky</span>, mover arrows connect to ground tiles and require mover separators to prevent mover arrows from connecting to nearby ground tiles. Some conditional movers have sides that won&apos;t connect to ground tiles. These sides are represented as blue borders in the <span class="notranslate" translate="no">sqdldev tileset</span>.
+					<br><span class="notranslate" translate="no">Rolling Sky</span> also requires <span class="notranslate" translate="no">GeoBuffer</span> render tiles. These tile create a section where the <span class="notranslate" translate="no">GeoBuffer</span> limit can be reached. The <span class="notranslate" translate="no">WebEditor</span> can generate a somewhat functional <span class="notranslate" translate="no">GeoBuffer</span> file. Please refer to <a href="#3.2">Section 3.2</a>.
+				</c-indent>
+			<h2 id="2">2: Level Editing</h2>
+				<c-indent>
+					<h3 id="2.1">2.1 Picking a Tile</h3>
+					To pick a tile, simply click a tile in the pallet. You can scroll down to see more tiles.
+					<img src="assets/tile_pallet.png"></img>
+					<br>To automatically scroll to a tile in the pallet, navigate to <span class="notranslate" translate="no">&quot;Level &gt; Find Tile&quot;</span> on the header or using the <span class="notranslate" translate="no">&quot;Ctrl + F&quot;</span> keystroke. Type in the tile <span class="notranslate" translate="no">ID</span> you want to scroll to. After clicking <span class="notranslate" translate="no">&quot;Ok&quot;</span> on the prompt, a green outline should materialize and shrink to the size of the tile in the pallet, making it easier to spot the tile you've focused on.
+					<img class="half" src="assets/level_findtile.png"></img>
+					<br>Another way to choose a tile (mobile only) is to tap the tile preview on the far right of the header.
+					<img class="half" src="assets/tile_preview.png"></img>
+					<h3 id="2.2">2.2 Starting Portal</h3>
+					The portal is not included in the level export, instead, it is there for you to see where you should start placing tiles. You may toggle the portal&apos;s half-transparent graphic by navigating to <span class="notranslate" translate="no">&quot;Level &gt; Toggle Portal Opacity&quot;</span> on the header, or press the <span class="notranslate" translate="no">&quot;B&quot;</span> key on your keyboard.
+					<img src="assets/portal_opacity.png"></img>
+					<h3 id="2.3">2.3 <span class="notranslate" translate="no">Edit Mode</span> and <span class="notranslate" translate="no">Lock Scroll</span></h3>
+					The <span class="notranslate" translate="no">Edit Mode</span> and <span class="notranslate" translate="no">Lock Scroll</span> checkboxes make it more convenient to edit on mobile where the screen width is almost always minuscule. These two checkboxes are located on the hotbar, right above the tile pallet.
+					<img src="assets/lockscroll_editmode_checkboxes.png"></img>
+					<br>The <span class="notranslate" translate="no">Edit Mode</span> checkbox toggles the ability to draw on the canvas. This checkbox should remain unchecked when you want to scroll through a level without accidentally drawing on the canvas. The checkbox should almost always stay checked on desktop.
+					<br>To scroll with <span class="notranslate" translate="no">Edit Mode</span> on, simply swipe in the margin (where the color is darker than the canvas).
+					<br>The <span class="notranslate" translate="no">Lock Scroll</span> checkbox toggles the ability to scroll on the canvas. <span class="notranslate" translate="no">Lock Scroll</span> can be helpful when you want to zoom in on mobile without scrolling away. It is recommended that the <span class="notranslate" translate="no">Edit Mode</span> checkbox remain unchecked if you are using <span class="notranslate" translate="no">Lock Scroll</span> to zoom in on mobile.
+					<h3 id="2.4">2.4 Brushes</h3>
+					<span class="notranslate" translate="no">WebEditor</span> brushes help you edit levels with ease. To open the brushes menu, check the checkbox on the hotbar that is labeled <span class="notranslate" translate="no">&quot;Brushes,&quot;</span> and to close the menu, simply uncheck the checkbox. Currently, the <span class="notranslate" translate="no">WebEditor</span> has 5 brushes. The brushes are explained in detail below.
+					<c-indent>
+						<p class="bottom"><c-h4 id="2.4.1">2.4.1 Eraser</c-h4>
+						The eraser is used to remove tiles from the canvas. It is the first brush from the top of the brushes menu.</p>
+						<img class="quad quadAlt" src="assets/brush_eraser.png"></img>
+						<p class="bottom"><c-h4 id="2.4.2">2.4.2 Randomizer</c-h4>
+						The randomizer is used to place a random tile (selected from a list) at the desired position. The randomizer brush is the second brush from the top of the brushes menu. The brush can be enabled or disabled by using the checkbox labeled <span class="notranslate" translate="no">&quot;Enable Brush.&quot;</span> The input box will treat each line as a new entry that the randomizer will chose a tile from. This brush shouldn&apos;t be used in regular level editing.</p>
+						<img class="quad quadAlt" src="assets/brush_random.png"></img>
+						<p class="bottom"><c-h4 id="2.4.3">2.4.3 Tile Picker</c-h4>
+						The tile picker can grab a tile from the level canvas and set it to your active tile. This can be used to quickly swap between tiles while editing a level. The tile picker is third from the top of the brushes menu.</p>
+						<img class="quad quadAlt" src="assets/brush_picker.png"></img>
+						<p class="bottom"><c-h4 id="2.4.4">2.4.4 Start <span class="notranslate" translate="no">GeoBrush</span></c-h4>
+						The start <span class="notranslate" translate="no">GeoBrush</span> will replace any tile that has a breaking render tile variant with said variant. This brush will ignore any tile that has no breaking render tile variant. The green outlined rows on the canvas are the rows that render tiles should be placed on. Don&apos;t worry if you can&apos;t get render tiles in the row, but try to place render tiles as close to the green rows as possible. Note that you shouldn&apos;t place breaking render tiles in the destination of a mover tile.</p>
+						<img class="quad quadAlt" src="assets/brush_start.png"></img>
+						<p class="bottom"><c-h4 id="2.4.5">2.4.5 End <span class="notranslate" translate="no">GeoBrush</span></c-h4>
+						The end <span class="notranslate" translate="no">GeoBrush</span> will replace any tile that has a non-breaking render tile variant with said variant. This brush will ignore any tile that has no non-breaking render tile variant. The green outlined rows on the canvas are the rows that render tiles should be placed on. Don&apos;t worry if you can&apos;t get render tiles in the row, but try to place render tiles as close to the green rows as possible.</p>
+						<img class="quad quadAlt" src="assets/brush_end.png"></img>
+					</c-indent>
+					<h3 id="2.5">2.5 Toggle Zoom (Experemental)</h3>
+					The Toggle Zoom button allows you to zoom out to 50%. This can help with previewing more of your level at once. This feature is currently experemental.
+					<img class="half" src="assets/toggle_zoom.png"></img>
+					<h3 id="2.6">2.6 Display Options Menu</h3>
+					The Display Options menu allows you to toggle theme options to better visualize how your level will look. This does not affect your level file, it is purely visual. This menu can be accessed by navigating to <span class="notranslate" translate="no">&quot;Editor &gt; Display Options&quot;</span> on the header. Apply your changes by pressing the button labeled <span class="notranslate" translate="no">&quot;Submit&quot;</span>.
+					<img class="half" src="assets/display_options.png"></img>
+				</c-indent>
+			<h2 id="3">3: Exporting Your Level</h2>
+				<c-indent>
+					<h3 id="3.1">3.1 Exporting Your Level</h3>
+					To export your level, navigate to <span class="notranslate" translate="no">&quot;File &gt; Export&quot;</span> or use the keystroke <span class="notranslate" translate="no">&quot;Ctrl + S.&quot</span>;
+					<img class="half" src="assets/file_export.png"></img>
+					<br>To download your level, enter a name for your level file in the input box under the <span class="notranslate" translate="no">&quot;Name File&quot;</span> section.
+					<img src="assets/name_file.png"></img>
+					<br>To export a <span class="notranslate" translate="no">Rolling Sky</span> level that can be inserted into <span class="notranslate" translate="no">Rolling Sky</span> Unlocked or used in Porygon Axolotl&apos;s RSPC Edit Guide, click the button labeled &quot;Download .<span class="notranslate" translate="no">TXT</span>&quot; under &quot;Download .<span class="notranslate" translate="no">TXT</span> Level.&quot; If the download button does not work, use the texbox below the paragraph to copy the level text which you can copy and save into a <span class="notranslate" translate="no">TXT</span> file.
+					<img src="assets/download_txt.png"></img>
+					<br>If you want to edit the level file in Tiled, make sure you either have your own <span class="notranslate" translate="no">tileset</span> or have downloaded the <span class="notranslate" translate="no">tileset</span> package from the page (After downloading the <span class="notranslate" translate="no">tileset</span> package, unzip the file and place it in the same folder you place the download from this page).
+					<br>After you either download the package or you chose your own <span class="notranslate" translate="no">tileset</span>, click the button labeled <span class="notranslate" translate="no">&quot;Download .TMX&quot;</span> under <span class="notranslate" translate="no">&quot;Download .TMX Level.&quot;</span>
+					<img src="assets/download_tmx.png"></img>
+					<h3 id="3.2">3.2 Setting Up Your <span class="notranslate" translate="no">GeoBuffer</span> File</h3>
+					The <span class="notranslate" translate="no">Copy <span class="notranslate" translate="no">GeoBuffers</span></span> feature is still in beta testing, and you should not rely on it. Please report any bugs to <span class="notranslate" translate="no">sqdl_#8597</span> on <span class="notranslate" translate="no">Discord</span>.
+					<br>We recommend using the <span class="notranslate" translate="no">Object Count</span> and manually matching <span class="notranslate" translate="no">GeoBuffers</span> using <a class="notranslate" translate="no" href="https://docs.google.com/spreadsheets/d/1a7mPDGtVoXU9s9Bemxu75MpeK22xGXL5nn1u6V38dSE/edit#gid=1023673844" target="_blank">DeclanHugo&apos;s <span class="notranslate" translate="no">GeoBuffers</span> List</a>.
+					<br>To access the Object Count menu, navigate to <span class="notranslate" translate="no">&quot;Level &gt; Object Count&quot;</span> in the header or use the hotkey <span class="notranslate" translate="no">&quot;Ctrl + O.&quot</span>;
+					<img src="assets/object_count.png"></img>
+					<h3 id="3.3">3.3 Play-Testing</h3>
+					To test a level on RSPC, you <!--should follow Porygon Axolotl&apos;s RSPC Edit Guide. Another option is to -->use <span class="notranslate" translate="no">Rolling Sky</span> Unlocked.
+					<br>To load a level into <span class="notranslate" translate="no">Rolling Sky</span> Unlocked, download the level from <a href="#3.1">Section 3.1</a> into the <span class="notranslate" translate="no">&quot;Buckets &gt; Levels&quot;</span> folder with the name <span class="notranslate" translate="no">&quot;LevelX,&quot;</span> with <span class="notranslate" translate="no">X</span> being the <span class="notranslate" translate="no">ID</span> (Not level index, <span class="notranslate" translate="no">ID</span>s can be looked up <a href="../../level-names/" target="_blank">here</a>). On <span class="notranslate" translate="no"><span class="notranslate" translate="no">Rolling Sky</span> Unlocked Android</span>, <span class="notranslate" translate="no">GeoBuffer</span> files don&apos;t affect the <span class="notranslate" translate="no">GeoBuffer</span> types or limits.
+					<br>Note that <span class="notranslate" translate="no"><span class="notranslate" translate="no">Rolling Sky</span> Unlocked</span> will loop the level file if the level you have imported does not reach the set length of the level.
+					<h3 id="3.4">3.4 Have fun!</h3>
+					We hope you have fun editing, playing, and judging each other&apos;s levels!
+					<br><br>Enjoy the level editor :) - sqdldev (Lead Developer, <span class="notranslate" translate="no">WebEditor</span> Guide Writer)
+				</c-indent>
+		</div>
+	</body>
+</html>

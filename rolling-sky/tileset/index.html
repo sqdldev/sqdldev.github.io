@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- OwO -->
+<html>
+<head>
+<title>Rolling Sky Tileset</title>
+<link rel="stylesheet" href="../global.css">
+<script src="../global.js"></script>
+<script src="../../lang.js"></script>
+<script src="../../favicon.js"></script>
+<meta name="pagename" content="Rolling Sky Tileset"/>
+<meta name="description" content="The Rolling Sky Tileset by sqdldev">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="../tilesetSlowLoader.js"></script>
+<link rel="stylesheet" href="../tileset.css">
+<script>slowloadTileset('', '')</script>
+<style>
+body {
+    font-size: 20px;
+    margin: 35px;
+    max-width: 700px;
+}
+.credit {
+	color: red;
+	font-weight: bold;
+}
+.downloadbuttons {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+.downloadbuttons > a {
+    text-decoration: none;
+    background: #2f7fa9;
+    color: white;
+    padding: 15px 17px;
+    border-radius: 15px;
+    display: block;
+    box-shadow: 0 8px #1f5977;
+    -webkit-box-shadow: 0 8px #1f5977;
+    position: relative;
+    top: 0px;
+    transition: 0.1s;
+    -webkit-transition: 0.1s;
+    margin-bottom: 25px;
+    font-size: 19px;
+}
+.downloadbuttons > a:hover {
+    box-shadow: 0 6px #1f5977;
+    -webkit-box-shadow: 0 6px #1f5977;
+    position: relative;
+    top: 2px;
+    transition: 0.1s;
+    -webkit-transition: 0.1s;
+}
+.downloadbuttons > a:active {
+    box-shadow: 0 4px #1f5977;
+    -webkit-box-shadow: 0 4px #1f5977;
+    position: relative;
+    top: 4px;
+    transition: 0.1s;
+    -webkit-transition: 0.1s;
+}
+.downloadbuttons > a.inactive {
+    filter: grayscale(1);
+	-webkit-filter: grayscale(1);
+	pointer-events: none;
+	touch-action: none;
+}
+
+#tilesetPreview {
+    content: var(--tileset01);
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+</style>
+</head>
+<body>
+<h2>Rolling Sky Tileset</h2>
+<p>This tileset is made for Rolling Sky Editing. It took me about 1.5 months to finish. Enjoy :)</p>
+
+<ul>
+<li>Download the regular Tileset if you wish to use graphics from it.</li>
+<li>The Tileset without Debug Numbers is no longer avalible due to theft.</li>
+<li>Download the Tileset Bundle if you wish to import the Tileset into Tiled.</li>
+</ul>
+
+<p class="credit">You may use this tileset in any content, but make sure to link back to this website so that others can also use the tileset.</p>
+<p class="credit">You may not claim, suggest, or imply that the tileset is your own.</b></p>
+
+<h2>Downloads</h2>
+<div class="downloadbuttons">
+<a target="_blank" download="tileset01.png" href="tileset01.png">Tileset With Debug Numbers (48px by 48px)</a>
+<a target="_blank" class="inactive" download="tileset02.png" href="tileset02.png">Tileset Without Debug Numbers (48px by 48px)</a>
+<a target="_blank" class="inactive" download="" href="" id="TMXButton">Tileset Bundle with Tiled TMX</a>
+</div>
+
+<h2>Preview</h2>
+<p>The Tileset will be displayed as a Compressed JPEG file while the Uncompressed PNG file is loading.</p>
+<div id="tilesetPreview"></div>
+
+<script>
+var TMXButton = document.querySelector('#TMXButton');
+var zipTilesetName = 'RollingSkyTileset_' + Lang.special.tileset.zipversion + '.zip';
+var zipTilesetPath = 'zipped/' + zipTilesetName;
+TMXButton.download = zipTilesetName;
+TMXButton.href = zipTilesetPath;
+TMXButton.classList.remove('inactive');
+</script>
+</body>
+</html>

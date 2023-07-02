@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../../global.css">
+<script src="../../../lang.js"></script>
+<style>
+:root {
+	--tileWidth: min(100vw, 100vh) !important;
+	/*--tileset01: 0;*/
+}
+body {
+    margin: 0;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+	font-family: regular;
+}
+#display {
+    width: var(--tileWidth);
+    height: var(--tileWidth);
+    /*background-size: calc(var(--tileWidth) * 32);*/
+    /*image-rendering: pixelated;*/
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-align: center;
+	
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+body.paragraphWarn {
+    margin: 0;
+    background: black;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden !important;
+}
+body.paragraphWarn > #display {
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-family: sans-serif;
+    font-size: 12px;
+    text-align: left;
+    justify-content: flex-start;
+    max-width: calc(100vw - 20px);
+    padding: 5px;
+}
+
+#openLookup {
+	display: none;
+	pointer-events: none;
+	touch-action: none;
+	visibility: hidden;
+	opacity: 0;
+}
+body:hover #openLookup {
+    display: flex;
+	pointer-events: all;
+	touch-action: auto;
+	visibility: visible;
+	opacity: 1;
+    width: 100%;
+    height: 100%;
+    background: #00000091;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    position: absolute;
+    color: white;
+    text-decoration: none;
+}
+#openLookup > img {
+    width: calc(var(--tileWidth) / 4);
+    height: calc(var(--tileWidth) / 4);
+    margin-top: calc(var(--tileWidth) / 30);
+    margin-bottom: calc(var(--tileWidth) / 8);
+}
+#openLookup > span {
+	font-size: calc(var(--tileWidth) / 7);
+}
+</style>
+</head>
+<body>
+<span style="position: absolute; opacity: 0; pointer-events: none; touch-action: none;">Loading</span>
+<c-tile id="display" class="0"></c-tile>
+<a id="openLookup" target="_blank">
+<img src="newWindow.svg">
+<span>Tile Lookup</span>
+</a>
+<script>
+const gridSize = Lang.special.tileset.gridsize;
+const imageWidth = Lang.special.tileset.imgwidth;
+document.body.oncontextmenu = function(e) { return false; }
+document.body.ondragstart = function(e) { return false; }
+
+var display = document.querySelector('#display');
+var tile = new URLSearchParams(window.location.search).get('tile');
+
+var ol = document.querySelector('#openLookup');
+
+var invalidState = 0;
+
+switch (tile) {
+	case 'paragraphNode':
+		invalidState = 2;
+	break;
+	default:
+		if (isNaN(parseInt(tile))) {
+			invalidState = 1;
+		}
+	break;
+}
+
+switch (invalidState) {
+	case 0:
+		//display.className = tile;
+		display.style.backgroundImage = 'url("' + getTileURL(parseInt(tile)) + '")';
+		ol.href = '../../tile-lookup?t='+tile;
+	break;
+	case 1:
+	case 2:
+		document.documentElement.style.setProperty('--tileWidth', 'calc(min(100vw, 100vh) - 20px) !important');
+		document.body.classList.add('paragraphWarn');
+		if (invalidState == 1) {
+			display.innerHTML = 'Invalid Tile ID.';
+		} else {
+			display.innerHTML = 'You must edit the tile display in Source Edit mode!';
+		}
+		ol.remove();
+	break;
+}
+function toPixelPos(number) {
+	number--;
+
+	const row = Math.floor(number / (imageWidth / gridSize));
+	const col = (number % (imageWidth / gridSize));
+
+	console.log(row, col)
+	
+	const pixelPositionX = col * gridSize;
+	const pixelPositionY = row * gridSize;
+
+	return { x: pixelPositionX, y: pixelPositionY };
+}
+function getTileURL(number) {
+	const imageUrl = "https://wsrv.nl/?url=https://sqdldev.github.io/rolling-sky/tileset/tileset01.png";
+
+	const { x, y } = toPixelPos(number);
+
+	const cx = x;
+	const cy = y;
+	const cw = gridSize;
+	const ch = gridSize;
+
+	const url = new URL(imageUrl);
+	url.searchParams.set("cx", cx.toString());
+	url.searchParams.set("cy", cy.toString());
+	url.searchParams.set("cw", cw.toString());
+	url.searchParams.set("ch", ch.toString());
+
+	return url.toString();
+}
+</script>
+</body>

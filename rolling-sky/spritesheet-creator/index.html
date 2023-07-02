@@ -1,0 +1,140 @@
+<html>
+	<head>
+		<title>Rolling Sky Spritesheet Creator</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta name="pagename" content="Rolling Sky Spritesheet Creator">
+		<meta name="description" content="An online tool to help you create your own Rolling Sky Spritesheets with ease.">
+		<link rel="stylesheet" href="index.css">
+		<script src="../../favicon.js"></script>
+		<link rel="icon" href="../../assets/favicon/Ball9.png">
+		<link rel="stylesheet" href="../global.css">
+		<script src="../global.js"></script>
+		<div>
+			<script src="https://www.googletagmanager.com/gtag/js?id=G-E48XX6KB6H" async=""></script>
+		</div>
+		<script src="../../assets/jscolor.js"></script>
+		<script src="../../assets/lz-string.js"></script>
+		<script src="../../assets/jszip.js"></script>
+		
+		<script src="lib/three.min.js"></script>
+		<script src="lib/OrbitControls.js"></script>
+		<script src="lib/OBJLoader.js"></script>
+	</head>
+	<body>
+		<div id="loader">
+			<span class="loaderText">Loading Assets...</span>
+			<div id="loaderBar">
+				<div id="loaderBarFill"></div>
+			</div>
+			<div id="loaderTip"></div>
+		</div>
+		<div id="page">
+			<div id="mainmenu">
+				<div class="title">Rolling Sky SpriteMaker</div>
+				<p id="loadLabel">Calculating Loading Time...</p>
+				<div id="changelog"></div>
+				<p>Please credit me or this site if you decide to use the export in any sort of content.
+				<ul>
+					<li>Enemy: The texture used for most obstacles</li>
+					<li>General (Mover): The texture used for the ground and pillars</li>
+					<li>Fragile/FragileActive: The texture used for fragiles and falling fragiles, Fragile also contains the gradient used for midground models</li>
+				</ul>
+				Please report the bugs to me on Discord so I can fix them. Thank you.
+				</p>
+				<p style="display: none;">
+					Spritesheets Made Globally (Live): <span id="spriteAmountMade">...</span>
+				</p>
+				<h2>Create from Template</h2>
+				<p>Create a spritesheet from an existing template. Movers are in the General option.</p>
+				<select id="spriteType">
+					<option value="0">Enemy</option>
+					<option value="1">General</option>
+					<option value="2">Fragile</option>
+				</select>
+				<button onclick="createNewSpritesheet(this.previousElementSibling.value)">Create</button>
+				<h2>Upload Project</h2>
+				<p>Load a project you can download by pressing "Download Project" on the spritesheet creator page.</p>
+				<input type="file" id="fileuploadinput" accept=".rs">
+				<h2>Load Previous Project</h2>
+				<p>Load the previous project you have edited. Your previous project data is saved whenever you modify a spritesheet, which means if you create a new spritesheet accidentally, you can still load the previous project you have edited.</p>
+				<button onclick="MainMenu.LoadPrevious()">Load</button>
+				<h2>Custom Assets</h2>
+				<p>Only edit if you know what you're doing! This will reset on every page reload.</p>
+				<p>Custom Assets allows you to edit the assets used in the SpriteMaker. This allows you to have basically infinite possibilities. Use only black and white. The darker the image, the darker it will appear in the SpriteMaker. Opacity is retained.</p>
+				<p>For every SpriteMaker update which adds new patterns, you must also add those patterns to your ZIP file, or else they will not exist to get read by the SpriteMaker, which results in an error message.</p>
+				<p><a href="assets.zip" target="_blank">Download the Template</a></p>
+				<input type="file" id="filezipinput" accept=".zip">
+			</div>
+			<div id="container" style="display: none;">
+				<div class="title">Rolling Sky SpriteMaker<span id="processingDots"></span></div>
+				<p>
+				<form id="nameform" onchange="updateNameType()"">
+					<label for="spritename">Spritesheet Name: <input id="spritename" placeholder="Enter sprite name" type="text"/></label><p></p>
+					<label for="minimaloptions">Show Minimal Options: <input id="minimaloptions" type="checkbox" onchange="closeUI()"/></label>
+				</form>
+				</p>
+				<div id="widthController">
+					<div id="spritesheetControls">
+						<div id="canvasContainer">
+							<canvas id="main" width="512" height="512"></canvas>
+							<canvas id="alt" style="display: none;" width="512" height="512"></canvas>
+						</div>
+						<p>
+							<button onclick="sprDownload(0)">Download Render</button>
+							<button onclick="sprDownload(1)">Download Project</button>
+							<button onclick="MainMenu.Enter()">Back to Main Menu</button>
+							<p>
+								<button onclick="renderObstaclePreview(obstaclePreviewTypeSelect.value)">Model Preview</button>
+								<button onclick="SpriteMaker.Data.Draw(sprite, canvas)">Redraw Canvas</button>
+							</p>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="hidden">
+		<canvas width="512" height="512" id="tintCanvas"></canvas>
+		</div>
+		<div id="obstaclePreviewMenu">
+			<button class="closeButton" onclick="closeObstaclePreview()">
+				<img src="close.png">
+			</button>
+			<canvas id="obstaclePreviewCanvas"></canvas>
+			<div class="sidepanel">
+				<div class="panel">
+					<label for="obstaclePreviewTypeSelect">Select a model 
+						<select id="obstaclePreviewTypeSelect">
+							<option value="" selected></option>
+							<option value="Ground">Ground</option>
+							<option value="JumpPad">Jump Pad</option>
+							<option value="Mover">Mover</option>
+							<option value="FlipTile">Flip Tile</option>
+							<option value="Riser">Riser</option>
+							<option value="Crusher">Crusher</option>
+							<option value="Tree">Trees</option>
+							<option value="TreeLv8">Colored Box Trees</option>
+							<option value="TreeTh14">Frozen Trees</option>
+							<option value="Shinto">Shinto</option>
+							<option value="ShintoLv8">Colored Box Shinto</option>
+							<option value="ShintoTh14">Frozen Shinto</option>
+							<option value="PalmTree">Palm Tree</option>
+							<option value="Roller">Roller</option>
+							<option value="LargeHammer">Large Hammer</option>
+							<option value="SmallHammer">Small Hammer</option>
+							<option value="Slasher">Slasher</option>
+							<option value="Pyramid">Pyramid</option>
+							<option value="Spotlight">Spotlight</option>
+							<option value="Star">Star</option>
+							<option value="Laser">Laser</option>
+							<option value="Pillar">Pillar</option>
+							<option value="PillarLaser">Pillar Laser</option>
+							<option value="Tetrominoes">Tetrominoes</option>
+						</select>
+					</label>
+				</div>
+			</div>
+		</div>
+		<script src="data.js"></script>
+		<script src="index.js"></script>
+	</body>
+</html>

@@ -1,0 +1,224 @@
+* {
+	scroll-behavior: smooth;
+	font-family: regular
+}
+
+@font-face {
+	font-family: 'regular';
+	src: url("fonts/sen/regular.ttf");
+}
+
+@font-face {
+	font-family: 'bold';
+	src: url("fonts/sen/bold.ttf");
+}
+
+a {
+	text-decoration: underline;
+	color: #88beff;
+}
+
+a.vip {
+    color: #f188ff;
+}
+
+a.special {
+    color: #88ff8a;
+}
+
+a.warn {
+    color: #fff888;
+}
+
+a.danger {
+    color: #ff8888;
+}
+
+*{font-family:regular !important;}
+
+html {
+	background: var(--mainbackground);
+	color: white;
+	position: absolute;
+	width: 100%;
+	margin: 0;
+}
+:root {
+	color-scheme: dark;
+	--mainbackground: #202124;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-content: stretch;
+	align-items: stretch;
+	width: 450px;
+	justify-content: flex-start;
+}
+
+textarea#target {
+	writing-mode: horizontal-tb !important;
+	font-style: ;
+	font-variant-ligatures: ;
+	font-variant-caps: ;
+	font-variant-numeric: ;
+	font-variant-east-asian: ;
+	font-weight: ;
+	font-stretch: ;
+	font-size: ;
+	font-family: regular;
+	text-rendering: auto;
+	color: fieldtext;
+	letter-spacing: normal;
+	word-spacing: normal;
+	line-height: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	display: inline-block;
+	text-align: start;
+	appearance: auto;
+	-webkit-rtl-ordering: logical;
+	resize: auto;
+	cursor: text;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+	background-color: field;
+	column-count: initial !important;
+	margin: 0em;
+	border-width: 1px;
+	border-style: solid;
+	border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+	border-image: initial;
+	padding: 2px;
+	width: 450px;
+	min-height: 200px;
+	resize: vertical;
+	outline: none;
+	max-height: 1024px;
+}
+
+button.generate {
+	appearance: auto;
+	writing-mode: horizontal-tb !important;
+	font-style: ;
+	font-variant-ligatures: ;
+	font-variant-caps: ;
+	font-variant-numeric: ;
+	font-variant-east-asian: ;
+	font-weight: ;
+	font-stretch: ;
+	font-size: ;
+	font-family: regular;
+	text-rendering: auto;
+	color: buttontext;
+	letter-spacing: normal;
+	word-spacing: normal;
+	line-height: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	display: inline-block;
+	text-align: center;
+	align-items: flex-start;
+	cursor: default;
+	box-sizing: border-box;
+	background-color: buttonface;
+	margin: 0em;
+	padding: 1px 6px;
+	border-width: 2px;
+	border-style: outset;
+	border-color: buttonborder;
+	border-image: initial;
+	width: 456px;
+	border-top: none;
+	border-width: 1px;
+}
+
+cl-red {
+	color: #ff0000;
+}
+
+d-cb {
+	background: #e5e5e5;
+	border-radius: 5pt;
+	padding: 2pt 5pt;
+	font-style: normal;
+	width: min-content;
+	display: inline-flex;
+	justify-content: center;
+	align-items: flex-start;
+	align-content: center;
+	flex-wrap: wrap;
+	flex: 1 0 50%;
+	flex-direction: row;
+}
+
+a.clickbutton {
+	text-decoration: none;
+	background: #2f7fa9;
+	color: white;
+	padding: 10pt;
+	border-radius: 10pt;
+	margin: 10pt 5pt;
+}
+
+li {
+	padding-bottom: 3pt;
+}
+
+hr {
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+    /* border-style: solid; */
+    border-width: 0px;
+    height: 2px;
+    background-color: #404145;
+}
+
+p.titlecontainer {
+	margin-bottom: 0;
+}
+
+span.title {
+	font-size: 30px;
+}
+
+div.friendlist {
+	
+}
+
+div.friendlist a {
+    display: inline-flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    width: 64px;
+    align-content: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    text-align: center;
+    margin: 5pt 2pt;
+    /*padding: 8pt;
+    background: #404145;
+    border-radius: 33pt;
+    margin: 5pt 3pt;
+    text-decoration: none;
+    color: #8fff9b;*/
+}
+
+div.friendlist a img {
+	/*margin-bottom: 4pt;*/
+	border-radius: 50%;
+}
+
+.footnote {
+	opacity: 0.5;
+    float: right;
+}

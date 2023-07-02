@@ -1,0 +1,343 @@
+<style>
+
+:root {
+	color-scheme: dark;
+}
+
+</style>
+
+<canvas width="320" height="320" id="myCanvas"></canvas>
+
+<script>
+
+// get canvas element
+let canvas = document.getElementById("myCanvas");
+let ctx = canvas.getContext("2d");
+var isAllowDraw = true;
+var currentTileId = 2;
+
+// get tile size and image source
+let tileSize = 64;
+let img = new Image();
+img.src = "tileset01.png";
+
+// get tile data from json
+let tileData = {
+  "tileSize": [64, 64],
+  "tiles": [
+    {"id": 0, "x": 0, "y": 0, "w": 64, "h": 64},
+    {"id": 1, "x": 64, "y": 0, "w": 64, "h": 64},
+    {"id": 2, "x": 128, "y": 0, "w": 64, "h": 64},
+    {"id": 3, "x": 192, "y": 0, "w": 64, "h": 64},
+    {"id": 4, "x": 256, "y": 0, "w": 64, "h": 64},
+    {"id": 5, "x": 320, "y": 0, "w": 64, "h": 64}
+  ]
+};
+
+let currentLevel = {
+	"width": 5,
+	"height": 15,
+	"tiles": [[0,2,0,0,0],[0,0,0,2,0],[2,0,2,0,0],[2,0,2,0,0],[2,0,2,2,2],[0,2,0,0,0],[0,0,0,2,0],[2,0,2,0,0],[2,0,2,0,0],[2,0,2,2,2],[0,2,0,0,0],[0,0,0,2,0],[2,0,2,0,0],[2,0,2,0,0],[2,0,2,2,2],[0,2,0,0,0],[0,0,0,2,0],[2,0,2,0,0],[2,0,2,0,0],[2,0,2,2,2],[0,2,0,0,0],[0,0,0,2,0],[2,0,2,0,0],[2,0,2,0,0],[2,0,2,2,2],[0,2,0,0,0],[0,0,0,2,0],[2,0,2,0,0],[2,0,2,0,0],[2,0,2,2,2]]
+}
+
+var lvp = {
+	width: 5,
+	height: 10,
+	currentOffsetFromBottom: 0,
+	move: {
+		up() {
+			if ((lvp.currentOffsetFromBottom + lvp.height) <= currentLevel.height) {
+				lvp.currentOffsetFromBottom++;
+				redrawCanvas();
+			}
+		},
+		down() {
+			if (lvp.currentOffsetFromBottom > 0) {
+				lvp.currentOffsetFromBottom--;
+				redrawCanvas();
+			}
+		}
+	}
+}
+
+function tileIsEmpty(x, y) {
+	return (currentLevel.tiles[y-lvp.currentOffsetFromBottom][x]==0);
+}
+function getTileAt(x, y) {
+	return currentLevel.tiles[y-lvp.currentOffsetFromBottom][x];
+}
+function drawToMatrix(x, y, id) {
+	if (!currentLevel.tiles[y-lvp.currentOffsetFromBottom]) {
+		currentLevel.tiles[y-lvp.currentOffsetFromBottom] = [];
+	}
+	currentLevel.tiles[y-lvp.currentOffsetFromBottom][x] = id;
+}
+
+function redrawCanvas() {
+	var t = currentLevel.tiles;
+	for (var i = 0; i < t.length; i++) {
+		for (var j = 0; j < t[i].length; j++) {
+			updateTile(j, i, t[i][j], true);
+		}
+	}
+}
+
+// define grid color and background color
+let gridColor = "#ffffff";
+let bgColor = "#00000000";
+
+// function to update tile
+function updateTile(x, y, id, forceDraw = false) {
+  // clear tile if id is 0
+  if (id === 0) {
+	ctx.strokeStyle = gridColor;
+	ctx.lineWidth = 1;
+    ctx.clearRect((x * tileSize)+1, (y * tileSize)+1, tileSize-2, tileSize-2);
+    ctx.beginPath();
+    ctx.moveTo(x*tileSize, y*tileSize);
+    ctx.lineTo((x*tileSize)+tileSize, y*tileSize);
+    ctx.lineTo((x*tileSize)+tileSize, (y*tileSize)+tileSize);
+    ctx.lineTo(x*tileSize, (y*tileSize)+tileSize);
+    ctx.lineTo(x*tileSize, y*tileSize);
+    ctx.stroke();
+	drawToMatrix(x, y, id);
+    return;
+  }
+  if (tileIsEmpty(x, y) || forceDraw) {
+	  // get tile data from json
+	  let tile = tileData.tiles.find(t => t.id === id);
+	  // draw tile
+	  ctx.drawImage(img, tile.x, tile.y, tile.w, tile.h, x * tileSize, (y+lvp.currentOffsetFromBottom) * tileSize, tileSize, tileSize);
+	  drawToMatrix(x, y, id);
+  }
+}
+
+function drawGridLines() {
+  for (let x = 0; x <= canvas.width; x += tileSize) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, canvas.height);
+    ctx.stroke();
+  }
+  for (let y = 0; y <= canvas.height; y += tileSize) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(canvas.width, y);
+    ctx.stroke();
+  }
+}
+
+// function to draw grid
+function drawinitialGrid() {
+  //ctx.strokeStyle = bgColor;
+  //ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.strokeStyle = gridColor;
+  ctx.lineWidth = 1;
+  drawGridLines();
+  drawGridLines();
+  drawGridLines();
+  for (var i = 0; i < canvas.width/tileSize; i++) {
+	for (var j = 0; j < canvas.height/tileSize; j++) {
+		drawToMatrix(i, j, 0);
+	}
+  }
+}
+
+//drawinitialGrid();
+
+function tryGetAction(e) {
+	if (mouseIsDownOnCanvas) {
+		let rect = canvas.getBoundingClientRect();
+		let x = e.clientX - rect.left;
+		let y = e.clientY - rect.top;
+		let gridX = Math.floor(x / tileSize);
+		let gridY = Math.floor(y / tileSize);
+		switch (e.button) {
+			case 0:
+				if (isAllowDraw && lastMouseButtonDown == 0) {
+					updateTile(gridX, gridY, currentTileId);
+				}
+				e.preventDefault();
+				break;
+			case 1:
+				currentTileId = getTileAt(gridX, gridY);
+				e.preventDefault();
+				break;
+			case 2:
+				if (isAllowDraw && lastMouseButtonDown == 2) {
+					updateTile(gridX, gridY, 0);
+				}
+				e.preventDefault();
+				break;
+			case 3:
+			break;
+			default:
+			
+			break;
+		}
+		if (isAllowDraw && lastMouseButtonDown == 2) {
+			updateTile(gridX, gridY, 0);
+		}
+		return e.button;
+	}
+}
+
+var mouseIsDownOnCanvas = false;
+var lastMouseButtonDown = 0;
+
+// handle mouse events
+canvas.addEventListener("mouseup", e => {
+	mouseIsDownOnCanvas = false;
+	lastMouseButtonDown = undefined;
+	tryGetAction(e);
+});
+canvas.addEventListener("mousedown", e => {
+	mouseIsDownOnCanvas = true;
+	lastMouseButtonDown = e.button;
+	tryGetAction(e);
+});
+canvas.addEventListener("mousemove", e => {
+	tryGetAction(e);
+});
+canvas.addEventListener("mouseleave", e => {
+	mouseIsDownOnCanvas = false;
+});
+
+window.oncontextmenu = (e) => {
+	return false;
+}
+
+/*canvas.addEventListener("mousedown", e => {
+    isAllowDraw = true;
+});
+
+canvas.addEventListener("mouseup", e => {
+    isAllowDraw = false;
+});
+
+canvas.addEventListener("touchstart", e => {
+    isAllowDraw = true;
+});
+
+canvas.addEventListener("touchend", e => {
+    isAllowDraw = false;
+});
+
+
+//Add keydown event listener for changing the current tile id
+document.addEventListener("keydown", e => {
+    if (e.keyCode >= 49 && e.keyCode <= 57) {
+        currentTileId = e.keyCode - 49;
+    }
+});
+
+
+// Add code for scrolling when isAllowDraw is false
+/*canvas.addEventListener("mousemove", e => {
+    if (!isAllowDraw) {
+        let rect = canvas.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+        let y = e.clientY - rect.top;
+        if (e.buttons === 1) {
+            offsetX += e.movementX;
+            offsetY += e.movementY;
+            draw();
+        }
+    }
+});
+
+canvas.addEventListener("touchmove", e => {
+    if (!isAllowDraw) {
+        let rect = canvas.getBoundingClientRect();
+        let x = e.touches[0].clientX - rect.left;
+        let y = e.touches[0].clientY - rect.top;
+        offsetX += e.movementX;
+        offsetY += e.movementY;
+        draw();
+    }
+});*/
+
+/*canvas.addEventListener("mousemove", e => {
+  if (!isAllowDraw) {
+    return;
+  }
+  let x = Math.floor(e.offsetX / tileSize) * tileSize;
+  let y = Math.floor(e.offsetY / tileSize) * tileSize;
+  if (e.buttons === 1) {
+    updateTile(x, y, currentTileId);
+  }
+});
+
+canvas.addEventListener("mousedown", e => {
+  if (!isAllowDraw) {
+    return;
+  }
+  let x = Math.floor(e.offsetX / tileSize) * tileSize;
+  let y = Math.floor(e.offsetY / tileSize) * tileSize;
+  updateTile(x, y, currentTileId);
+});*/
+
+/*canvas.addEventListener("mouseup", e => {
+  isAllowDraw = false;
+});
+
+canvas.addEventListener("mouseout", e => {
+  isAllowDraw = false;
+});*/
+
+/*canvas.addEventListener("click", e => {
+  let x = Math.floor(e.offsetX / tileSize) * tileSize;
+  let y = Math.floor(e.offsetY / tileSize) * tileSize;
+  if (isAllowDraw) {
+    updateTile(x, y, currentTileId);
+  } else {
+    //currentTileId = matrix[y / tileSize][x / tileSize];
+  }
+});*/
+
+/*document.addEventListener("keydown", e => {
+  if (e.keyCode === 16) {
+    isAllowDraw = false;
+  }
+});
+
+document.addEventListener("keyup", e => {
+  if (e.keyCode === 16) {
+    isAllowDraw = true;
+  }
+});
+
+canvas.addEventListener("touchstart", e => {
+  if (!isAllowDraw) {
+    return;
+  }
+  e.preventDefault();
+  let touch = e.touches[0];
+  let x = Math.floor(touch.clientX / tileSize) * tileSize;
+  let y = Math.floor(touch.clientY / tileSize) * tileSize;
+  updateTile(x, y, currentTileId);
+});
+
+canvas.addEventListener("touchmove", e => {
+  e.preventDefault();
+  if (!isAllowDraw) {
+    return;
+  }
+
+  let touch = e.touches[0];
+  let x = touch.clientX - canvas.offsetLeft;
+  let y = touch.clientY - canvas.offsetTop;
+  let gridX = Math.floor(x / tileSize);
+  let gridY = Math.floor(y / tileSize);
+
+  if (gridX >= 0 && gridX < grid[0].length && gridY >= 0 && gridY < grid.length) {
+    updateTile(gridX, gridY, currentTileId);
+  }
+});
+
+canvas.addEventListener("touchend", e => {
+  e.preventDefault();
+  isAllowDraw = false;
+});*/
+
+</script>

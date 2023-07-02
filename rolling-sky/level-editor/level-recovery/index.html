@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Web Editor Level Recovery</title>
+<meta name="pagename" content="Web Editor Level Recovery">
+<meta name="description" content="Recover WebEditor Levels">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<link rel="stylesheet" href="../../global.css">
+<link rel="stylesheet" href="../../tileset.css">
+<script src="../../global.js"></script>
+<script src="../../../assets/lz-string.js"></script>
+</head>
+<body style="margin: 0;padding: 0;">
+<textarea readonly id="lv" style="
+    width: calc(100% - 30px);
+    height: calc(100vh - 30px);
+    border: 0;
+    margin: 0;
+    padding: 15px;
+    resize: none;
+    outline: none;
+">No level was found, sorry :(</textarea>
+<script>
+var lastlevel = LZString.decompress(localStorage.getItem('lastleveldata'));
+
+var lastlevellength = lastlevel.split(/\r|\n/).length;
+
+document.getElementById('lv').value = '[header]\nwidth=5\nheight=' + lastlevellength + '\ntilewidth=64\ntileheight=64\norientation=orthogonal\n\n[tilesets]\ntileset=../tileset/tileset01.png,64,64,0,0\n\n[layer]\ntype=Recovered Level\ndata=' + "\n" + lastlevel + "\n\n";
+</script>
+</body>
+</html>

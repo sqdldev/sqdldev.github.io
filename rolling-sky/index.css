@@ -1,0 +1,25 @@
+*{scroll-behavior: smooth}
+@font-face {
+font-family: 'regular';
+src: url("fonts/sen/regular.ttf");
+}
+@font-face {
+font-family: 'bold';
+src: url("fonts/sen/bold.ttf");
+}
+@font-face {
+font-family: 'chinese';
+src: url("fonts/microsoft-yehei.ttf");
+}
+table  {border-spacing: 0;margin-left: auto;margin-right: auto;}
+thead  {position: sticky;top: 0;}
+table td, table th{border-color:#ffffff40;border-style:solid;border-width:1px;font-family:regular;font-size:inherit;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+thead tr th{background:var(--mainbackground);}
+.missing-chinese {background: #ff000035;}
+.missing-chinese::after {content:'No Chinese Version';font-family: regular;}
+tr {background: #00000000; transition:0.5s}
+tr:hover {background: #0000000f; transition:0.2s}
+tr td:nth-of-type(2) {font-family: chinese;}
+.credit {font-size: 10pt;float: right;right:0;margin: 5pt 10pt;}
+.creatornote {font-size: 15pt; padding: 10pt;}

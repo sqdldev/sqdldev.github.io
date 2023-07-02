@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title data-lang="webeditor.pagetitle">Rolling Sky Web Editor</title>
+<meta name="pagename" content="Rolling Sky Web Editor">
+<meta name="description" content="Rolling Sky WebEditor is an easy to use Rolling Sky Level Editor. You can create an empty level with a specific number of rows, upload a Rolling Sky Level File, an Encrypted Rolling Sky Level File, or a Tiled TMX file, or load a level that already exists in Rolling Sky. Levels can be exported as a Rolling Sky Level, Rolling Sky Encrypted Level, or Tiled TMX file. The editor itself has an easy to understand, simple, and clean interface which has many useful features. When editing a level, quick actions and brushes are located on the toolbar. The tile pallet has 3 options: All, Grouped, and Favorites. All shows all tiles, Grouped shows the tiles in groups, and Favorites allows you to customize your tile pallet. You don't need to download this app, since it can all run in your browser! (But if you want, you can download the offline version of my whole entire site on Github)">
+<link rel="stylesheet" href="index.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<link id="theme" rel="stylesheet" href="dark_grayscale.css">
+<script src="../../favicon.js"></script>
+<script src="../../lang.js"></script>
+<script src="../rsdata.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="level-generator.source.js"></script>
+<link rel="stylesheet" href="../global.css">
+<link rel="stylesheet" href="../tileset.css">
+<script src="../global.js"></script>
+<script src="../../assets/lz-string.js"></script>
+<script src="../interface/module.js"></script>
+<link rel="prefetch" href="../tileset/tileset01.png">
+</head>
+<body style="overflow: hidden;">
+<div id="loader" style="display: none;">
+	<svg id="loadersvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="128 128 256 256" xml:space="preserve">
+		<defs xmlns="http://www.w3.org/2000/svg"></defs>
+		<g transform="matrix(1 0 0 1 256 256)" id="outer">
+			<g xmlns="http://www.w3.org/2000/svg" vector-effect="non-scaling-stroke">
+				<g transform="matrix(0.71 0 0 0.71 0 -40.47)">
+					<image xmlns:xlink="http://www.w3.org/1999/xlink" style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke" xlink:href="data:image/png;base64,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" x="-100" y="-43" width="200" height="86"/>
+				</g>
+				<g transform="matrix(0.71 0 0 -0.71 0 40.47)" id="KFxeSo7fMK4tBg4UkpIuc">
+					<image xmlns:xlink="http://www.w3.org/1999/xlink" style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke" xlink:href="data:image/png;base64,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" x="-100" y="-43" width="200" height="86"/>
+				</g>
+			</g>
+		</g>
+		<g transform="matrix(0 1 -1 0 256 256)" id="inner">
+			<g style="" vector-effect="non-scaling-stroke">
+				<g transform="matrix(0.7 0 0 0.7 0 -31.5)">
+					<image style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke" xlink:href="data:image/png;base64,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" x="-74" y="-30" width="148" height="60"/>
+				</g>
+				<g transform="matrix(0.7 0 0 -0.7 0 31.5)">
+					<image style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke" xlink:href="data:image/png;base64,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" x="-74" y="-30" width="148" height="60"/>
+				</g>
+			</g>
+		</g>
+		<g transform="matrix(1 0 0 1 256 254.93)">
+			<text xml:space="preserve" font-size="28.5" font-style="normal" font-weight="700" letter-spacing="0.057" line-height="1" style="font-family: regular; stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; white-space: pre;"><tspan id="percent" xmlns="http://www.w3.org/2000/svg" x="0" y="7.41" text-anchor="middle">0%</tspan></text>
+		</g>
+	</svg>
+	<div id="splashcontainer"><div id="splash" class="t"><b></b><br></div></div>
+</div>
+<script>
+if (!window.siteIsUnderMaintenance) {
+	document.getElementById('loader').style.display = 'flex';
+	var splashElement = document.getElementById('splash');
+	splashElement.innerHTML = (window.ontouchstart == null)?'Please wait...':'Please tap...';//'Tap Anywhere to Start Load<br><br>And if that doesn\'t work, click <a href="javascript:LOGIN()">here</a>.';
+	var mainloader = document.getElementById('loader');
+	var hasbegun = false;
+	/*function LOGIN() {
+		try {
+			LOGIN();
+		} catch {}
+		//splashElement.classList = ['a'];
+	}*/
+	function begin() {
+		if (!hasbegun) {
+			sqdldev.runjs('index.js').onload = ()=>{var a001_f = setInterval(()=>{setTimeout(LOGIN, 20);clearInterval(a001_f)},10)};
+		}
+		hasbegun = true;
+	}
+	setTimeout(begin, 2);
+}
+/*mainloader.onmousedown = begin;
+mainloader.onmouseover = begin;
+mainloader.ontouchstart = begin;*/
+</script>
+<div id="doc" style="opacity: 0;">
+<div id="startmenu" style="display: block;">
+<details>
+<summary>
+<h1 style="margin-bottom: 10px;display: inline;" data-lang="webeditor.innertitle" id="mainInnerTitle">Rolling Sky Web Editor by sqdldev</h1>
+</summary>
+<div style="max-width: 700px;max-height: 230px;overflow-y: auto;">Rolling Sky WebEditor is an easy to use Rolling Sky Level Editor. You can create an empty level with a specific number of rows, upload a Rolling Sky Level File, an Encrypted Rolling Sky Level File, or a Tiled TMX file, or load a level that already exists in Rolling Sky. Levels can be exported as a Rolling Sky Level, Rolling Sky Encrypted Level, or Tiled TMX file. The editor itself has an easy to understand, simple, and clean interface which has many useful features. When editing a level, quick actions and brushes are located on the toolbar. The tile pallet has 3 options: All, Grouped, and Favorites. All shows all tiles, Grouped shows the tiles in groups, and Favorites allows you to customize your tile pallet. It is recommended that you use the latest version of Google Chrome to run this website, but almost any web browser can work. You don't need to download this app, since it can all run in your browser! (But if you want, you can download the offline version of my whole entire site on Github).<br><br>The goal of this website is not to assist with creating fanmades, but instead is to help people make levels. This site does not assist the user with importing the levels into Rolling Sky. It is just a simple tilemap editor, similar to Tiled.</div>
+</details>
+<!--<p><c-lang-select style="background-color: #5a5a5a;"></c-lang-select></p>
+<p data-lang="webeditor.splashwarn"></p>-->
+
+<hr>
+
+<!--<p><a target="_blank" href="../porygon-axolotl/pc-edit-tutorial/#webeditor_editTutorial">Basic WebEditor Usage Tutorial</a></p>-->
+<!--<p><a onclick="openInstructionalManual();" data-lang="webeditor.instructionalmanualopen">Full WebEditor Instructional Manual</a></p>-->
+<p><a target="_blank" href="../spritesheet-creator/">Sqdldev Spritesheet Editor (New Tab)</a></p>
+<p><a target="_blank" href="https://kumafuji1202.github.io/rolling-sky-spritesheet-maker/">Kumafuji Spritesheet Editor (New Tab)</a></p>
+
+<hr>
+
+<h2 data-lang="webeditor.creation.blanklevel.title">Create Blank Level</h2>
+<p><span data-lang="webeditor.creation.blanklevel.description">Enter Level Length. Note that you cannot change this after creating the level.</span><br>
+<input id="length" placeholder="Enter Level Length" type="number" value="1200" data-lang="webeditor.creation.blanklevel.lengthinput">
+<p class="nomargintop">
+<button onclick="autostart();" data-lang="webeditor.creation.blanklevel.enter">Create Blank Level</button>
+</p>
+
+<hr>
+
+<h2 data-lang="webeditor.creation.uploadlevel.title">Upload Level</h2>
+<p><span data-lang="webeditor.creation.uploadlevel.description">Upload a full level file.</span><br>
+<input id="upload" type="file" onchange="changefile();" accept=".txt,.tmx">
+<p class="nomargintop">
+<button onclick="upload();" data-lang="webeditor.creation.uploadlevel.enter">Create Level From Upload</button>
+</p>
+
+<hr>
+
+<h2 data-lang="webeditor.creation.existlevel.title">Load Existing Level</h2>
+<p><span data-lang="webeditor.creation.existlevel.description">Load a level from Rolling Sky.</span><br>
+<input id="loadexisting" placeholder="Type a level name" type="text" data-lang="webeditor.creation.existlevel.input"><button onclick="openRsLevelInterface()">...</button>
+</p>
+<p class="nomargintop">
+<button onclick="getexistlevel();" data-lang="webeditor.creation.existlevel.enter">Load Existing Level</button>
+</p>
+
+<hr>
+
+<h2 data-lang="webeditor.creation.previouslevel.title">Load Previous Level</h2>
+<span id="sessionlevelload"><p data-lang="webeditor.creation.previouslevel.description">Load the last level you have edited even if you have reloaded the page.<br></p>
+<p class="nomargintop">
+<button onclick="loadprevlevel();" data-lang="webeditor.creation.previouslevel.enter">Load Previous Level</button>
+</p></span>
+
+<div id="browserName"></div>
+
+<hr>
+
+<!--<h1>Q&A (Commonly Asked Questions)</h1>
+<p><b>Q: </b>Why isn't the website working / Why do you require a key to access the website?<br>
+<b>A: </b>We do not want trolls here. The key gets changed every once in a while to lower the amount of trolls.</p>
+<p><b>Q: </b>Will you ever add an in built level saving system?<br>
+<b>A: </b>No. Most internet browsers don't allow more than 4096 bytes (characters) while saving data.</p>
+<p><b>Q: </b>Are you going to add an undo button?<br>
+<b>A: </b>No. The undo tree lags the website way too much. It isn't practical to use.</p>
+<p><b>Q: </b>Why isn't the mobile site scrolling?<br>
+<b>A: </b>Try scrolling on the gray area on the side. The grid is the canvas and you would be drawing on the canvas.</p>
+<p><b>Q: </b>Are you going to fix this/that etc. bug?<br>
+<b>A: </b>Yes. Even though this is no longer in an alpha testing, there are definitely still some bugs. Just calmly report these bugs and I will fix them.</p>-->
+</div>
+<div id="level" style="visibility: hidden;">
+<div class="checkcontainer">
+<div class="checksubcontainer">
+<label for="check"><span style="white-space: nowrap;" data-lang="webeditor.main.toolbar.lockscroll">Lock Scroll</span>
+<input type="checkbox" id="check" onclick="oncheck();"></label>
+<label for="check2"><span style="white-space: nowrap;" data-lang="webeditor.main.toolbar.editmode">Edit Mode</span>
+<input type="checkbox" id="check2" onclick="ontoggleedit();"></label>
+<label for="check3"><span style="white-space: nowrap;" data-lang="webeditor.main.toolbar.brushes">Brushes</span>
+<input id="check3" type="checkbox" class="brushes">
+<div class="brushcontainer">
+<c-sel class="0"></c-sel>
+<c-sel class="rnd" id="rnd"></c-sel>
+<c-sel class="clp" id="cpb"></c-sel>
+<c-sel class="georepl" id="geobrush"></c-sel>
+<c-sel class="georeplAlt" id="geobrushAlt"></c-sel>
+</div>
+</label>
+</div>
+</div>
+<div class="header">
+<div class="headerbelow">
+<div class="menu"><span data-lang="webeditor.main.header.file.title">File</span>
+<div class="contents">
+<button class="save" onclick="openexport();"><span data-lang="webeditor.main.header.file.exporter">Export</span><c-keybind>(CTRL + S)</c-keybind></button>
+</div>
+</div>
+<div class="menu"><span data-lang="webeditor.main.header.editor.title">Editor</span>
+<div class="contents">
+<button onclick="back();"><span data-lang="webeditor.main.header.editor.back">Back</span><c-keybind>(ESC)</c-keybind></button>
+<button onclick="editor.DisplayOptionsMenu.showDisplayOptions();"><span data-lang="webeditor.main.header.editor.displayoptions">Display Options</span></button>
+<button onclick="Level.switchDisplaySide();"><span data-lang="webeditor.main.header.editor.switchdisplayside">Toggle Widescreen</span><c-keybind></c-keybind></button>
+<button onclick="editor.Zoom.toggleZoom();"><span data-lang="webeditor.main.header.editor.togglezoom">Toggle Zoom (Experemental)</span></button>
+<button onclick="editor.ShowQuickKey();"><span data-lang="webeditor.main.header.editor.quickkey">Tileset Quick Key</span></button>
+<button><span data-lang="webeditor.main.header.editor.tilepalletsize"></span><input type="range" min="0.25" max="2" value="1" step="0.01" id="tilePalletSize" onchange="changeTilePalletSize()" oninput="changeTilePalletSize()"></button>
+<!--<button for="darkmode" id="darkmodelabel">Blue Theme
+<input type="checkbox" id="darkmode" onclick="checkdarkmode();"></button>-->
+<button><span><span data-lang="webeditor.main.header.editor.palletmode.title">Pallet Mode </span><select id="palletModeSelect" onchange="editor.TilePallet.set(parseInt(this.value))"><option value="0" data-lang="webeditor.main.header.editor.palletmode.modes.modesAll">All</option><option value="1" data-lang="webeditor.main.header.editor.palletmode.modes.modesGrouped">Grouped</option><option value="2" data-lang="webeditor.main.header.editor.palletmode.modes.modesFavorites">Favorites</option></select></span></button>
+<button onclick="LevelAI.Popups.Begin();">LevelAI</button>
+<button><a href="http://sqdlsite.rf.gd/webeditor-feedback/" target="_blank">WebEditor Feedback</a></button>
+</div>
+</div>
+<div class="menu"><span data-lang="webeditor.main.header.level.title">Level</span>
+<div class="contents">
+<button onclick="tryScrollToTile();"><span data-lang="webeditor.main.header.level.findtile">Find Tile</span><c-keybind>(CTRL + F)</c-keybind></button>
+<button onclick="getTileToBrush();"><span data-lang="webeditor.main.header.level.selecttile">Select Tile</span><c-keybind>(CTRL + G)</c-keybind></button>
+<button onclick="savelevelastemp();"><span data-lang="webeditor.main.header.level.saveinsession">Save in session</span><c-keybind></c-keybind></button>
+<button onclick="togglePortalOpacity();"><span data-lang="webeditor.main.header.level.toggleportalopacity">Toggle Portal Opacity</span><c-keybind>(CTRL + B)</c-keybind></button>
+<button onclick="Obstacle.showCounter();"><span data-lang="webeditor.main.header.level.objectcount">Object Count</span><c-keybind>(CTRL + O)</c-keybind></button>
+<button onclick="LCM.ShowMenu();"><span data-lang="webeditor.main.header.level.collectionmanager">Level Collection Manager</span><c-keybind></c-keybind></button>
+</div>
+</div>
+<div class="menu" id="devmenu" style="display: none;"><span>Dev</span>
+<div class="contents">
+<button><u>levelbot paths</u></button>
+<button onclick="editor.Dev.togglePathDrawElement();"><span>draw the path</span><c-keybind></c-keybind></button>
+<button onclick="editor.Dev.copyPathElement();"><span>copy the path</span><c-keybind></c-keybind></button>
+<button onclick="editor.Dev.pastePathElement();"><span>paste the path</span><c-keybind></c-keybind></button>
+<button><u>balls</u></button>
+<button onclick="editor.Dev.ballVisible(true);"><span>show ball</span><c-keybind></c-keybind></button>
+<button onclick="editor.Dev.ballVisible(false);"><span>hide ball</span><c-keybind></c-keybind></button>
+</div>
+</div>
+</div>
+<c-vprev id="tprev" ></c-vprev>
+</div>
+<div id="canvasContainer">
+<div id="canvas">
+<c-tile class="0"></c-tile><c-tile class="0"></c-tile><c-tile class="0"></c-tile><c-tile class="0"></c-tile><c-tile class="0"></c-tile>
+</div>
+</div>
+<div id="canvasAlt" style="display: none;">
+</div>
+<div id="exportmenu" style="display: none;">
+<h1 data-lang="webeditor.main.exporter.title">Export Level</h1>
+<h2 data-lang="webeditor.main.exporter.steps.namefile.title">Name File</h2>
+<p data-lang="webeditor.main.exporter.steps.namefile.description">This name will be applied to your file when you click one of the download buttons below. The file extension will automatically be added, so you do not need to add a file extension in the input box.</p>
+<p>
+<input id="levelname" placeholder="Type in the level name" type="text" value="Level1" data-lang="webeditor.main.exporter.steps.namefile.input">
+</p>
+<hr>
+<h2 data-lang="webeditor.main.exporter.steps.download.txt.title">Download .TXT Level</h2>
+<p><span data-lang="webeditor.main.exporter.steps.download.txt.description">Click Download to download a .txt copy of your level.<br>If that doesn't work, select all of the text in the TextArea below and save it as a .TXT document.</span><br>
+<textarea id="backuptxtdownload" style="width: 345px; height: 275px;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea></p>
+<p>
+<button onclick="exportlevel();" data-lang="webeditor.main.exporter.steps.download.txt.enter">Download .TXT</button>
+</p>
+<h2 data-lang="webeditor.main.exporter.steps.download.encrypt.title">Download Encrypted Level</h2>
+<p><span data-lang="webeditor.main.exporter.steps.download.encrypt.description">Click Download to download an Encrypted Rolling Sky level. This can be used for newer versions.</span><br>
+<textarea id="backupencryptdownload" style="width: 345px; height: 275px;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea></p>
+<p>
+<button onclick="exportlevelencrypted();" data-lang="webeditor.main.exporter.steps.download.encrypt.enter">Download Encrypted</button>
+</p>
+<hr>
+<h2 data-lang="webeditor.main.exporter.steps.download.tmx.title">Download .TMX Level</h2>
+<p data-lang="webeditor.main.exporter.steps.download.tmx.description">Click Download to download a .tmx copy of your level.<br>Click <a href="https://sqdldev.github.io/rolling-sky/tileset/zipped/RollingSkyTileset_2.7.4.zip">here</a> (Version 2.7.4, updated 11/8/2022) to download the latest Tiled tileset (Put it in the same directory as the TMX you download)</p>
+<p>
+<button onclick="saveTiled();" data-lang="webeditor.main.exporter.steps.download.tmx.enter">Download .TMX</button>
+</p>
+<hr>
+<h2 data-lang="webeditor.main.exporter.steps.copygeos.title">Copy GeoBuffers</h2>
+<p data-lang="webeditor.main.exporter.steps.copygeos.description">Please do not completely depend on this right now, its more of an experement. Please report any and all bugs to me.</p>
+<p><span data-lang="webeditor.main.exporter.steps.copygeos.description2">Enter GeoBuffer Z Value (For All Lines)</span><br><input placeholder="Enter Z Value" id="gbZv" data-lang="webeditor.main.exporter.steps.copygeos.enterzval"><button onclick="Obstacle.copyGeobuffers();" data-lang="webeditor.main.exporter.steps.copygeos.copy">Copy Geobuffers</button></p>
+<hr>
+<!--<h2>Link to Level</h2>
+<p>Click Copy to copy a link to this webpage that loads the level when clicked. (URL can be very long)</p>
+<input id="copyout" placeholder="URL Preview" type="text" readonly>
+<p>
+<button onclick="loadtourl();">Copy</button>
+</p>-->
+<p>
+<button class="backtolevel" onclick="closeexport();">Back to Level</button>
+</p>
+</div>
+<div id="displayOptions" style="display: none;">
+<div class="options">
+<h2 data-lang="webeditor.main.displayoptions.title">Display Options</h2>
+<p class="main" data-lang="webeditor.main.displayoptions.description">These do not affect your level file. These theme options help you visualize the final look of the level. Only visible obstacle changes are listed below.</p>
+<label><input type="checkbox"><span data-lang="webeditor.main.displayoptions.types.trees">Trees</span></label>
+<label><input type="checkbox"><span data-lang="webeditor.main.displayoptions.types.towers">Towers</span></label>
+<label><input type="checkbox"><span data-lang="webeditor.main.displayoptions.types.pyramids">Pyramids</span></label>
+<label><input type="checkbox"><span data-lang="webeditor.main.displayoptions.types.hammers">Hammers</span></label>
+<label><input type="checkbox"><span data-lang="webeditor.main.displayoptions.types.skyscrapers">Skyscrapers</span></label>
+<label><input type="checkbox"><span data-lang="webeditor.main.displayoptions.types.floodlights">Flood Lights</span></label>
+<label><input type="checkbox"><span data-lang="webeditor.main.displayoptions.types.teslas">Teslas</span></label>
+<button id="submitDisplayOptions" onclick="editor.DisplayOptionsMenu.updateDisplayOptions();" data-lang="webeditor.main.displayoptions.enter">Submit</button>
+</div>
+</div>
+<div id="selmenu" style="display: flex;">
+<div id="customPallet" style="display: none;">
+</div>
+<!--<c-selv>
+<button onclick="editor.selcont(this);">Grounds</button>
+<c-selcont>-->
+<div id="selmenuContent">
+<!--<c-sel class="1"></c-sel>
+<c-sel class="2"></c-sel>
+<c-sel class="3"></c-sel>
+<c-sel class="4"></c-sel>
+<c-sel class="5"></c-sel>
+<c-sel class="6"></c-sel>
+<c-sel class="7"></c-sel>
+<c-sel class="8"></c-sel>
+<c-sel class="9"></c-sel>
+<!--</c-selcont>
+</c-selv>
+<c-sel class="10"></c-sel>
+<c-sel class="11"></c-sel>
+<c-sel class="12"></c-sel>
+<c-sel class="13"></c-sel>
+<c-sel class="14"></c-sel>
+<c-sel class="15"></c-sel>
+<c-sel class="16"></c-sel>
+<c-sel class="17"></c-sel>
+<c-sel class="18"></c-sel>
+<c-sel class="19"></c-sel>
+<c-sel class="20"></c-sel>
+<c-sel class="21"></c-sel>
+<c-sel class="22"></c-sel>
+<c-sel class="23"></c-sel>
+<c-sel class="24"></c-sel>
+<c-sel class="25"></c-sel>
+<c-sel class="26"></c-sel>
+<c-sel class="27"></c-sel>
+<c-sel class="28"></c-sel>
+<c-sel class="29"></c-sel>
+<c-sel class="30"></c-sel>
+<c-sel class="31"></c-sel>
+<c-sel class="32"></c-sel>
+<c-sel class="33"></c-sel>
+<c-sel class="34"></c-sel>
+<c-sel class="35"></c-sel>
+<c-sel class="36"></c-sel>
+<c-sel class="37"></c-sel>
+<c-sel class="38"></c-sel>
+<c-sel class="39"></c-sel>
+<c-sel class="40"></c-sel>
+<c-sel class="41"></c-sel>
+<c-sel class="42"></c-sel>
+<c-sel class="43"></c-sel>
+<c-sel class="44"></c-sel>
+<c-sel class="45"></c-sel>
+<c-sel class="46"></c-sel>
+<c-sel class="47"></c-sel>
+
+<c-sel class="49"></c-sel>
+<c-sel class="50"></c-sel>
+<c-sel class="51"></c-sel>
+<c-sel class="52"></c-sel>
+<c-sel class="53"></c-sel>
+<c-sel class="54"></c-sel>
+<c-sel class="55"></c-sel>
+<c-sel class="56"></c-sel>
+<c-sel class="57"></c-sel>
+<c-sel class="58"></c-sel>
+<c-sel class="59"></c-sel>
+<c-sel class="60"></c-sel>
+<c-sel class="61"></c-sel>
+<c-sel class="62"></c-sel>
+<c-sel class="63"></c-sel>
+<c-sel class="64"></c-sel>
+<c-sel class="65"></c-sel>
+<c-sel class="66"></c-sel>
+<c-sel class="67"></c-sel>
+<c-sel class="68"></c-sel>
+<c-sel class="69"></c-sel>
+<c-sel class="70"></c-sel>
+<c-sel class="71"></c-sel>
+<c-sel class="72"></c-sel>
+<c-sel class="73"></c-sel>
+<c-sel class="74"></c-sel>
+<c-sel class="75"></c-sel>
+<c-sel class="76"></c-sel>
+<c-sel class="77"></c-sel>
+<c-sel class="78"></c-sel>
+<c-sel class="79"></c-sel>
+<c-sel class="80"></c-sel>
+<c-sel class="81"></c-sel>
+<c-sel class="82"></c-sel>
+<c-sel class="83"></c-sel>
+<c-sel class="84"></c-sel>
+<c-sel class="85"></c-sel>
+<c-sel class="86"></c-sel>
+<c-sel class="87"></c-sel>
+<c-sel class="88"></c-sel>
+<c-sel class="89"></c-sel>
+<c-sel class="90"></c-sel>
+<c-sel class="91"></c-sel>
+<c-sel class="92"></c-sel>
+<c-sel class="93"></c-sel>
+<c-sel class="94"></c-sel>
+<c-sel class="95"></c-sel>
+<c-sel class="96"></c-sel>
+<c-sel class="97"></c-sel>
+<c-sel class="98"></c-sel>
+<c-sel class="99"></c-sel>
+<c-sel class="100"></c-sel>
+<c-sel class="101"></c-sel>
+<c-sel class="102"></c-sel>
+<c-sel class="103"></c-sel>
+<c-sel class="104"></c-sel>
+<c-sel class="105"></c-sel>
+<c-sel class="106"></c-sel>
+<c-sel class="107"></c-sel>
+<c-sel class="108"></c-sel>
+<c-sel class="109"></c-sel>
+<c-sel class="110"></c-sel>
+<c-sel class="111"></c-sel>
+<c-sel class="112"></c-sel>
+<c-sel class="113"></c-sel>
+<c-sel class="114"></c-sel>
+<c-sel class="115"></c-sel>
+<c-sel class="116"></c-sel>
+<c-sel class="117"></c-sel>
+<c-sel class="118"></c-sel>
+<c-sel class="119"></c-sel>
+<c-sel class="120"></c-sel>
+<c-sel class="121"></c-sel>
+<c-sel class="122"></c-sel>
+<c-sel class="123"></c-sel>
+<c-sel class="124"></c-sel>
+<c-sel class="125"></c-sel>
+<c-sel class="126"></c-sel>
+<c-sel class="127"></c-sel>
+<c-sel class="128"></c-sel>
+<c-sel class="129"></c-sel>
+<c-sel class="130"></c-sel>
+<c-sel class="131"></c-sel>
+<c-sel class="132"></c-sel>
+<c-sel class="133"></c-sel>
+<c-sel class="134"></c-sel>
+<c-sel class="135"></c-sel>
+<c-sel class="136"></c-sel>
+<c-sel class="137"></c-sel>
+<c-sel class="138"></c-sel>
+<c-sel class="139"></c-sel>
+<c-sel class="140"></c-sel>
+<c-sel class="141"></c-sel>
+<c-sel class="142"></c-sel>
+<c-sel class="143"></c-sel>
+<c-sel class="144"></c-sel>
+<c-sel class="145"></c-sel>
+<c-sel class="146"></c-sel>
+<c-sel class="147"></c-sel>
+<c-sel class="148"></c-sel>
+<c-sel class="149"></c-sel>
+<c-sel class="150"></c-sel>
+<c-sel class="151"></c-sel>
+<c-sel class="152"></c-sel>
+<c-sel class="153"></c-sel>
+<c-sel class="154"></c-sel>
+<c-sel class="155"></c-sel>
+<c-sel class="156"></c-sel>
+<c-sel class="157"></c-sel>
+<c-sel class="158"></c-sel>
+<c-sel class="159"></c-sel>
+<c-sel class="160"></c-sel>
+<c-sel class="161"></c-sel>
+<c-sel class="162"></c-sel>
+<c-sel class="163"></c-sel>
+<c-sel class="164"></c-sel>
+<c-sel class="165"></c-sel>
+<c-sel class="166"></c-sel>
+<c-sel class="167"></c-sel>
+<c-sel class="168"></c-sel>
+<c-sel class="169"></c-sel>
+<c-sel class="170"></c-sel>
+<c-sel class="171"></c-sel>
+<c-sel class="172"></c-sel>
+<c-sel class="173"></c-sel>
+<c-sel class="174"></c-sel>
+<c-sel class="175"></c-sel>
+<c-sel class="176"></c-sel>
+<c-sel class="177"></c-sel>
+<c-sel class="178"></c-sel>
+<c-sel class="179"></c-sel>
+<c-sel class="180"></c-sel>
+<c-sel class="181"></c-sel>
+<c-sel class="182"></c-sel>
+<c-sel class="183"></c-sel>
+<c-sel class="184"></c-sel>
+<c-sel class="185"></c-sel>
+<c-sel class="186"></c-sel>
+<c-sel class="187"></c-sel>
+<c-sel class="188"></c-sel>
+<c-sel class="189"></c-sel>
+<c-sel class="190"></c-sel>
+<c-sel class="191"></c-sel>
+<c-sel class="192"></c-sel>
+<c-sel class="193"></c-sel>
+<c-sel class="194"></c-sel>
+<c-sel class="195"></c-sel>
+<c-sel class="196"></c-sel>
+<c-sel class="197"></c-sel>
+<c-sel class="198"></c-sel>
+<c-sel class="199"></c-sel>
+<c-sel class="200"></c-sel>
+
+
+
+
+
+
+
+
+
+
+<c-sel class="211"></c-sel>
+<c-sel class="212"></c-sel>
+<c-sel class="213"></c-sel>
+<c-sel class="214"></c-sel>
+<c-sel class="215"></c-sel>
+<c-sel class="216"></c-sel>
+<c-sel class="217"></c-sel>
+<c-sel class="218"></c-sel>
+<c-sel class="219"></c-sel>
+<c-sel class="220"></c-sel>
+
+
+
+
+
+
+
+
+
+
+
+
+<c-sel class="233"></c-sel>
+<c-sel class="234"></c-sel>
+<c-sel class="235"></c-sel>
+<c-sel class="236"></c-sel>
+<c-sel class="237"></c-sel>
+<c-sel class="238"></c-sel>
+<c-sel class="239"></c-sel>
+<c-sel class="240"></c-sel>
+<c-sel class="241"></c-sel>
+<c-sel class="242"></c-sel>
+<c-sel class="243"></c-sel>
+<c-sel class="244"></c-sel>
+<c-sel class="245"></c-sel>
+<c-sel class="246"></c-sel>
+<c-sel class="247"></c-sel>
+<c-sel class="248"></c-sel>
+<c-sel class="249"></c-sel>
+<c-sel class="250"></c-sel>
+<c-sel class="251"></c-sel>
+<c-sel class="252"></c-sel>
+<c-sel class="253"></c-sel>
+<c-sel class="254"></c-sel>
+<c-sel class="255"></c-sel>
+<c-sel class="256"></c-sel>
+<c-sel class="257"></c-sel>
+<c-sel class="258"></c-sel>
+<c-sel class="259"></c-sel>
+<c-sel class="260"></c-sel>
+<c-sel class="261"></c-sel>
+<c-sel class="262"></c-sel>
+<c-sel class="263"></c-sel>
+<c-sel class="264"></c-sel>
+<c-sel class="265"></c-sel>
+<c-sel class="266"></c-sel>
+<c-sel class="267"></c-sel>
+<c-sel class="268"></c-sel>
+<c-sel class="269"></c-sel>
+<c-sel class="270"></c-sel>
+<c-sel class="271"></c-sel>
+<c-sel class="272"></c-sel>
+<c-sel class="273"></c-sel>
+<c-sel class="274"></c-sel>
+<c-sel class="275"></c-sel>
+<c-sel class="276"></c-sel>
+<c-sel class="277"></c-sel>
+<c-sel class="278"></c-sel>
+<c-sel class="279"></c-sel>
+<c-sel class="280"></c-sel>
+<c-sel class="281"></c-sel>
+<c-sel class="282"></c-sel>
+<c-sel class="283"></c-sel>
+<c-sel class="284"></c-sel>
+<c-sel class="285"></c-sel>
+<c-sel class="286"></c-sel>
+<c-sel class="287"></c-sel>
+<c-sel class="288"></c-sel>
+<c-sel class="289"></c-sel>
+<c-sel class="290"></c-sel>
+<c-sel class="291"></c-sel>
+<c-sel class="292"></c-sel>
+<c-sel class="293"></c-sel>
+<c-sel class="294"></c-sel>
+<c-sel class="295"></c-sel>
+<c-sel class="296"></c-sel>
+<c-sel class="297"></c-sel>
+<c-sel class="298"></c-sel>
+<c-sel class="299"></c-sel>
+<c-sel class="300"></c-sel>
+<c-sel class="301"></c-sel>
+<c-sel class="302"></c-sel>
+<c-sel class="303"></c-sel>
+<c-sel class="304"></c-sel>
+<c-sel class="305"></c-sel>
+<c-sel class="306"></c-sel>
+<c-sel class="307"></c-sel>
+<c-sel class="308"></c-sel>
+<c-sel class="309"></c-sel>
+<c-sel class="310"></c-sel>
+<c-sel class="311"></c-sel>
+<c-sel class="312"></c-sel>
+<c-sel class="313"></c-sel>
+<c-sel class="314"></c-sel>
+<c-sel class="315"></c-sel>
+<c-sel class="316"></c-sel>
+<c-sel class="317"></c-sel>
+<c-sel class="318"></c-sel>
+<c-sel class="319"></c-sel>
+<c-sel class="320"></c-sel>
+<c-sel class="321"></c-sel>
+<c-sel class="322"></c-sel>
+<c-sel class="323"></c-sel>
+<c-sel class="324"></c-sel>
+<c-sel class="325"></c-sel>
+<c-sel class="326"></c-sel>
+<c-sel class="327"></c-sel>
+<c-sel class="328"></c-sel>
+<c-sel class="329"></c-sel>
+<c-sel class="330"></c-sel>
+<c-sel class="331"></c-sel>
+<c-sel class="332"></c-sel>
+<c-sel class="333"></c-sel>
+
+<c-sel class="335"></c-sel>
+<c-sel class="336"></c-sel>
+<c-sel class="337"></c-sel>
+<c-sel class="338"></c-sel>
+<c-sel class="339"></c-sel>
+<c-sel class="340"></c-sel>
+<c-sel class="341"></c-sel>
+<c-sel class="342"></c-sel>
+<c-sel class="343"></c-sel>
+<c-sel class="344"></c-sel>
+<c-sel class="345"></c-sel>
+<c-sel class="346"></c-sel>
+<c-sel class="347"></c-sel>
+<c-sel class="348"></c-sel>
+<c-sel class="349"></c-sel>
+<c-sel class="350"></c-sel>
+<c-sel class="351"></c-sel>
+<c-sel class="352"></c-sel>
+<c-sel class="353"></c-sel>
+<c-sel class="354"></c-sel>
+<c-sel class="355"></c-sel>
+<c-sel class="356"></c-sel>
+<c-sel class="357"></c-sel>
+<c-sel class="358"></c-sel>
+<c-sel class="359"></c-sel>
+<c-sel class="360"></c-sel>
+<c-sel class="361"></c-sel>
+<c-sel class="362"></c-sel>
+<c-sel class="363"></c-sel>
+<c-sel class="364"></c-sel>
+<c-sel class="365"></c-sel>
+<c-sel class="366"></c-sel>
+<c-sel class="367"></c-sel>
+<c-sel class="368"></c-sel>
+<c-sel class="369"></c-sel>
+<c-sel class="370"></c-sel>
+<c-sel class="371"></c-sel>
+<c-sel class="372"></c-sel>
+<c-sel class="373"></c-sel>
+<c-sel class="374"></c-sel>
+<c-sel class="375"></c-sel>
+<c-sel class="376"></c-sel>
+<c-sel class="377"></c-sel>
+<c-sel class="378"></c-sel>
+<c-sel class="379"></c-sel>
+<c-sel class="380"></c-sel>
+<c-sel class="381"></c-sel>
+<c-sel class="382"></c-sel>
+<c-sel class="383"></c-sel>
+<c-sel class="384"></c-sel>
+<c-sel class="385"></c-sel>
+<c-sel class="386"></c-sel>
+<c-sel class="387"></c-sel>
+<c-sel class="388"></c-sel>
+<c-sel class="389"></c-sel>
+<c-sel class="390"></c-sel>
+<c-sel class="391"></c-sel>
+<c-sel class="392"></c-sel>
+<c-sel class="393"></c-sel>
+<c-sel class="394"></c-sel>
+<c-sel class="395"></c-sel>
+<c-sel class="396"></c-sel>
+<c-sel class="397"></c-sel>
+<c-sel class="398"></c-sel>
+<c-sel class="399"></c-sel>
+<c-sel class="400"></c-sel>
+<c-sel class="401"></c-sel>
+<c-sel class="402"></c-sel>
+<c-sel class="403"></c-sel>
+<c-sel class="404"></c-sel>
+<c-sel class="405"></c-sel>
+<c-sel class="406"></c-sel>
+<c-sel class="407"></c-sel>
+<c-sel class="408"></c-sel>
+<c-sel class="409"></c-sel>
+<c-sel class="410"></c-sel>
+<c-sel class="411"></c-sel>
+<c-sel class="412"></c-sel>
+<c-sel class="413"></c-sel>
+<c-sel class="414"></c-sel>
+<c-sel class="415"></c-sel>
+<c-sel class="416"></c-sel>
+<c-sel class="417"></c-sel>
+<c-sel class="418"></c-sel>
+<c-sel class="419"></c-sel>
+<c-sel class="420"></c-sel>
+<c-sel class="421"></c-sel>
+<c-sel class="422"></c-sel>
+<c-sel class="423"></c-sel>
+<c-sel class="424"></c-sel>
+<c-sel class="425"></c-sel>
+<c-sel class="426"></c-sel>
+<c-sel class="427"></c-sel>
+<c-sel class="428"></c-sel>
+<c-sel class="429"></c-sel>
+<c-sel class="430"></c-sel>
+<c-sel class="431"></c-sel>
+<c-sel class="432"></c-sel>
+<c-sel class="433"></c-sel>
+<c-sel class="434"></c-sel>
+<c-sel class="435"></c-sel>
+<c-sel class="436"></c-sel>
+<c-sel class="437"></c-sel>
+<c-sel class="438"></c-sel>
+<c-sel class="439"></c-sel>
+<c-sel class="440"></c-sel>
+<c-sel class="441"></c-sel>
+<c-sel class="442"></c-sel>
+<c-sel class="443"></c-sel>
+<c-sel class="444"></c-sel>
+<c-sel class="445"></c-sel>
+<c-sel class="446"></c-sel>
+<c-sel class="447"></c-sel>
+<c-sel class="448"></c-sel>
+<c-sel class="449"></c-sel>
+<c-sel class="450"></c-sel>
+<c-sel class="451"></c-sel>
+<c-sel class="452"></c-sel>
+<c-sel class="453"></c-sel>
+<c-sel class="454"></c-sel>
+<c-sel class="455"></c-sel>
+<c-sel class="456"></c-sel>
+<c-sel class="457"></c-sel>
+<c-sel class="458"></c-sel>
+<c-sel class="459"></c-sel>
+<c-sel class="460"></c-sel>
+<c-sel class="461"></c-sel>
+<c-sel class="462"></c-sel>
+<c-sel class="463"></c-sel>
+<c-sel class="464"></c-sel>
+<c-sel class="465"></c-sel>
+<c-sel class="466"></c-sel>
+<c-sel class="467"></c-sel>
+<c-sel class="468"></c-sel>
+<c-sel class="469"></c-sel>
+<c-sel class="470"></c-sel>
+<c-sel class="471"></c-sel>
+<c-sel class="472"></c-sel>
+<c-sel class="473"></c-sel>
+<c-sel class="474"></c-sel>
+<c-sel class="475"></c-sel>
+<c-sel class="476"></c-sel>
+<c-sel class="477"></c-sel>
+<c-sel class="478"></c-sel>
+<c-sel class="479"></c-sel>
+<c-sel class="480"></c-sel>
+<c-sel class="481"></c-sel>
+<c-sel class="482"></c-sel>
+<c-sel class="483"></c-sel>
+<c-sel class="484"></c-sel>
+<c-sel class="485"></c-sel>
+<c-sel class="486"></c-sel>
+<c-sel class="487"></c-sel>
+<c-sel class="488"></c-sel>
+<c-sel class="489"></c-sel>
+<c-sel class="490"></c-sel>
+<c-sel class="491"></c-sel>
+<c-sel class="492"></c-sel>
+<c-sel class="493"></c-sel>
+<c-sel class="494"></c-sel>
+<c-sel class="495"></c-sel>
+<c-sel class="496"></c-sel>
+<c-sel class="497"></c-sel>
+<c-sel class="498"></c-sel>
+<c-sel class="499"></c-sel>
+<c-sel class="500"></c-sel>
+<c-sel class="501"></c-sel>
+<c-sel class="502"></c-sel>
+<c-sel class="503"></c-sel>
+<c-sel class="504"></c-sel>
+<c-sel class="505"></c-sel>
+<c-sel class="506"></c-sel>
+<c-sel class="507"></c-sel>
+<c-sel class="508"></c-sel>
+<c-sel class="509"></c-sel>
+<c-sel class="510"></c-sel>
+<c-sel class="511"></c-sel>
+<c-sel class="512"></c-sel>
+<c-sel class="513"></c-sel>
+<c-sel class="514"></c-sel>
+<c-sel class="515"></c-sel>
+<c-sel class="516"></c-sel>
+<c-sel class="517"></c-sel>
+<c-sel class="518"></c-sel>
+<c-sel class="519"></c-sel>
+<c-sel class="520"></c-sel>
+<c-sel class="521"></c-sel>
+<c-sel class="522"></c-sel>
+<c-sel class="523"></c-sel>
+<c-sel class="524"></c-sel>
+<c-sel class="525"></c-sel>
+<c-sel class="526"></c-sel>
+<c-sel class="527"></c-sel>
+<c-sel class="528"></c-sel>
+<c-sel class="529"></c-sel>
+<c-sel class="530"></c-sel>
+<c-sel class="531"></c-sel>
+<c-sel class="532"></c-sel>
+<c-sel class="533"></c-sel>
+<c-sel class="534"></c-sel>
+<c-sel class="535"></c-sel>
+<c-sel class="536"></c-sel>
+<c-sel class="537"></c-sel>
+
+<c-sel class="539"></c-sel>
+<c-sel class="540"></c-sel>
+<c-sel class="541"></c-sel>
+<c-sel class="542"></c-sel>
+<c-sel class="543"></c-sel>
+<c-sel class="544"></c-sel>
+<c-sel class="545"></c-sel>
+<c-sel class="546"></c-sel>
+<c-sel class="547"></c-sel>
+<c-sel class="548"></c-sel>
+<c-sel class="549"></c-sel>
+<c-sel class="550"></c-sel>
+<c-sel class="551"></c-sel>
+<c-sel class="552"></c-sel>
+<c-sel class="553"></c-sel>
+<c-sel class="554"></c-sel>
+<c-sel class="555"></c-sel>
+<c-sel class="556"></c-sel>
+<c-sel class="557"></c-sel>
+<c-sel class="558"></c-sel>
+<c-sel class="559"></c-sel>
+<c-sel class="560"></c-sel>
+<c-sel class="561"></c-sel>
+<c-sel class="562"></c-sel>
+<c-sel class="563"></c-sel>
+<c-sel class="564"></c-sel>
+<c-sel class="565"></c-sel>
+<c-sel class="566"></c-sel>
+<c-sel class="567"></c-sel>
+<c-sel class="568"></c-sel>
+<c-sel class="569"></c-sel>
+<c-sel class="570"></c-sel>
+<c-sel class="571"></c-sel>
+<c-sel class="572"></c-sel>
+<c-sel class="573"></c-sel>
+<c-sel class="574"></c-sel>
+<c-sel class="575"></c-sel>
+<c-sel class="576"></c-sel>
+<c-sel class="577"></c-sel>
+<c-sel class="578"></c-sel>
+<c-sel class="579"></c-sel>
+<c-sel class="580"></c-sel>
+<c-sel class="581"></c-sel>
+<c-sel class="582"></c-sel>
+<c-sel class="583"></c-sel>
+<c-sel class="584"></c-sel>
+<c-sel class="585"></c-sel>
+<c-sel class="586"></c-sel>
+<c-sel class="587"></c-sel>
+<c-sel class="588"></c-sel>
+<c-sel class="589"></c-sel>
+<c-sel class="590"></c-sel>
+<c-sel class="591"></c-sel>
+<c-sel class="592"></c-sel>
+<c-sel class="593"></c-sel>
+<c-sel class="594"></c-sel>
+<c-sel class="595"></c-sel>
+<c-sel class="596"></c-sel>
+<c-sel class="597"></c-sel>
+<c-sel class="598"></c-sel>
+<c-sel class="599"></c-sel>
+<c-sel class="600"></c-sel>
+<c-sel class="601"></c-sel>
+<c-sel class="602"></c-sel>
+<c-sel class="603"></c-sel>
+<c-sel class="604"></c-sel>
+<c-sel class="605"></c-sel>
+<c-sel class="606"></c-sel>
+<c-sel class="607"></c-sel>
+<c-sel class="608"></c-sel>
+<c-sel class="609"></c-sel>
+<c-sel class="610"></c-sel>
+<c-sel class="611"></c-sel>
+<c-sel class="612"></c-sel>
+<c-sel class="613"></c-sel>
+<c-sel class="614"></c-sel>
+<c-sel class="615"></c-sel>
+<c-sel class="616"></c-sel>
+<c-sel class="617"></c-sel>
+<c-sel class="618"></c-sel>
+<c-sel class="619"></c-sel>
+<c-sel class="620"></c-sel>
+<c-sel class="621"></c-sel>
+<c-sel class="622"></c-sel>
+<c-sel class="623"></c-sel>
+<c-sel class="624"></c-sel>
+<c-sel class="625"></c-sel>
+<c-sel class="626"></c-sel>
+<c-sel class="627"></c-sel>
+<c-sel class="628"></c-sel>
+<c-sel class="629"></c-sel>
+<c-sel class="630"></c-sel>
+<c-sel class="631"></c-sel>
+<c-sel class="632"></c-sel>
+<c-sel class="633"></c-sel>
+<c-sel class="634"></c-sel>
+<c-sel class="635"></c-sel>
+<c-sel class="636"></c-sel>
+<c-sel class="637"></c-sel>
+<c-sel class="638"></c-sel>
+<c-sel class="639"></c-sel>
+<c-sel class="640"></c-sel>
+<c-sel class="641"></c-sel>
+<c-sel class="642"></c-sel>
+<c-sel class="643"></c-sel>
+<c-sel class="644"></c-sel>
+<c-sel class="645"></c-sel>
+<c-sel class="646"></c-sel>
+<c-sel class="647"></c-sel>
+<c-sel class="648"></c-sel>
+<c-sel class="649"></c-sel>
+<c-sel class="650"></c-sel>
+<c-sel class="651"></c-sel>
+<c-sel class="652"></c-sel>
+<c-sel class="653"></c-sel>
+<c-sel class="654"></c-sel>
+<c-sel class="655"></c-sel>
+<c-sel class="656"></c-sel>
+<c-sel class="657"></c-sel>
+<c-sel class="658"></c-sel>
+<c-sel class="659"></c-sel>
+<c-sel class="660"></c-sel>
+<c-sel class="661"></c-sel>
+<c-sel class="662"></c-sel>
+<c-sel class="663"></c-sel>
+<c-sel class="664"></c-sel>
+<c-sel class="665"></c-sel>
+<c-sel class="666"></c-sel>
+<c-sel class="667"></c-sel>
+<c-sel class="668"></c-sel>
+<c-sel class="669"></c-sel>
+<c-sel class="670"></c-sel>
+<c-sel class="671"></c-sel>
+<c-sel class="672"></c-sel>
+<c-sel class="673"></c-sel>
+<c-sel class="674"></c-sel>
+<c-sel class="675"></c-sel>
+<c-sel class="676"></c-sel>
+<c-sel class="677"></c-sel>
+<c-sel class="678"></c-sel>
+<c-sel class="679"></c-sel>
+<c-sel class="680"></c-sel>
+<c-sel class="681"></c-sel>
+<c-sel class="682"></c-sel>
+<c-sel class="683"></c-sel>
+<c-sel class="684"></c-sel>
+<c-sel class="685"></c-sel>
+<c-sel class="686"></c-sel>
+<c-sel class="687"></c-sel>
+<c-sel class="688"></c-sel>
+<c-sel class="689"></c-sel>
+<c-sel class="690"></c-sel>
+<c-sel class="691"></c-sel>
+<c-sel class="692"></c-sel>
+<c-sel class="693"></c-sel>
+<c-sel class="694"></c-sel>
+<c-sel class="695"></c-sel>
+<c-sel class="696"></c-sel>
+<c-sel class="697"></c-sel>
+<c-sel class="698"></c-sel>
+<c-sel class="699"></c-sel>
+<c-sel class="700"></c-sel>
+<c-sel class="701"></c-sel>
+<c-sel class="702"></c-sel>
+<c-sel class="703"></c-sel>
+<c-sel class="704"></c-sel>
+<c-sel class="705"></c-sel>
+<c-sel class="706"></c-sel>
+
+<c-sel class="708"></c-sel>
+<c-sel class="709"></c-sel>
+<c-sel class="710"></c-sel>
+<c-sel class="711"></c-sel>
+<c-sel class="712"></c-sel>
+<c-sel class="713"></c-sel>
+<c-sel class="714"></c-sel>
+<c-sel class="715"></c-sel>
+<c-sel class="716"></c-sel>
+<c-sel class="717"></c-sel>
+<c-sel class="718"></c-sel>
+<c-sel class="719"></c-sel>
+<c-sel class="720"></c-sel>
+<c-sel class="721"></c-sel>
+<c-sel class="722"></c-sel>
+<c-sel class="723"></c-sel>
+<c-sel class="724"></c-sel>
+<c-sel class="725"></c-sel>
+<c-sel class="726"></c-sel>
+<c-sel class="727"></c-sel>
+<c-sel class="728"></c-sel>
+<c-sel class="729"></c-sel>
+<c-sel class="730"></c-sel>
+<c-sel class="731"></c-sel>
+<c-sel class="732"></c-sel>
+<c-sel class="733"></c-sel>
+<c-sel class="734"></c-sel>
+<c-sel class="735"></c-sel>
+<c-sel class="736"></c-sel>
+<c-sel class="737"></c-sel>
+<c-sel class="738"></c-sel>
+<c-sel class="739"></c-sel>
+<c-sel class="740"></c-sel>
+<c-sel class="741"></c-sel>
+<c-sel class="742"></c-sel>
+<c-sel class="743"></c-sel>
+<c-sel class="744"></c-sel>
+<c-sel class="745"></c-sel>
+<c-sel class="746"></c-sel>
+<c-sel class="747"></c-sel>
+<c-sel class="748"></c-sel>
+
+<c-sel class="750"></c-sel>
+<c-sel class="751"></c-sel>
+<c-sel class="752"></c-sel>
+<c-sel class="753"></c-sel>
+<c-sel class="754"></c-sel>
+<c-sel class="755"></c-sel>
+<c-sel class="756"></c-sel>
+<c-sel class="757"></c-sel>
+<c-sel class="758"></c-sel>
+<c-sel class="759"></c-sel>
+<c-sel class="760"></c-sel>
+
+<c-sel class="762"></c-sel>
+<c-sel class="763"></c-sel>
+<c-sel class="764"></c-sel>
+<c-sel class="765"></c-sel>
+<c-sel class="766"></c-sel>
+
+<c-sel class="768"></c-sel>
+<c-sel class="769"></c-sel>
+<c-sel class="770"></c-sel>
+<c-sel class="771"></c-sel>
+<c-sel class="772"></c-sel>
+<c-sel class="773"></c-sel>
+<c-sel class="774"></c-sel>
+<c-sel class="775"></c-sel>
+<c-sel class="776"></c-sel>
+<c-sel class="777"></c-sel>
+<c-sel class="778"></c-sel>
+<c-sel class="779"></c-sel>
+<c-sel class="780"></c-sel>
+<c-sel class="781"></c-sel>
+<c-sel class="782"></c-sel>
+<c-sel class="783"></c-sel>
+<c-sel class="784"></c-sel>
+<c-sel class="785"></c-sel>
+<c-sel class="786"></c-sel>
+<c-sel class="787"></c-sel>
+<c-sel class="788"></c-sel>
+<c-sel class="789"></c-sel>
+<c-sel class="790"></c-sel>
+<c-sel class="791"></c-sel>
+<c-sel class="792"></c-sel>
+<c-sel class="793"></c-sel>
+<c-sel class="794"></c-sel>
+<c-sel class="795"></c-sel>
+<c-sel class="796"></c-sel>
+<c-sel class="797"></c-sel>
+<c-sel class="798"></c-sel>
+<c-sel class="799"></c-sel>
+<c-sel class="800"></c-sel>
+<c-sel class="801"></c-sel>
+<c-sel class="802"></c-sel>
+<c-sel class="803"></c-sel>
+<c-sel class="804"></c-sel>
+<c-sel class="805"></c-sel>
+<c-sel class="806"></c-sel>
+<c-sel class="807"></c-sel>
+<c-sel class="808"></c-sel>
+<c-sel class="809"></c-sel>
+<c-sel class="810"></c-sel>
+<c-sel class="811"></c-sel>
+<c-sel class="812"></c-sel>
+<c-sel class="813"></c-sel>
+<c-sel class="814"></c-sel>
+<c-sel class="815"></c-sel>
+<c-sel class="816"></c-sel>
+<c-sel class="817"></c-sel>
+<c-sel class="818"></c-sel>
+<c-sel class="819"></c-sel>
+<c-sel class="820"></c-sel>
+<c-sel class="821"></c-sel>
+<c-sel class="822"></c-sel>
+<c-sel class="823"></c-sel>
+<c-sel class="824"></c-sel>
+<c-sel class="825"></c-sel>
+<c-sel class="826"></c-sel>
+<c-sel class="827"></c-sel>
+<c-sel class="828"></c-sel>
+<c-sel class="829"></c-sel>
+<c-sel class="830"></c-sel>
+<c-sel class="831"></c-sel>
+<c-sel class="832"></c-sel>
+<c-sel class="833"></c-sel>
+<c-sel class="834"></c-sel>
+<c-sel class="835"></c-sel>
+<c-sel class="836"></c-sel>
+<c-sel class="837"></c-sel>
+<c-sel class="838"></c-sel>
+<c-sel class="839"></c-sel>
+<c-sel class="840"></c-sel>
+<c-sel class="841"></c-sel>
+<c-sel class="842"></c-sel>
+<c-sel class="843"></c-sel>
+<c-sel class="844"></c-sel>
+<c-sel class="845"></c-sel>
+<c-sel class="846"></c-sel>
+<c-sel class="847"></c-sel>
+<c-sel class="848"></c-sel>
+<c-sel class="849"></c-sel>
+<c-sel class="850"></c-sel>
+<c-sel class="851"></c-sel>
+<c-sel class="852"></c-sel>
+<c-sel class="853"></c-sel>
+<c-sel class="854"></c-sel>
+<c-sel class="855"></c-sel>
+<c-sel class="856"></c-sel>
+<c-sel class="857"></c-sel>
+<c-sel class="858"></c-sel>
+<c-sel class="859"></c-sel>
+<c-sel class="860"></c-sel>
+<c-sel class="861"></c-sel>
+<c-sel class="862"></c-sel>
+<c-sel class="863"></c-sel>
+<c-sel class="864"></c-sel>
+<c-sel class="865"></c-sel>
+<c-sel class="866"></c-sel>
+<c-sel class="867"></c-sel>
+<c-sel class="868"></c-sel>
+<c-sel class="869"></c-sel>
+<c-sel class="870"></c-sel>
+<c-sel class="871"></c-sel>
+<c-sel class="872"></c-sel>
+<c-sel class="873"></c-sel>
+<c-sel class="874"></c-sel>
+<c-sel class="875"></c-sel>
+<c-sel class="876"></c-sel>
+<c-sel class="877"></c-sel>
+<c-sel class="878"></c-sel>
+<c-sel class="879"></c-sel>
+<c-sel class="880"></c-sel>
+<c-sel class="881"></c-sel>
+<c-sel class="882"></c-sel>
+<c-sel class="883"></c-sel>
+<c-sel class="884"></c-sel>
+<c-sel class="885"></c-sel>
+<c-sel class="886"></c-sel>
+<c-sel class="887"></c-sel>
+<c-sel class="888"></c-sel>
+<c-sel class="889"></c-sel>
+<c-sel class="890"></c-sel>
+<c-sel class="891"></c-sel>
+<c-sel class="892"></c-sel>
+<c-sel class="893"></c-sel>
+<c-sel class="894"></c-sel>
+<c-sel class="895"></c-sel>
+<c-sel class="896"></c-sel>
+<c-sel class="897"></c-sel>
+<c-sel class="898"></c-sel>
+<c-sel class="899"></c-sel>
+<c-sel class="900"></c-sel>
+
+<c-sel class="902"></c-sel>
+<c-sel class="903"></c-sel>
+<c-sel class="904"></c-sel>
+<c-sel class="905"></c-sel>
+<c-sel class="906"></c-sel>
+<c-sel class="907"></c-sel>
+<c-sel class="908"></c-sel>
+<c-sel class="909"></c-sel>
+<c-sel class="910"></c-sel>
+<c-sel class="911"></c-sel>
+<c-sel class="912"></c-sel>
+<c-sel class="913"></c-sel>
+<c-sel class="914"></c-sel>
+<c-sel class="915"></c-sel>
+<c-sel class="916"></c-sel>
+<c-sel class="917"></c-sel>
+<c-sel class="918"></c-sel>
+<c-sel class="919"></c-sel>
+<c-sel class="920"></c-sel>
+<c-sel class="921"></c-sel>
+<c-sel class="922"></c-sel>
+<c-sel class="923"></c-sel>
+<c-sel class="924"></c-sel>
+<c-sel class="925"></c-sel>
+<c-sel class="926"></c-sel>
+<c-sel class="927"></c-sel>
+<c-sel class="928"></c-sel>
+<c-sel class="929"></c-sel>
+<c-sel class="930"></c-sel>
+<c-sel class="931"></c-sel>
+<c-sel class="932"></c-sel>
+<c-sel class="933"></c-sel>
+<c-sel class="934"></c-sel>
+<c-sel class="935"></c-sel>
+<c-sel class="936"></c-sel>
+<c-sel class="937"></c-sel>
+<c-sel class="938"></c-sel>
+<c-sel class="939"></c-sel>
+<c-sel class="940"></c-sel>
+<c-sel class="941"></c-sel>
+<c-sel class="942"></c-sel>
+<c-sel class="943"></c-sel>
+<c-sel class="944"></c-sel>
+<c-sel class="945"></c-sel>
+<c-sel class="946"></c-sel>
+<c-sel class="947"></c-sel>
+<c-sel class="948"></c-sel>
+<c-sel class="949"></c-sel>
+<c-sel class="950"></c-sel>
+<c-sel class="951"></c-sel>
+<c-sel class="952"></c-sel>
+<c-sel class="953"></c-sel>
+<c-sel class="954"></c-sel>
+<c-sel class="955"></c-sel>
+<c-sel class="956"></c-sel>
+<c-sel class="957"></c-sel>
+<c-sel class="958"></c-sel>
+<c-sel class="959"></c-sel>
+<c-sel class="960"></c-sel>
+<c-sel class="961"></c-sel>
+<c-sel class="962"></c-sel>
+<c-sel class="963"></c-sel>
+<c-sel class="964"></c-sel>
+<c-sel class="965"></c-sel>
+<c-sel class="966"></c-sel>
+<c-sel class="967"></c-sel>
+<c-sel class="968"></c-sel>
+<c-sel class="969"></c-sel>
+<c-sel class="970"></c-sel>
+<c-sel class="971"></c-sel>
+<c-sel class="972"></c-sel>
+<c-sel class="973"></c-sel>
+<c-sel class="974"></c-sel>
+<c-sel class="975"></c-sel>
+<c-sel class="976"></c-sel>
+<c-sel class="977"></c-sel>
+<c-sel class="978"></c-sel>
+<c-sel class="979"></c-sel>
+<c-sel class="980"></c-sel>
+<c-sel class="981"></c-sel>
+<c-sel class="982"></c-sel>
+<c-sel class="983"></c-sel>
+<c-sel class="984"></c-sel>
+<c-sel class="985"></c-sel>
+<c-sel class="986"></c-sel>
+<c-sel class="987"></c-sel>
+<c-sel class="988"></c-sel>
+<c-sel class="989"></c-sel>
+<c-sel class="990"></c-sel>
+<c-sel class="991"></c-sel>
+<c-sel class="992"></c-sel>
+<c-sel class="993"></c-sel>
+<c-sel class="994"></c-sel>
+<c-sel class="995"></c-sel>
+<c-sel class="996"></c-sel>
+<c-sel class="997"></c-sel>
+<c-sel class="998"></c-sel>
+<c-sel class="999"></c-sel>
+<c-sel class="1000"></c-sel>
+<c-sel class="1001"></c-sel>
+<c-sel class="1002"></c-sel>
+<c-sel class="1003"></c-sel>
+<c-sel class="1004"></c-sel>
+<c-sel class="1005"></c-sel>
+<c-sel class="1006"></c-sel>
+<c-sel class="1007"></c-sel>
+<c-sel class="1008"></c-sel>
+<c-sel class="1009"></c-sel>
+<c-sel class="1010"></c-sel>
+<c-sel class="1011"></c-sel>
+<c-sel class="1012"></c-sel>
+<c-sel class="1013"></c-sel>
+<c-sel class="1014"></c-sel>
+<c-sel class="1015"></c-sel>
+<c-sel class="1016"></c-sel>
+<c-sel class="1017"></c-sel>
+<c-sel class="1018"></c-sel>
+<c-sel class="1019"></c-sel>
+<c-sel class="1020"></c-sel>
+<c-sel class="1021"></c-sel>
+<c-sel class="1022"></c-sel>
+<c-sel class="1023"></c-sel>
+<c-sel class="1024"></c-sel>
+<c-sel class="1025"></c-sel>
+<c-sel class="1026"></c-sel>
+<c-sel class="1027"></c-sel>
+<c-sel class="1028"></c-sel>
+<c-sel class="1029"></c-sel>
+<c-sel class="1030"></c-sel>
+<c-sel class="1031"></c-sel>
+<c-sel class="1032"></c-sel>
+<c-sel class="1033"></c-sel>
+<c-sel class="1034"></c-sel>
+<c-sel class="1035"></c-sel>
+<c-sel class="1036"></c-sel>
+<c-sel class="1037"></c-sel>
+<c-sel class="1038"></c-sel>
+<c-sel class="1039"></c-sel>
+<c-sel class="1040"></c-sel>
+<c-sel class="1041"></c-sel>
+<c-sel class="1042"></c-sel>
+<c-sel class="1043"></c-sel>
+<c-sel class="1044"></c-sel>
+<c-sel class="1045"></c-sel>
+<c-sel class="1046"></c-sel>
+<c-sel class="1047"></c-sel>
+<c-sel class="1048"></c-sel>
+<c-sel class="1049"></c-sel>
+<c-sel class="1050"></c-sel>
+<c-sel class="1051"></c-sel>
+<c-sel class="1052"></c-sel>
+<c-sel class="1053"></c-sel>
+<c-sel class="1054"></c-sel>
+<c-sel class="1055"></c-sel>
+<c-sel class="1056"></c-sel>
+<c-sel class="1057"></c-sel>
+<c-sel class="1058"></c-sel>
+<c-sel class="1059"></c-sel>
+<c-sel class="1060"></c-sel>
+<c-sel class="1061"></c-sel>
+<c-sel class="1062"></c-sel>
+<c-sel class="1063"></c-sel>
+<c-sel class="1064"></c-sel>
+<c-sel class="1065"></c-sel>
+<c-sel class="1066"></c-sel>
+<c-sel class="1067"></c-sel>
+<c-sel class="1068"></c-sel>
+<c-sel class="1069"></c-sel>
+<c-sel class="1070"></c-sel>
+<c-sel class="1071"></c-sel>
+<c-sel class="1072"></c-sel>
+<c-sel class="1073"></c-sel>
+<c-sel class="1074"></c-sel>
+<c-sel class="1075"></c-sel>
+<c-sel class="1076"></c-sel>
+<c-sel class="1077"></c-sel>
+<c-sel class="1078"></c-sel>
+<c-sel class="1079"></c-sel>
+<c-sel class="1080"></c-sel>
+<c-sel class="1081"></c-sel>
+<c-sel class="1082"></c-sel>
+<c-sel class="1083"></c-sel>
+<c-sel class="1084"></c-sel>
+<c-sel class="1085"></c-sel>
+<c-sel class="1086"></c-sel>
+<c-sel class="1087"></c-sel>
+<c-sel class="1088"></c-sel>
+<c-sel class="1089"></c-sel>
+
+<c-sel class="1091"></c-sel>
+<c-sel class="1092"></c-sel>
+<c-sel class="1093"></c-sel>
+<c-sel class="1094"></c-sel>
+<c-sel class="1095"></c-sel>
+<c-sel class="1096"></c-sel>
+<c-sel class="1097"></c-sel>
+<c-sel class="1098"></c-sel>
+<c-sel class="1099"></c-sel>
+<c-sel class="1100"></c-sel>
+<c-sel class="1101"></c-sel>
+<c-sel class="1102"></c-sel>
+<c-sel class="1103"></c-sel>
+<c-sel class="1104"></c-sel>
+<c-sel class="1105"></c-sel>
+<c-sel class="1106"></c-sel>
+<c-sel class="1107"></c-sel>
+<c-sel class="1108"></c-sel>
+<c-sel class="1109"></c-sel>
+<c-sel class="1110"></c-sel>-->
+</div>
+</div>
+</div>
+<div id="askrandom" style="display: none;">
+<div class="subcontainer">
+<p>Type in Tile IDs. Every line will be counted as a different ID.</p>
+<textarea id="askrandomin"></textarea>
+<p><button onclick="document.getElementById('askrandom').style.display = 'none';">X</button><label for="brushRandom"><input type="checkbox" id="brushRandom">Enable Brush</label></p>
+</div>
+</div>
+<div id="obstaclecount" style="display: none;">
+</div>
+<style id="blacklist"></style>
+</div>
+
+<!--script id="javascript" src="index.js"></script-->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<!--<script>LOGIN();</script>-->
+<c-collections style="display: none;" id="clmc">
+<!-- Dear user, be careful when around here. Changing anything around in this Collection Manager HTML element has a chance to corrupt your whole save data. -->
+<c-col-con>
+<h2><span data-lang="webeditor.collectionmanager.title">Collection Manager</span><c-buttoncontainer><button onclick="LCM.AddCollection('New Collection')" data-lang="webeditor.collectionmanager.collections.add">Add Collection</button><button onclick="LCM.HideMenu()" data-lang="webeditor.collectionmanager.exit"></button></c-buttoncontainer></h2>
+<p data-lang="webeditor.collectionmanager.description">Note that this feature is EXPEREMENTAL and you should download backups frequently.<br><br>The Collection Manager allows you to store levels in the WebEditor. These levels are stored in your browser though, so make sure not to clear your cache.</p><c-buttoncontainer style="margin-bottom: 15px;"><button onclick="LCM.ManualSave()" data-lang="webeditor.collectionmanager.manualsave">Manual Save Online</button><button onclick="LCM.DownloadDataBackup()" data-lang="webeditor.collectionmanager.downloadbackup">Download Data Backup</button></c-buttoncontainer>
+<p style="margin-top: 0; margin-bottom: 10px;"><span data-lang="webeditor.collectionmanager.uploadbackup"></span><input type="file" id="collectionBackupLoad" onchange="LCM.LoadBackup()" accept=".WebCLB"></p>
+	<div id="collectionContent">
+	</div>
+</c-col-con>
+</c-collections>
+<div id="displayBall"></div>
+</body>
+</html>

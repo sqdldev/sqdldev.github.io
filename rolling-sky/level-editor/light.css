@@ -1,0 +1,20 @@
+:root {
+    --tileset01: url(../tileset/tileset01.png);
+    --mainbg: #ffffff;
+    --maintxt: #000;
+	--alttxt: #0015ff;
+    --tilebg: #f7f7f7;
+    --tilegrid: #000;
+    --tileblank: #aaa;
+    --header: #adadad;
+    --toolbarbg: #4d4d4d;
+    --hropacity: 20%;
+	
+    --inputbg: #dedede;
+    --input-brd-sty: solid;
+    --input-brd-col: #c3c3c3;
+    --button-brd-sty: solid;
+    --button-brd-col: #a9a9a9;
+    --buttonbg-def: #d6d6d6;
+    --buttonbg-hov: #5b5b5b;
+}

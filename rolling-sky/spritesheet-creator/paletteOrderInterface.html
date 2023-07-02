@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SpriteMaker Palette Order Interface</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="../global.css">
+		<script src="../../assets/jscolor.js"></script>
+		<style>
+			body {
+				margin: 20px;
+			}
+			
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(4, 64px);
+				grid-template-rows: repeat(3, 64px);
+				gap: 0;
+			}
+
+			.cell {
+				width: 44px;
+				height: 44px;
+				border: 1px solid #ffffff54;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				cursor: pointer;
+				text-align: center;
+				font-size: 10px;
+				padding: 10px;
+				background: hsl(227 10% 15% / 1);
+				transition: 0.15s;
+			}
+			
+			.cell:hover {
+				background: hsl(227 10% 20% / 1);
+				transition: 0.15s;
+			}
+
+			.popup {
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				min-width: 200px;
+				width: max-content;
+				max-height: 70vh;
+				overflow-y: auto;
+				padding: 30px;
+				border-radius: 15px;
+				background-color: hsl(227 10% 14% / 1);
+				/* border: 2px solid #ffffff54; */
+				z-index: 9999;
+			}
+
+			.popup select {
+				margin-top: 10px;
+			}
+
+			.popup input {
+				margin-top: 10px;
+			}
+
+			.popup button {
+				margin-top: 10px;
+			}
+			
+			h2 {
+				margin: 0;
+			}
+			
+			#inputContainer {
+				display: flex;
+				flex-direction: column;
+				align-content: center;
+				justify-content: center;
+				align-items: stretch;
+			}
+			
+			#output {
+				width: 250px;
+				max-width: 100%;
+				height: 250px;
+				outline: none;
+				border: none;
+				background: #202228;
+				border-radius: 15px;
+				resize: none;
+				overflow-y: auto;
+				display: none;
+			}
+			
+			.jscolor-wrap {
+				z-index: 100000 !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="grid" id="mainGrid">
+			<div class="cell"></div>
+			<div class="cell"></div>
+			<div class="cell"></div>
+			<div class="cell"></div>
+			<div class="cell"></div>
+			<div class="cell"></div>
+			<div class="cell"></div>
+			<div class="cell"></div>
+			<div class="cell"></div>
+			<div class="cell"></div>
+			<div class="cell"></div>
+			<div class="cell"></div>
+		</div>
+		<p>
+			<button onclick="generate()">Generate</button>
+		</p>
+		<p>
+			<textarea readonly id="output"></textarea>
+		</p>
+
+		<div class="popup" id="popup" style="display: none;">
+			<h2>Cell <span id="cellId"></span></h2>
+			<select id="dropdown">
+			</select>
+			<div id="inputContainer"></div>
+			<button onclick="closePopup()">Close</button>
+		</div>
+		
+		<script src="data.js"></script>
+		
+		<script>
+			
+			var ElementsColors = [];
+			
+			try {
+				ElementsColors = []//JSON.parse(localStorage.getItem('paletteOrderColorsJSON'));
+				if (!ElementsColors) {
+					ElementsColors = [];
+				}
+			} catch {}
+			
+			if (ElementsColors.length == 0) {
+				PaletteOrder.forEach(() => {
+					ElementsColors.push([]);
+				});
+			}
+			
+			function generate() {
+				var json = {"elements": []};
+				ElementsColors.forEach((e, i) => {
+					var element = {};
+					element['position'] = i + 1;
+					element['type'] = e[0];
+					element['colors'] = [...e].splice(1);
+					if (i < 12) {
+						json.elements.push(element);
+					}
+				});
+				window.parent.postMessage(JSON.stringify(json), "*");
+				setTimeout(() => {window.parent.postMessage('f:updateForm()');}, 20);
+			}
+			
+			window.onload = () => {
+				window.parent.postMessage('f:loadPaletteOrder()');
+			}
+			
+			function fromJSON(json) {
+				JSON.parse(json).elements.forEach((e) => {
+					ElementsColors[e.position - 1] = [e.type];
+					console.log(e);
+					e.colors.forEach((f) => {
+						ElementsColors[e.position - 1].push(f);
+					});
+				});
+			}
+			
+			window.addEventListener('message', e => {
+				const key = e.message ? 'message' : 'data';
+				const data = e[key];
+				fromJSON(data);
+				program();
+			}, false);
+			
+			function program() {
+				jscolor.presets.default.backgroundColor = 'rgb(61, 61, 67, 1)';
+				jscolor.presets.default.borderColor = 'rgb(95, 95, 110, 1)';
+			
+				const mainGrid = document.getElementById('mainGrid');
+				
+				for (var i = 0; i < mainGrid.children.length; i++) {
+					var e = mainGrid.children[i];
+					e.setAttribute('onclick', 'showPopup(' + i.toString() + ')');
+					e.innerHTML = 'Empty';
+					if (ElementsColors[i] && PaletteOrder[ElementsColors[i][0]]) {
+						e.innerHTML = PaletteOrder[ElementsColors[i][0]][1];
+					}
+				}
+				
+				const selectDropdown = document.getElementById('dropdown');
+				
+				window.showPopup = (index) => {
+					if (document.getElementById('popup').dataset.index == index.toString()) {
+						return;
+					}
+					const popup = document.getElementById('popup');
+					const cellId = document.getElementById('cellId');
+					cellId.innerHTML = (index + 1).toString();
+					popup.style.display = 'block';
+					popup.dataset.index = index;
+					var feature = mainGrid.children[index].getAttribute('data-feature');
+					if (feature == null || isNaN(feature)) {
+						feature = ElementsColors[index][0];
+					}
+					selectDropdown.value = (feature == null || isNaN(feature)) ? '' : feature;
+					updateColorInputs();
+				}
+				
+				window.closePopup = () => {
+					const popup = document.getElementById('popup');
+					popup.style.display = 'none';
+					popup.dataset.index = '';
+					document.getElementById('dropdown').selectedIndex = 0;
+					document.getElementById('inputContainer').innerHTML = '';
+				}
+				var dropdownValues = ['<option value="">Empty</option>'];
+				PaletteOrder.forEach((e) => {
+					dropdownValues.push('<option value="' + e[0] + '">' + e[1] + '</option>');
+				});
+				selectDropdown.innerHTML = dropdownValues.join('');
+				
+				selectDropdown.addEventListener('change', updateColorInputs);
+				
+				function updateColorInputs() {
+					const selectedOption = parseInt(selectDropdown.value);
+					const index = document.getElementById('popup').dataset.index;
+					const inputContainer = document.getElementById('inputContainer');
+					inputContainer.innerHTML = '';
+					var currentGrid = mainGrid.children[index];
+					currentGrid.setAttribute('data-feature', selectedOption);
+
+					if (selectedOption !== '') {
+						const element = PaletteOrder[selectedOption];
+						if (element) {
+							currentGrid.innerHTML = element[1];
+							const numInputs = element[2];
+							ElementsColors[index].push('#ffffff');
+							ElementsColors[index][0] = selectedOption;
+							for (let i = 0; i < numInputs; i++) {
+								if (ElementsColors[index] == null || ElementsColors[index].length < i + 2) {
+									ElementsColors[index].push('#ffffff');
+								}
+								const input = document.createElement('input');
+								input.addEventListener('input', () => {
+									if (input.value != undefined) {
+										ElementsColors[index][i + 1] = input.value;
+									} else {
+										ElementsColors[index][i + 1] = '#ffffff';
+									}
+								});
+								generate();
+								input.addEventListener('change', () => {
+									//localStorage.setItem('paletteOrderColorsJSON', JSON.stringify(ElementsColors));
+								});
+								input.value = '#ffffff';
+								try {
+									input.value = ElementsColors[index][i + 1];
+								} catch {}
+								input.type = 'text';
+								input.setAttribute('data-jscolor', '{}');
+								input.placeholder = 'Color ' + (i + 1);
+								inputContainer.appendChild(input);
+							}
+						}
+					}
+					JSColor.install();
+				}
+			}
+		</script>
+	</body>
+</html>

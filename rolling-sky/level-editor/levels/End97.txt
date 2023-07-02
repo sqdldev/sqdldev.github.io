@@ -1,0 +1,24 @@
+[header]
+width=5
+height=10
+tilewidth=40
+tileheight=40
+orientation=orthogonal
+
+[tilesets]
+tileset=Tiled/tileMap1600.png,40,40,0,0
+
+[layer]
+type=17 - Extreme
+data=
+186,185,185,185,186,
+1,0,1,0,1,
+1,0,1,0,1,
+1131,0,1,0,1130,
+0,1,1,1,0,
+0,1,1,1,0,
+1,1,1,1,1,
+1,1,1,1,1,
+1,1,1,1,1,
+1,1,1,1,1
+

@@ -1,0 +1,20 @@
+:root {
+    color-scheme: dark;
+    --mainbg: #474747;
+    --maintxt: #ffffff;
+    --alttxt: #a5ffa2;
+    --tilebg: #3d3d3d;
+    --tilegrid: #808080;
+    --tileblank: #00000000;
+    --header: #383838;
+    --toolbarbg: #303030;
+    --hropacity: 30%;
+	
+    --inputbg: #545454;
+    --input-brd-sty: solid;
+    --input-brd-col: #5e5e5e;
+    --button-brd-sty: solid;
+    --button-brd-col: #737373;
+    --buttonbg-def: #616161;
+    --buttonbg-hov: #ffffff;
+}
