@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!-- OwO -->
+<html>
+	<head>
+		<title>Rolling Sky Utilities List</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="pagename" content="Rolling Sky Utilities List">
+		<meta name="description" content="A new and improved list of Rolling Sky Utilities.">
+		<link rel="stylesheet" href="../global.css">
+		<script src="../global.js"></script>
+		<script src="https://www.googletagmanager.com/gtag/js?id=G-E48XX6KB6H" async=""></script>
+		<script src="../../favicon.js"></script>
+		<style>
+			html {
+				color: white;
+				position: absolute;
+				width: 100%;
+				margin: 0;
+			}
+			:root {
+				color-scheme: dark;
+				--baseFontSize: calc(50% + min(1vw, 8px));
+			}
+			#list {
+				list-style-type: none;
+				margin: 0;
+				height: 750px;
+				width: max-content;
+				max-width: calc(100vw - 70pt);
+				overflow-y: scroll;
+				background: hsl(225deg 6% 13%);
+				padding: 10pt;
+				border-radius: 20pt;
+				border-style: solid;
+				border: solid;
+				border-color: hsl(216deg 4% 15%);
+				-ms-overflow-style: none;
+				scrollbar-width: none;
+			}
+			#list::-webkit-scrollbar { 
+				display: none;  /* Safari and Chrome */
+			}
+			#list li {
+				padding: 15pt;
+				border: solid;
+				border-radius: 15pt;
+				border-color: #2c2e31;
+				margin-bottom: 5pt;
+				background: #27282b;
+				width: 650pt;
+				max-width: calc(100vw - 104pt);
+				overflow: hidden;
+			}
+			#list h3 {
+				margin-top: 0;
+				margin-bottom: 11pt;
+				font-size: calc(var(--baseFontSize) + 3.5pt);
+			}
+			#list p {
+				max-width: 85%;
+				margin-bottom: 0;
+				margin-top: 11pt;
+				font-size: var(--baseFontSize);
+			}
+			#searchContainer {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				align-items: stretch;
+				justify-content: flex-start;
+				align-content: flex-start;
+			}
+			c-author {
+				float: right;
+				color: white;
+				background: #2168b9;
+				padding: 5pt;
+				border-radius: 8pt;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: nowrap;
+				align-content: center;
+				justify-content: flex-start;
+				align-items: center;
+				user-select: none;
+			}
+			c-author a {
+				font-size: 10pt;
+				height: 18px;
+				color: white;
+				text-decoration: none;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: nowrap;
+				align-content: center;
+				align-items: center;
+				justify-content: flex-start;
+			}
+			c-author img {
+				height: 18px;
+				margin-left: 4pt;
+			}
+			c-categories {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				align-content: flex-start;
+				justify-content: flex-start;
+				align-items: flex-start;
+				user-select: none;
+			}
+			c-category-type, c-category-type-highlighted {
+				background: #4a4a4a;
+				border-radius: 8pt;
+				font-size: calc(var(--baseFontSize) - 1.5pt);
+				margin-right: 3pt;
+				padding: 2.5pt 5pt;
+			}
+			c-category-type-highlighted {
+				background: #b66826;
+			}
+			c-ender {
+				display: inline-flex;
+				flex-direction: row;
+				flex-wrap: nowrap;
+				align-content: center;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+				margin: 15pt 0;
+				opacity: 0.5;
+				user-select: none;
+			}
+			#list li.list_featured {
+				border-color: #1f457a;
+				background: #232f52;
+			}
+			#list li.list_featured c-category-type {
+				background: #3956ac;
+			}
+			#list li.list_featured h3 a {
+				color: #88beff;
+			}
+			#list li.list_highlighted {
+				border-color: #2d7a1f;
+				background: #2e5223;
+			}
+			#list li.list_highlighted c-category-type {
+				background: #58ac39;
+			}
+			#list li.list_highlighted h3 a {
+				color: #99ff88;
+			}
+			#list li.list_highlighted c-author {
+				background: #3db921;
+			}
+			a {
+				color: #88ff79;
+			}
+			a.href1 {
+				color: #79b6ff;
+				text-decoration: underline;
+			}
+			a.href2, a .href2 {
+				color: #ff7979;
+				text-decoration: underline;	
+			}
+			
+			.example_codeblock {
+			    margin-top: 10pt;
+				padding: 10pt;
+				background: #0000004f;
+				border-radius: 10pt;
+				font-family: monospace !important;
+				font-size: calc(var(--baseFontSize) - 2pt);
+			}
+			.incorrect {
+				color: #ff4545;
+			}
+			.correct {
+				color: #75ff75;
+			}
+			#recentChanges {
+			    width: 650px;
+				max-width: 75vw;
+				max-height: 350px;
+				overflow-x: auto;
+			}
+			#recentChanges * {
+				white-space: pre-wrap;
+				max-height: 400px;
+				overflow: hidden auto;
+				width: max-content;
+				/*padding-right: 15px;*/
+			}
+			#recentChanges li {
+			    margin-bottom: 12px;
+			}
+			#recentChanges, #recentChanges li {
+				width: 650px;
+				max-width: 75vw;
+			}
+			#recentChanges * {
+				overflow: visible;
+			}
+			#recentChanges .up {
+				display: block;
+				margin-bottom: 2px;
+			}
+			#recentChanges .date {
+				background: #454545;
+				border-radius: 7pt;
+				padding: 5px 12px;
+				font-size: 12px;
+				margin-left: 6pt;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="margin: 15pt;">
+			<h1>Utilities List</h1>
+			<p>
+				<p>Search for Utilities</p>
+				<div id="searchContainer">
+					<input id="search" placeholder="Search for Utilities..." onchange="searchTo();"><select id="category" onchange="searchTo();"></select><button onclick="searchTo();">Search</button>
+				</div>
+			</p>
+			<ul id="list">
+				<li>
+					<h3>Title of Utility</h3>
+					<p>
+						Paragraph Content
+					</p>
+				</li>
+			</ul>
+			<h1>Legand</h1>
+			<ul>
+				<li>Green: Regular Link</li>
+				<li>Blue: JavaScript Link (Mostlikely Popup)</li>
+				<li>Red: Outdated Link</li>
+			</ul>
+			<h1>Note</h1>
+			<p>Submit tools to sqdldev on Discord or fill in the form <a href="http://sqdlsite.rf.gd/tools-submission/" target="_blank">here</a>.</p>
+			<h1>Recent Changes</h1>
+			<p>
+				<ul id="recentChanges">
+					<li></li>
+				</ul>
+				<button id="changeLogShowAll" onclick="openAllChangeLog()">Show All Changes</button>
+			</p>
+		</div>
+		<div id="popupBackground" style="display: none;">
+			<div id="clickLeave"></div>
+			<div id="popup">
+				<div id="popupMain">
+					<div id="popupContent">
+						<h2 id="popupTitle">Title</h2>
+						<p id="popupText">Inner Text</p>
+					</div>
+				</div>
+				<div id="popupButtonContainer">
+					<button>Text</button>
+				</div>
+			</div>
+		</div>
+		<script src="index.js"></script>
+		<!--<script src="https://code.jquery.com/jquery-3.6.0.js"></script>-->
+	</body>
+</html>
