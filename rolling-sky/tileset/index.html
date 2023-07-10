@@ -9,15 +9,15 @@
 <script src="../../favicon.js"></script>
 <meta name="pagename" content="Rolling Sky Tileset"/>
 <meta name="description" content="The Rolling Sky Tileset by sqdldev">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <script src="../tilesetSlowLoader.js"></script>
 <link rel="stylesheet" href="../tileset.css">
 <script>slowloadTileset('', '')</script>
 <style>
 body {
-    font-size: 20px;
-    margin: 35px;
-    max-width: 700px;
+		font-size: 20px;
+		margin: 35px;
+		max-width: 700px;
 }
 .credit {
 	color: red;
@@ -32,50 +32,53 @@ body {
 	align-items: flex-start;
 }
 .downloadbuttons > a {
-    text-decoration: none;
-    background: #2f7fa9;
-    color: white;
-    padding: 15px 17px;
-    border-radius: 15px;
-    display: block;
-    box-shadow: 0 8px #1f5977;
-    -webkit-box-shadow: 0 8px #1f5977;
-    position: relative;
-    top: 0px;
-    transition: 0.1s;
-    -webkit-transition: 0.1s;
-    margin-bottom: 25px;
-    font-size: 19px;
+		text-decoration: none;
+		background: #2f7fa9;
+		color: white;
+		padding: 15px 17px;
+		border-radius: 15px;
+		display: block;
+		box-shadow: 0 8px #1f5977;
+		-webkit-box-shadow: 0 8px #1f5977;
+		position: relative;
+		top: 0px;
+		transition: 0.1s;
+		-webkit-transition: 0.1s;
+		margin-bottom: 25px;
+		font-size: 19px;
 }
 .downloadbuttons > a:hover {
-    box-shadow: 0 6px #1f5977;
-    -webkit-box-shadow: 0 6px #1f5977;
-    position: relative;
-    top: 2px;
-    transition: 0.1s;
-    -webkit-transition: 0.1s;
+		box-shadow: 0 6px #1f5977;
+		-webkit-box-shadow: 0 6px #1f5977;
+		position: relative;
+		top: 2px;
+		transition: 0.1s;
+		-webkit-transition: 0.1s;
 }
 .downloadbuttons > a:active {
-    box-shadow: 0 4px #1f5977;
-    -webkit-box-shadow: 0 4px #1f5977;
-    position: relative;
-    top: 4px;
-    transition: 0.1s;
-    -webkit-transition: 0.1s;
+		box-shadow: 0 4px #1f5977;
+		-webkit-box-shadow: 0 4px #1f5977;
+		position: relative;
+		top: 4px;
+		transition: 0.1s;
+		-webkit-transition: 0.1s;
 }
 .downloadbuttons > a.inactive {
-    filter: grayscale(1);
+		filter: grayscale(1);
 	-webkit-filter: grayscale(1);
 	pointer-events: none;
 	touch-action: none;
 }
 
 #tilesetPreview {
+	pointer-events: none;
+	touch-action: none;
     content: var(--tileset01);
     width: 100%;
     height: auto;
     border-radius: 10px;
 }
+
 </style>
 </head>
 <body>
@@ -92,23 +95,77 @@ body {
 <p class="credit">You may not claim, suggest, or imply that the tileset is your own.</b></p>
 
 <h2>Downloads</h2>
+<p>Due to recent events, the download links have been hidden behind a basic check.</p>
 <div class="downloadbuttons">
-<a target="_blank" download="tileset01.png" href="tileset01.png">Tileset With Debug Numbers (48px by 48px)</a>
-<a target="_blank" class="inactive" download="tileset02.png" href="tileset02.png">Tileset Without Debug Numbers (48px by 48px)</a>
-<a target="_blank" class="inactive" download="" href="" id="TMXButton">Tileset Bundle with Tiled TMX</a>
+<a href="javascript:revealDownloadButtons()">Reveal Download Buttons</a>
 </div>
 
-<h2>Preview</h2>
-<p>The Tileset will be displayed as a Compressed JPEG file while the Uncompressed PNG file is loading.</p>
+<div class="downloadbuttons"></div>
+
 <div id="tilesetPreview"></div>
 
 <script>
-var TMXButton = document.querySelector('#TMXButton');
-var zipTilesetName = 'RollingSkyTileset_' + Lang.special.tileset.zipversion + '.zip';
-var zipTilesetPath = 'zipped/' + zipTilesetName;
-TMXButton.download = zipTilesetName;
-TMXButton.href = zipTilesetPath;
-TMXButton.classList.remove('inactive');
+function similarity(s1, s2) {
+	var longer = s1;
+	var shorter = s2;
+	if (s1.length < s2.length) {
+		longer = s2;
+		shorter = s1;
+	}
+	var longerLength = longer.length;
+	if (longerLength == 0) {
+		return 1.0;
+	}
+	return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
+}
+
+function editDistance(s1, s2) {
+	s1 = s1.toLowerCase();
+	s2 = s2.toLowerCase();
+
+	var costs = new Array();
+	for (var i = 0; i <= s1.length; i++) {
+		var lastValue = i;
+		for (var j = 0; j <= s2.length; j++) {
+			if (i == 0)
+				costs[j] = j;
+			else {
+				if (j > 0) {
+					var newValue = costs[j - 1];
+					if (s1.charAt(i - 1) != s2.charAt(j - 1))
+						newValue = Math.min(Math.min(newValue, lastValue),
+							costs[j]) + 1;
+					costs[j - 1] = lastValue;
+					lastValue = newValue;
+				}
+			}
+		}
+		if (i > 0)
+			costs[s2.length] = lastValue;
+	}
+	return costs[s2.length];
+}
+
+function revealDownloadButtons() {
+	var text = 'I will not upload this Tileset image to any website while claiming it to be my own. I will link this website whenever the Tileset image is used.';
+	var prompted = prompt('Type this content into the box to continue:\n\n' + text);
+	if (prompted == null) {
+		return;
+	}
+	if (similarity(prompted, text) > 0.9) {
+		document.querySelectorAll('.downloadbuttons')[0].innerHTML = '';
+		document.querySelectorAll('.downloadbuttons')[1].innerHTML = atob('PGEgdGFyZ2V0PSJfYmxhbmsiIGRvd25sb2FkPSJ0aWxlc2V0MDEucG5nIiBocmVmPSJ0aWxlc2V0MDEucG5nIj5UaWxlc2V0IFdpdGggRGVidWcgTnVtYmVycyAoNDhweCBieSA0OHB4KTwvYT48YSB0YXJnZXQ9Il9ibGFuayIgY2xhc3M9ImluYWN0aXZlIiBkb3dubG9hZD0idGlsZXNldDAyLnBuZyIgaHJlZj0idGlsZXNldDAyLnBuZyI+VGlsZXNldCBXaXRob3V0IERlYnVnIE51bWJlcnMgKDQ4cHggYnkgNDhweCk8L2E+PGEgdGFyZ2V0PSJfYmxhbmsiIGNsYXNzPSJpbmFjdGl2ZSIgZG93bmxvYWQ9IiIgaHJlZj0iIiBpZD0iVE1YQnV0dG9uIj5UaWxlc2V0IEJ1bmRsZSB3aXRoIFRpbGVkIFRNWDwvYT4');
+		
+		var TMXButton = document.querySelector('#TMXButton');
+		var zipTilesetName = 'RollingSkyTileset_' + Lang.special.tileset.zipversion + '.zip';
+		var zipTilesetPath = 'zipped/' + zipTilesetName;
+		TMXButton.download = zipTilesetName;
+		TMXButton.href = zipTilesetPath;
+		TMXButton.classList.remove('inactive');
+	} else {
+		
+	}
+}
 </script>
 </body>
 </html>
