@@ -79,11 +79,17 @@ body {
     border-radius: 10px;
 }
 
+#forlevel {
+	color: #60ff7f;
+	text-decoration: underline;
+}
+
 </style>
 </head>
 <body>
 <h2>Rolling Sky Tileset</h2>
 <p>This tileset is made for Rolling Sky Editing. It took me about 1.5 months to finish. Enjoy :)</p>
+<p>This version of the Tileset is for: <span id="forlevel"></span></p>
 
 <ul>
 <li>Download the regular Tileset if you wish to use graphics from it.</li>
@@ -105,6 +111,8 @@ body {
 <div id="tilesetPreview"></div>
 
 <script>
+document.querySelector('#forlevel').innerHTML = Lang.special.tileset.forlevel;
+
 function similarity(s1, s2) {
 	var longer = s1;
 	var shorter = s2;
@@ -154,14 +162,14 @@ function revealDownloadButtons() {
 	}
 	if (similarity(prompted, text) > 0.9) {
 		document.querySelectorAll('.downloadbuttons')[0].innerHTML = '';
-		document.querySelectorAll('.downloadbuttons')[1].innerHTML = atob('PGEgdGFyZ2V0PSJfYmxhbmsiIGRvd25sb2FkPSJ0aWxlc2V0MDEucG5nIiBocmVmPSJ0aWxlc2V0MDEucG5nIj5UaWxlc2V0IFdpdGggRGVidWcgTnVtYmVycyAoNDhweCBieSA0OHB4KTwvYT48YSB0YXJnZXQ9Il9ibGFuayIgY2xhc3M9ImluYWN0aXZlIiBkb3dubG9hZD0idGlsZXNldDAyLnBuZyIgaHJlZj0idGlsZXNldDAyLnBuZyI+VGlsZXNldCBXaXRob3V0IERlYnVnIE51bWJlcnMgKDQ4cHggYnkgNDhweCk8L2E+PGEgdGFyZ2V0PSJfYmxhbmsiIGNsYXNzPSJpbmFjdGl2ZSIgZG93bmxvYWQ9IiIgaHJlZj0iIiBpZD0iVE1YQnV0dG9uIj5UaWxlc2V0IEJ1bmRsZSB3aXRoIFRpbGVkIFRNWDwvYT4');
+		document.querySelectorAll('.downloadbuttons')[1].innerHTML = atob('PGEgdGFyZ2V0PSJfYmxhbmsiIGRvd25sb2FkPSJ0aWxlc2V0MDEucG5nIiBocmVmPSJ0aWxlc2V0MDEucG5nIj5UaWxlc2V0IFdpdGggRGVidWcgTnVtYmVycyAoNjRweCBieSA2NHB4KTwvYT4');
 		
-		var TMXButton = document.querySelector('#TMXButton');
+		/*var TMXButton = document.querySelector('#TMXButton');
 		var zipTilesetName = 'RollingSkyTileset_' + Lang.special.tileset.zipversion + '.zip';
 		var zipTilesetPath = 'zipped/' + zipTilesetName;
 		TMXButton.download = zipTilesetName;
 		TMXButton.href = zipTilesetPath;
-		TMXButton.classList.remove('inactive');
+		TMXButton.classList.remove('inactive');*/
 	} else {
 		
 	}
