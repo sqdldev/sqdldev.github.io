@@ -1,0 +1,45 @@
+:root {
+    --defaultBaseBackgroundColor: #f2f3f5;
+    --defaultBaseTextColor: #5c5e66;
+    --popupBackgroundDarkenColor: #00000090;
+    --popupBorderColor: #a6a6a6;
+    --popupBackgroundColor: #f2f3f5;
+    --popupButtonContainerBackgroundColor: #dbdbdb;
+    --popupButtonTextColor: var(--elementGenericTextColor);
+    --popupButtonBackgroundColor: var(--elementButtonBackgroundColor);
+    --elementGenericTextColor: #ffffff;
+    --elementAnchorTextColor: #61a8ff;
+    --elementButtonBackgroundColor: #93979f;
+    --elementButtonHoverBackgroundColor: #7b7b7b;
+    --elementButtonActiveBackgroundColor: #616161;
+    --elementButtonBorderColor: var(--elementButtonBackgroundColor);
+    --elementSelectBackgroundColor: var(--elementButtonBackgroundColor);
+    --elementSelectBorderColor: #858585;
+    --elementOptionBackgroundColor: var(--elementSelectBackgroundColor);
+    --elementInputBackgroundColor: #e6e6e6;
+    --elementInputBorderColor: var(--elementButtonBorderColor);
+    --elementInputFileButtonBackgroundColor: var(--elementButtonBackgroundColor);
+    --elementInputFileButtonBorderColor: var(--elementButtonBackgroundColor);
+    --loaderBackgroundColor: var(--defaultBaseBackgroundColor);
+    --loaderBarBackgroundColor: #3c3e46;
+    --loaderBarFillColor: #566499;
+    --loaderTimeLabelColor: #33c754;
+    --changelogBackgroundColor: #84848426;
+    --changelogTitleColor: hsl(302.16deg 98% 55%);
+    --changelogTextColor: #5d94ff;
+    --jscolorElementBackgroundColor: #3d3d43;
+    --jscolorElementBorderColor: #5f5f6e;
+    --obstaclePreviewCloseButtonHue: 0;
+    --obstaclePreviewCanvasBackgroundColor: #00000000;
+    --obstaclePreviewMenuSidePanelBackground: #0000008f;
+    --canvasContainerBorderColor: var(--elementButtonHoverBackgroundColor);
+    --canvasTransparencyColor1: #212225bf;
+    --canvasTransparencyColor2: #242424ff;
+    --canvasHitboxOutlineActiveColor: #00ff00;
+    --canvasHitboxOutlineInactiveColor: #ff0000;
+    --canvasOptionsBackgroundColor: #00000047;
+}
+
+input {
+	color: var(--defaultBaseTextColor);
+}

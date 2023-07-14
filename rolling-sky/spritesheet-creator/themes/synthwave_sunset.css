@@ -1,0 +1,69 @@
+:root {
+	color-scheme: dark;
+	
+	--defaultBaseBackgroundColor: -webkit-linear-gradient(#71152f, #3c1466);
+	--defaultBaseTextColor: #fad6e0;
+	--popupBackgroundDarkenColor: #2a081e5e;
+	--popupBorderColor: #ac2e59;
+	--popupBackgroundColor: #62173c;
+	--popupButtonContainerBackgroundColor: #4d0f2e;
+	--popupButtonTextColor: var(--defaultBaseTextColor);
+	--popupButtonBackgroundColor: #881b52;
+	--elementGenericTextColor: #ffffff;
+	--elementAnchorTextColor: #ffb661;
+	--elementButtonBackgroundColor: #b42b514a;
+	--elementButtonHoverBackgroundColor: #cd325e6b;
+	--elementButtonActiveBackgroundColor: #bd2e5661;
+	--elementButtonBorderColor: #eb41718a;
+	--elementSelectBackgroundColor: var(--elementButtonBackgroundColor);
+	--elementSelectBorderColor: var(--elementButtonBorderColor);
+	--elementOptionBackgroundColor: #701c53;
+	--elementInputBackgroundColor: var(--elementButtonBackgroundColor);
+	--elementInputBorderColor: var(--elementButtonBorderColor);
+	--elementInputFileButtonBackgroundColor: var(--elementButtonBackgroundColor);
+	--elementInputFileButtonBorderColor: var(--elementButtonBorderColor);
+	--loaderBackgroundColor: var(--defaultBaseBackgroundColor);
+	--loaderBarBackgroundColor: #71196e;
+	--loaderBarFillColor: #a725a3;
+	--loaderTimeLabelColor: var(--elementAnchorTextColor);
+	--changelogBackgroundColor: #00000026;
+	--changelogTitleColor: #c880ff;
+	--changelogTextColor: #78e1ff;
+	--jscolorElementBackgroundColor: var(--popupBackgroundColor);
+	--jscolorElementBorderColor: var(--popupBorderColor);
+	--obstaclePreviewCloseButtonHue: 97deg;
+	--obstaclePreviewCanvasBackgroundColor: #00000000;
+	--obstaclePreviewMenuSidePanelBackground: #0000008f;
+	--canvasContainerBorderColor: #af3064;
+	--canvasTransparencyColor1: #212225bf;
+	--canvasTransparencyColor2: #242424ff;
+	--canvasHitboxOutlineActiveColor: #9525ff;
+	--canvasHitboxOutlineInactiveColor: #ff00ba;
+	--canvasOptionsBackgroundColor: #00000047;
+}
+
+input[type="checkbox"]:before {
+	position: relative;
+	display: block;
+	width: 14px;
+	height: 14px;
+	left: -0.5px;
+	top: -0.5px;
+	content: "";
+	border-radius: 2px;
+	outline: none;
+	border-color: var(--elementInputBorderColor);
+	border-width: 1px;
+	border-style: solid;
+	border-image: initial;
+	background-color: #811b3d;
+	font-size: 12pt;
+}
+
+input[type="checkbox"]:checked:before {
+	background: #d43966;
+}
+
+input[type="checkbox"]:disabled:before {
+	-webkit-filter: opacity(0.5);
+}

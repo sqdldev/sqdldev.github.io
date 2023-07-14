@@ -5,6 +5,7 @@
 		<meta name="pagename" content="Rolling Sky Spritesheet Creator">
 		<meta name="description" content="An online tool to help you create your own Rolling Sky Spritesheets with ease.">
 		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="" id="themelink">
 		<script src="../../favicon.js"></script>
 		<link rel="icon" href="../../assets/favicon/Ball9.png">
 		<link rel="stylesheet" href="../global.css">
@@ -21,6 +22,7 @@
 		<script src="lib/OBJLoader.js"></script>
 	</head>
 	<body>
+		<div id="backgroundelement"></div>
 		<div id="loader">
 			<span class="loaderText">Loading Assets...</span>
 			<div id="loaderBar">
@@ -29,46 +31,51 @@
 			<div id="loaderTip"></div>
 		</div>
 		<div id="page">
-			<div id="mainmenu">
-				<div class="title">Rolling Sky SpriteMaker</div>
-				<p id="loadLabel">Calculating Loading Time...</p>
-				<div id="changelog"></div>
-				<p>Please credit me or this site if you decide to use the export in any sort of content.
-				<ul>
-					<li>Enemy: The texture used for most obstacles</li>
-					<li>General (Mover): The texture used for the ground and pillars</li>
-					<li>Fragile/FragileActive: The texture used for fragiles and falling fragiles, Fragile also contains the gradient used for midground models</li>
-				</ul>
-				Please report the bugs to me on Discord so I can fix them. Thank you.
-				</p>
-				<p style="display: none;">
-					Spritesheets Made Globally (Live): <span id="spriteAmountMade">...</span>
-				</p>
-				<h2>Create from Template</h2>
-				<p>Create a spritesheet from an existing template. Movers are in the General option.</p>
-				<select id="spriteType">
-					<option value="0">Enemy</option>
-					<option value="1">General</option>
-					<option value="2">Fragile</option>
-				</select>
-				<button onclick="createNewSpritesheet(this.previousElementSibling.value)">Create</button>
-				<h2>Upload Project</h2>
-				<p>Load a project you can download by pressing "Download Project" on the spritesheet creator page.</p>
-				<input type="file" id="fileuploadinput" accept=".rs">
-				<h2>Load Previous Project</h2>
-				<p>Load the previous project you have edited. Your previous project data is saved whenever you modify a spritesheet, which means if you create a new spritesheet accidentally, you can still load the previous project you have edited.</p>
-				<button onclick="MainMenu.LoadPrevious()">Load</button>
-				<h2>Custom Assets</h2>
-				<p>Only edit if you know what you're doing! This will reset on every page reload.</p>
-				<p>Custom Assets allows you to edit the assets used in the SpriteMaker. This allows you to have basically infinite possibilities. Use only black and white. The darker the image, the darker it will appear in the SpriteMaker. Opacity is retained.</p>
-				<p>For every SpriteMaker update which adds new patterns, you must also add those patterns to your ZIP file, or else they will not exist to get read by the SpriteMaker, which results in an error message.</p>
-				<p><a href="assets.zip" target="_blank">Download the Template</a></p>
-				<input type="file" id="filezipinput" accept=".zip">
+			<div id="mainmenucontainer">
+				<div id="mainmenu">
+					<div class="title">Rolling Sky SpriteMaker</div>
+					<p id="loadLabel">Calculating Loading Time...</p>
+					<div id="changelog"></div>
+					<p>
+						<label for="themeselect">Website Theme: <select onchange="changetheme()" id="themeselect"></select></label>
+					</p>
+					<p>Please credit me or this site if you decide to use the export in any sort of content.
+					<ul>
+						<li>Enemy: The texture used for most obstacles</li>
+						<li>General (Mover): The texture used for the ground and pillars</li>
+						<li>Fragile/FragileActive: The texture used for fragiles and falling fragiles, Fragile also contains the gradient used for midground models</li>
+					</ul>
+					Please report the bugs to me on Discord so I can fix them. Thank you.
+					</p>
+					<p style="display: none;">
+						Spritesheets Made Globally (Live): <span id="spriteAmountMade">...</span>
+					</p>
+					<h2>Create from Template</h2>
+					<p>Create a spritesheet from an existing template. Movers are in the General option.</p>
+					<select id="spriteType">
+						<option value="0">Enemy</option>
+						<option value="1">General</option>
+						<option value="2">Fragile</option>
+					</select>
+					<button onclick="createNewSpritesheet(this.previousElementSibling.value)">Create</button>
+					<h2>Upload Project</h2>
+					<p>Load a project you can download by pressing "Download Project" on the spritesheet creator page.</p>
+					<input type="file" id="fileuploadinput" accept=".rs">
+					<h2>Load Previous Project</h2>
+					<p>Load the previous project you have edited. Your previous project data is saved whenever you modify a spritesheet, which means if you create a new spritesheet accidentally, you can still load the previous project you have edited.</p>
+					<button onclick="MainMenu.LoadPrevious()">Load</button>
+					<h2>Custom Assets</h2>
+					<p>Only edit if you know what you're doing! This will reset on every page reload.</p>
+					<p>Custom Assets allows you to edit the assets used in the SpriteMaker. This allows you to have basically infinite possibilities. Use only black and white. The darker the image, the darker it will appear in the SpriteMaker. Opacity is retained.</p>
+					<p>For every SpriteMaker update which adds new patterns, you must also add those patterns to your ZIP file, or else they will not exist to get read by the SpriteMaker, which results in an error message.</p>
+					<p><a href="assets.zip" target="_blank">Download the Template</a></p>
+					<input type="file" id="filezipinput" accept=".zip">
+				</div>
 			</div>
 			<div id="container" style="display: none;">
 				<div class="title">Rolling Sky SpriteMaker<span id="processingDots"></span></div>
 				<p>
-				<form id="nameform" onchange="updateNameType()"">
+				<form id="nameform" onchange="updateNameType()">
 					<label for="spritename">Spritesheet Name: <input id="spritename" placeholder="Enter sprite name" type="text"/></label><p></p>
 					<label for="minimaloptions">Show Minimal Options: <input id="minimaloptions" type="checkbox" onchange="closeUI()"/></label>
 				</form>
