@@ -323,6 +323,11 @@ input::file-selector-button {
 	border-radius: 2px !important;
 }
 
+input::placeholder {
+	color: var(--elementGenericTextColor);
+	opacity: 0.5;
+}
+
 #spritesheetControls {
 	margin-right: 40px;
 }
