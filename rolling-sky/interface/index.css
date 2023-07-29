@@ -666,16 +666,24 @@ Level-LevelPercent.full {
 	color: #7f41d7;
 }
 Level-LevelIndex {
-	position: relative;
-	display: block;
-	top: calc(var(--sp) * 80);
-	left: calc(var(--sp) * 120);
-	width: calc(var(--sp) * 88);
-	height: calc(var(--sp) * 39);
-	background-image: url("assets/graphics/index.png");
-	background-size: cover;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: calc(var(--sp) * 5);
+    width: calc(var(--sp) * 82.5);
+    height: calc(var(--sp) * 39);
+    line-height: 2.1;
+    color: #68cae8;
+    font-size: calc(var(--sp) * 20);
+    display: flex;
+    background-image: url("assets/graphics/index.png");
+    background-size: cover;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: flex-start;
 }
-Level-LevelIndexNumber {
+/*Level-LevelIndexNumber {
 	position: relative;
 	display: block;
 	top: calc(var(--sp) * 50);
@@ -683,7 +691,7 @@ Level-LevelIndexNumber {
 	text-align: right;
 	font-size: calc(var(--sp) * 20);
 	color: #68cae8;
-}
+}*/
 @media (pointer:coarse) {
 	Level-VerticalLevelListScroller::-webkit-scrollbar {
 		width: 0;
