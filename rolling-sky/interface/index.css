@@ -27,6 +27,11 @@
 	background-size: cover;
 	z-index: 0;
 }
+html, body {
+	overscroll-behavior-y: none;
+	position: fixed;
+	overflow: hidden;
+}
 body {
 	font-family: bold;
 	width: 100vw;
