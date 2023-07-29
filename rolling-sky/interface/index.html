@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- (\d*\.?\d+)px -->
+	<!-- calc\(var\(--sp\) * \1\) -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Rolling Sky</title>
+	<link rel="icon" type="image/x-icon" href="rollingsky.ico">
+	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="../global.css">
+	<script src="../rsdata.js"></script>
+</head>
+<body>
+	<div id="background"></div>
+	<Level-VerticalLevelListViewModule>
+		<Level-VerticalLevelListBackground></Level-VerticalLevelListBackground>
+		<Level-VerticalLevelListScroller>
+			<Level-LevelSelectTop>
+				<Level-LevelSelectTopDifficulties>
+					<Level-LevelSelectTopDifficulty>1</Level-LevelSelectTopDifficulty>
+					<Level-LevelSelectTopDifficulty>2</Level-LevelSelectTopDifficulty>
+					<Level-LevelSelectTopDifficulty>3</Level-LevelSelectTopDifficulty>
+					<Level-LevelSelectTopDifficulty>4</Level-LevelSelectTopDifficulty>
+					<Level-LevelSelectTopDifficulty>5</Level-LevelSelectTopDifficulty>
+					<Level-LevelSelectTopDifficulty>6</Level-LevelSelectTopDifficulty>
+				</Level-LevelSelectTopDifficulties>
+				<Level-LevelSelectTopPercent>
+					<Level-LevelSelectTopPercentIcon></Level-LevelSelectTopPercentIcon>
+					<Level-LevelSelectTopPercentText>Only {0}%  players can pass all levels of this collection!</Level-LevelSelectTopPercentText>
+				</Level-LevelSelectTopPercent>
+			</Level-LevelSelectTop>
+			<Level-VerticalLevelList>
+			</Level-VerticalLevelList>
+		</Level-VerticalLevelListScroller>
+	</Level-VerticalLevelListViewModule>
+	<Tabs-TabUI>
+		<Tabs-Tab>
+			<Tabs-TabIcon class="home"></Tabs-TabIcon>
+			<Tabs-TabLabel>Exit</Tab-TabLabel>
+		</Tabs-Tab>
+		<Tabs-Tab>
+			<Tabs-TabIcon class="levels"></Tabs-TabIcon>
+			<Tabs-TabLabel>Levels</Tab-TabLabel>
+		</Tabs-Tab>
+	</Tabs-TabUI>
+	<Prompt-PromptUI style="display: none;">
+		<Prompt-PromptBackground></Prompt-PromptBackground>
+		<Prompt-PromptContent>
+			<Prompt-PromptText></Prompt-PromptText>
+			<Prompt-PromptButton></Prompt-PromptButton>
+		</Prompt-PromptContent>
+	</Prompt-PromptUI>
+	<script src="index.js"></script>
+</body>
+</html>

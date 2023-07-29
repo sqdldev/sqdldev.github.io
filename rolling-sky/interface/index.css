@@ -1,0 +1,697 @@
+:root {
+	--sp: 1px; /* 0.85 */
+	--rp: 1px;
+	color-scheme: dark;
+}
+* {
+	scroll-behavior: initial !important;
+}
+::-moz-selection {
+	color: #ffffff;
+	background: #97dfff96;
+}
+::selection {
+	color: #ffffff;
+	background: #006aff80;
+}
+#background {
+	display: block;
+	position: fixed;
+	width: 100vh;
+	height: 100vh;
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	background-image: url("assets/backgrounds/Background124.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 0;
+}
+body {
+	font-family: bold;
+	font-weight: bold;
+	width: 100vw;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+	background: #bf812a;
+}
+Prompt-PromptUI {
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 32768;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+}
+Prompt-PromptBackground {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #000000b0;
+}
+Prompt-PromptContent {
+	display: inline-flex;
+	position: relative;
+	width: calc(var(--sp) * 570);
+	height: calc(var(--sp) * 310);
+	max-width: 90%;
+	background-image: url("assets/graphics/promptBackground.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	align-items: flex-start;
+	justify-content: center;
+	align-content: center;
+	flex-direction: row;
+	color: #ffffff;
+}
+Prompt-PromptText {
+	display: block;
+	position: absolute;
+	width: calc(var(--sp) * 510);
+	top: calc(var(--sp) * 60);
+	color: #2b4c76;
+	text-align: center;
+	font-size: calc(var(--sp) * 33);
+	white-space: pre-wrap;
+}
+Prompt-PromptButton {
+	display: flex;
+	position: absolute;
+	bottom: calc(var(--sp) * 60);
+	width: calc(var(--sp) * 205);
+	height: calc(var(--sp) * 64);
+	padding-bottom: calc(var(--sp) * 8);
+	color: #2b4c76;
+	background-image: url("assets/graphics/btn_yellow.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position-y: top;
+	text-align: center;
+	font-size: calc(var(--sp) * 33);
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+}
+Prompt-PromptButton:active {
+	background-position-y: bottom;
+}
+
+Tabs-TabUI {
+	display: flex;
+	position: fixed;
+	background: #282544;
+	width: calc(var(--sp) * 570);
+	height: calc(var(--sp) * 110);
+	bottom: 0;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: space-evenly;
+	align-items: center;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 32767;
+}
+Tabs-Tab {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	margin-left: calc(var(--sp) * 20);
+	margin-right: calc(var(--sp) * 20);
+	padding-top: calc(var(--sp) * 2);
+}
+Tabs-TabIcon {
+	display: block;
+	position: relative;
+	width: calc(var(--sp) * 60);
+	height: calc(var(--sp) * 60);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-bottom: calc(var(--sp) * 2);
+}
+Tabs-TabIcon.home {
+	background-image: url("assets/graphics/tabHome.png");
+}
+Tabs-TabIcon.levels {
+	background-image: url("assets/graphics/tabLevels.png");
+}
+Tabs-TabLabel {
+	display: block;
+	position: relative;
+	width: 100%;
+	font-size: calc(var(--sp) * 17);
+	text-align: center;
+}
+Level-VerticalLevelListViewModule {
+	position: relative;
+	display: block;
+	width: 100vw;
+	z-index: 1;
+}
+Level-VerticalLevelListBackground {
+	width: calc(var(--sp) * 750); /* 750, 570 */
+	height: 100vh;
+	display: flex;
+	position: fixed;
+	background: #000000e6;
+	left: 50%;
+	transform-origin: top left;
+	transform: translateX(-50%);
+	z-index: -32768;
+}
+Level-VerticalLevelListScroller {
+	display: flex;
+	height: 100vh;
+	overflow-x: clip;
+	overflow-y: scroll;
+	scrollbar-gutter: stable;
+	padding-left: calc(var(--sp) * 30);
+	margin-right: calc(var(--sp) * 15);
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-content: center;
+	position: relative;
+	z-index: 1;
+}
+Level-VerticalLevelListScroller::-webkit-scrollbar {
+	width: calc(var(--sp) * 15);
+}
+Level-VerticalLevelListScroller::-webkit-scrollbar-track {
+	background: #00000000;
+}
+Level-VerticalLevelListScroller::-webkit-scrollbar-thumb {
+	width: calc(var(--sp) * 15);
+	background: /*#9090934f*/#2c2a2b;
+	border-radius: calc(var(--sp) * 8);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+Level-VerticalLevelListScroller::-webkit-scrollbar-thumb:hover {
+}
+Level-LevelSelectTop {
+	display: block;
+	position: fixed;
+	width: calc(var(--sp) * 570);
+	height: calc(var(--sp) * 157);
+	z-index: 500;
+	background: #161c32;
+}
+Level-LevelSelectTopDifficulties {
+	display: flex;
+	justify-content: space-evenly;
+	align-content: center;
+	align-items: center;
+	flex-direction: row;
+	height: calc(var(--sp) * 110);
+}
+Level-LevelSelectTopDifficulty {
+	display: inline-flex;
+	position: relative;
+	width: calc(var(--sp) * 78);
+	height: calc(var(--sp) * 78);
+	background-image: url("assets/graphics/buttonDifficultyStarInactive.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	flex-direction: row;
+	color: white;
+	font-size: calc(var(--sp) * 30);
+}
+Level-LevelSelectTopDifficulty.active {
+	background-image: url("assets/graphics/buttonDifficultyStarActive.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+Level-LevelSelectTopPercent {
+	display: block;
+	position: absolute;
+	bottom: calc(var(--sp) * -3);
+	width: 100%;
+	height: calc(var(--sp) * 46);
+	background: #24294e;
+	border-bottom: solid calc(var(--sp) * 3) #1b203b8c;
+}
+Level-LevelSelectTopPercentIcon {
+	display: inline-flex;
+	position: absolute;
+	top: calc(var(--sp) * 9);
+	left: calc(var(--sp) * 9);
+	width: calc(var(--sp) * 32);
+	height: calc(var(--sp) * 32);
+	background-image: url("assets/graphics/iconInfo.png");
+	background-size: calc(var(--sp) * 30);
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+Level-LevelSelectTopPercentText {
+	position: absolute;
+	color: #ffffff;
+	left: calc(var(--sp) * 46);
+	height: calc(var(--sp) * 48);
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	font-size: calc(var(--sp) * 18);
+}
+Level-VerticalLevelList {
+	width: calc(var(--sp) * 750);
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: flex-start;
+	align-content: center;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	padding-top: calc(var(--sp) * 150);
+	padding-bottom: calc(var(--sp) * 185);
+}
+Level-LevelListGroup {
+	display: flex;
+	flex-direction: column;
+	align-content: flex-start;
+	justify-content: flex-start;
+	align-items: center;
+	margin-top: calc(var(--sp) * 30);
+	position: relative;
+	height: max-content;
+	flex-wrap: nowrap;
+	width: min-content;
+}
+Level-LevelListGroupGlow {
+	display: inline-flex;
+	position: absolute;
+	left: calc(var(--sp) * -25);
+	top: calc(var(--sp) * -24);
+	width: calc(var(--sp) * 482);
+	height: calc(var(--sp) * 196);
+	background-image: url("assets/graphics/glow3.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	z-index: 0;
+	pointer-events: none;
+	touch-action: none;
+	opacity: 0;
+	transition: 0.15s;
+	-webkit-transition: 0.15s;
+}
+Level-LevelListGroup.active Level-LevelListGroupGlow {
+	opacity: 1;
+	transition: 0.15s;
+	-webkit-transition: 0.15s;
+}
+Level-LevelListGroupTop {
+	display: block;
+	position: relative;
+	width: calc(var(--sp) * 432);
+	height: calc(var(--sp) * 147);
+	background: #8a8ed4;
+}
+Level-LevelListGroup.color1 Level-LevelListGroupTop {
+	background: #d48ccc;
+}
+Level-LevelListGroupTopInfo {
+	display: flex;
+	position: relative;
+	width: 100%;
+	height: calc(var(--sp) * 50);
+	background: #484d9a;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: flex-start;
+	align-items: center;
+}
+Level-LevelListGroup.color1 Level-LevelListGroupTopInfo {
+	background: #9a4890;
+}
+Level-LevelListGroupTopInfoStars {
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: flex-start;
+	align-items: center;
+	left: 0;
+	top: 0;
+	width: calc(var(--sp) * 335);
+	height: 100%;
+}
+Level-LevelListGroupTopInfoStars > span {
+	margin-left: calc(var(--sp) * 10);
+}
+Level-LevelListGroupTopInfoStar {
+	position: relative;
+	display: block;
+	left: calc(var(--sp) * 10);
+	width: calc(var(--sp) * 34);
+	height: calc(var(--sp) * 34);
+	background-image: url("assets/graphics/starYellow.png");
+	background-size: cover;
+}
+Level-LevelListGroupTopInfoVerticalGroup {
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: calc(var(--sp) * 335);
+	width: calc(var(--sp) * 97);
+	height: 100%;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-content: flex-start;
+	justify-content: space-evenly;
+	align-items: flex-start;
+}
+Level-LevelListGroupTopInfoHorizontalGroup {
+	display: flex;
+	position: relative;
+	width: 100%;
+	height: auto;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: flex-start;
+	align-items: center;
+}
+Level-LevelListGroupTopInfoGemIcon, Level-LevelListGroupTopInfoCrownIcon {
+	display: block;
+	position: relative;
+	width: calc(var(--sp) * 24);
+	height: calc(var(--sp) * 20);
+}
+Level-LevelListGroupTopInfoGemIcon {
+	background-image: url("assets/graphics/gemWhite.png");
+	background-size: cover;
+}
+Level-LevelListGroupTopInfoCrownIcon {
+	background-image: url("assets/graphics/crownWhite.png");
+	background-size: cover;
+}
+Level-LevelListGroupTopInfoGemText, Level-LevelListGroupTopInfoCrownText {
+	color: #ffffff;
+	position: relative;
+	top: calc(var(--sp) * -1);
+	left: calc(var(--sp) * 6);
+	font-size: calc(var(--sp) * 16);
+}
+Level-LevelListGroupTopProgressBar, Level-LevelListGroupTopProgressBarFilled, Level-LevelListGroupTopProgressBarTextContainer {
+	display: block;
+	position: relative;
+	width: calc(var(--sp) * 415);
+	height: calc(var(--sp) * 34);
+}
+Level-LevelListGroup.color1 Level-LevelListGroupTopProgressBar {
+	opacity: 0;
+	height: calc(var(--sp) * 17);
+}
+Level-LevelListGroupTopProgressBar {
+	left: calc(var(--sp) * 8);
+	top: calc(var(--sp) * 6);
+	background-image: url("assets/graphics/barProgresEmpty.png");
+	background-size: calc(var(--sp) * 415) calc(var(--sp) * 34);
+	background-repeat: no-repeat;
+}
+Level-LevelListGroupTopProgressBarFilled {
+	background-image: url("assets/graphics/barProgressFilled.png");
+	background-size: calc(var(--sp) * 415) calc(var(--sp) * 34);
+	background-repeat: no-repeat;
+}
+Level-LevelListGroupTopProgressBarTextContainer {
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: space-between;
+	align-items: center;
+	margin-left: calc(var(--sp) * 10);
+	margin-right: calc(var(--sp) * 10);
+	width: calc(var(--sp) * 395);
+}
+Level-LevelListGroupTopProgressBarText {
+	color: #1c2a4b;
+	position: relative;
+	font-size: calc(var(--sp) * 24);
+	z-index: 2;
+}
+Level-LevelListGroupTopProgressText {
+	color: #ffffff;
+	position: relative;
+	display: block;
+	font-size: calc(var(--sp) * 18);
+	top: calc(var(--sp) * 4);
+	width: 100%;
+	text-align: center;
+}
+Level-LevelListGroupTopArrow {
+	display: block;
+	position: relative;
+	left: calc(var(--sp) * 196);
+	top: calc(var(--sp) * 10);
+	width: calc(var(--sp) * 40);
+	height: calc(var(--sp) * 24);
+	background-image: url("assets/graphics/arrowDown.png");
+	background-size: calc(var(--sp) * 40) calc(var(--sp) * 24);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+Level-LevelListGroup.opened Level-LevelListGroupTopArrow {
+	transform: scaleY(-1);
+	-webkit-transform: scaleY(-1);
+}
+Level-LevelListGroupContent {
+	display: none;
+}
+Level-LevelListGroup.opened Level-LevelListGroupContent {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+}
+Level-LevelListItem {
+	display: inline-flex;
+	position: relative;
+	width: calc(var(--sp) * 432);
+	height: calc(var(--sp) * 350);
+	background-image: url("assets/graphics/itemBackground.png");
+	background-size: 100% 100%;
+	color: #ffffff;
+	margin: calc(var(--sp) * 30) 0;
+	z-index: 0;
+}
+Level-LevelListItem:last-child {
+	margin-bottom: 0;
+}
+Level-LevelListItemGradient {
+	/*display: inline-flex;
+	position: absolute;
+	width: calc(var(--sp) * 432);
+	height: calc(var(--sp) * 350);
+	background-image: url("assets/graphics/itemBackground.png");
+	background-size: 100% 100%;
+	z-index: 0;*/
+	display: none;
+}
+Level-LevelListItemGlow1 {
+	/*display: inline-flex;
+	position: absolute;
+	left: calc(var(--sp) * -26);
+	top: calc(var(--sp) * -25);
+	width: calc(var(--sp) * 483);
+	height: calc(var(--sp) * 401);
+	background-image: url("assets/graphics/glow1.png");
+	background-size: cover;
+	z-index: -1;
+	pointer-events: none;
+	touch-action: none;
+	opacity: 0;
+	transition: 0.15s;*/
+	display: none;
+}
+Level-LevelListItemGlow2 {
+	/*display: inline-flex;
+	position: absolute;
+	left: calc(var(--sp) * -165);
+	top: calc(var(--sp) * -165);
+	width: calc(var(--sp) * 764);
+	height: calc(var(--sp) * 682);
+	background-image: url("assets/graphics/glow2.png");
+	background-size: cover;
+	z-index: -2;
+	pointer-events: none;
+	touch-action: none;
+	opacity: 0;
+	transition: 0.15s;*/
+	display: none;
+}
+/*Level-LevelListItem:hover Level-LevelListItemGlow1 {
+	opacity: 1;
+	transition: 0.15s;
+}
+Level-LevelListItem:hover Level-LevelListItemGlow2 {
+	opacity: 1;
+	transition: 0.15s;
+}*/
+Level-LevelIcon {
+	display: inline-block;
+	position: relative;
+	width: calc(var(--sp) * 224);
+	height: calc(var(--sp) * 350);
+	left: 0;
+	background-image: url("assets/worldshow/world0.png");
+	background-size: cover;
+	z-index: 2;
+}
+Level-LevelInfo {
+	display: inline-block;
+	z-index: 2;
+}
+Level-LevelTitle {
+	width: calc(var(--sp) * 208);
+	height: calc(var(--sp) * 76);
+	background: #3A3E7C;
+	display: flex;
+	font-size: calc(var(--sp) * 35);
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+Level-LevelDifficulty {
+	display: inline-flex;
+	position: relative;
+	top: calc(var(--sp) * 23);
+	left: calc(var(--sp) * 16);
+	width: calc(var(--sp) * 180);
+	height: calc(var(--sp) * 36);
+	background-image: url("assets/graphics/difficulty.png");
+	background-size: cover;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: flex-start;
+	align-items: center;
+}
+Level-LevelDifficultyStar {
+	position: relative;
+	display: block;
+	left: calc(var(--sp) * 18);
+	width: calc(var(--sp) * 24);
+	height: calc(var(--sp) * 24);
+	background-image: url("assets/graphics/starBlue.png");
+	background-size: cover;
+}
+Level-LevelListItem.crown Level-LevelInfoContent {
+	position: relative;
+	top: calc(var(--sp) * 17);
+}
+Level-LevelListItem.crown Level-LevelCrowns {
+	display: inline-flex;
+	position: absolute;
+	top: calc(var(--sp) * 154);
+	left: calc(var(--sp) * 234);
+	width: calc(var(--sp) * 180);
+	height: calc(var(--sp) * 36);
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+}
+Level-LevelListItem.crown Level-LevelCrown {
+	position: relative;
+	display: block;
+	width: calc(var(--sp) * 40);
+	height: calc(var(--sp) * 40);
+	background-image: url("assets/graphics/crownFilled.png");
+	background-size: cover;
+	margin: 0 calc(var(--sp) * 5);
+}
+Level-LevelGem {
+	position: relative;
+	display: block;
+	top: calc(var(--sp) * 75);
+	left: calc(var(--sp) * 41);
+	width: calc(var(--sp) * 32);
+	height: calc(var(--sp) * 32);
+	background-image: url("assets/graphics/gemBlue.png");
+	background-size: cover;
+}
+Level-LevelGemNumber {
+	position: relative;
+	display: block;
+	top: calc(var(--sp) * 40);
+	left: calc(var(--sp) * 79);
+	font-size: calc(var(--sp) * 30);
+}
+Level-LevelGemNumber.full {
+	color: #3a3e7c;
+}
+Level-LevelPercent {
+	position: relative;
+	display: block;
+	top: calc(var(--sp) * 40);
+	left: calc(var(--sp) * 50);
+	font-size: calc(var(--sp) * 43);
+	letter-spacing: calc(var(--sp) * 1);
+}
+Level-LevelPercent.full {
+	color: #7f41d7;
+}
+Level-LevelIndex {
+	position: relative;
+	display: block;
+	top: calc(var(--sp) * 80);
+	left: calc(var(--sp) * 120);
+	width: calc(var(--sp) * 88);
+	height: calc(var(--sp) * 39);
+	background-image: url("assets/graphics/index.png");
+	background-size: cover;
+}
+Level-LevelIndexNumber {
+	position: relative;
+	display: block;
+	top: calc(var(--sp) * 50);
+	right: calc(var(--sp) * 6);
+	text-align: right;
+	font-size: calc(var(--sp) * 20);
+	color: #68cae8;
+}
+@media (pointer:coarse) {
+	Level-VerticalLevelListScroller {
+		scroll-snap-type: y proximity;
+	}
+	Level-LevelListItem {
+		scroll-snap-align: center;
+	}
+}
