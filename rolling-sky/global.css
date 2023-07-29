@@ -1,6 +1,5 @@
 * {
 	scroll-behavior: smooth;
-	font-family: regular
 }
 
 @font-face {
@@ -19,22 +18,20 @@ a {
 }
 
 a.vip {
-    color: #f188ff;
+	color: #f188ff;
 }
 
 a.special {
-    color: #88ff8a;
+	color: #88ff8a;
 }
 
 a.warn {
-    color: #fff888;
+	color: #fff888;
 }
 
 a.danger {
-    color: #ff8888;
+	color: #ff8888;
 }
-
-*{font-family:regular !important;}
 
 html {
 	background: var(--mainbackground);
@@ -42,6 +39,7 @@ html {
 	position: absolute;
 	width: 100%;
 	margin: 0;
+	font-family: regular;
 }
 :root {
 	color-scheme: dark;
@@ -170,17 +168,17 @@ li {
 }
 
 hr {
-    display: block;
-    unicode-bidi: isolate;
-    margin-block-start: 0.5em;
-    margin-block-end: 0.5em;
-    margin-inline-start: auto;
-    margin-inline-end: auto;
-    overflow: hidden;
-    /* border-style: solid; */
-    border-width: 0px;
-    height: 2px;
-    background-color: #404145;
+	display: block;
+	unicode-bidi: isolate;
+	margin-block-start: 0.5em;
+	margin-block-end: 0.5em;
+	margin-inline-start: auto;
+	margin-inline-end: auto;
+	overflow: hidden;
+	/* border-style: solid; */
+	border-width: 0px;
+	height: 2px;
+	background-color: #404145;
 }
 
 p.titlecontainer {
@@ -196,21 +194,21 @@ div.friendlist {
 }
 
 div.friendlist a {
-    display: inline-flex;
-    flex-direction: column-reverse;
-    align-items: stretch;
-    width: 64px;
-    align-content: center;
-    flex-wrap: nowrap;
-    justify-content: center;
-    text-align: center;
-    margin: 5pt 2pt;
-    /*padding: 8pt;
-    background: #404145;
-    border-radius: 33pt;
-    margin: 5pt 3pt;
-    text-decoration: none;
-    color: #8fff9b;*/
+	display: inline-flex;
+	flex-direction: column-reverse;
+	align-items: stretch;
+	width: 64px;
+	align-content: center;
+	flex-wrap: nowrap;
+	justify-content: center;
+	text-align: center;
+	margin: 5pt 2pt;
+	/*padding: 8pt;
+	background: #404145;
+	border-radius: 33pt;
+	margin: 5pt 3pt;
+	text-decoration: none;
+	color: #8fff9b;*/
 }
 
 div.friendlist a img {
@@ -220,5 +218,5 @@ div.friendlist a img {
 
 .footnote {
 	opacity: 0.5;
-    float: right;
+	float: right;
 }
