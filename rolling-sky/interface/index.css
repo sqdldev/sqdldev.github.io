@@ -192,6 +192,7 @@ Level-VerticalLevelListScroller {
 	flex-wrap: nowrap;
 	align-content: center;
 	position: relative;
+	padding-bottom: calc(var(--sp) * 185);
 	z-index: 1;
 }
 Level-VerticalLevelListScroller::-webkit-scrollbar {
@@ -291,7 +292,7 @@ Level-VerticalLevelList {
 	flex-wrap: nowrap;
 	flex-direction: column;
 	padding-top: calc(var(--sp) * 150);
-	padding-bottom: calc(var(--sp) * 185);
+	margin-bottom: calc(var(--sp) * 185);
 }
 Level-LevelListGroup {
 	display: flex;
