@@ -182,8 +182,6 @@ Level-VerticalLevelListScroller {
 	overflow-x: clip;
 	overflow-y: scroll;
 	scrollbar-gutter: stable;
-	padding-left: calc(var(--sp) * 30);
-	margin-right: calc(var(--sp) * 15);
 	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
@@ -688,10 +686,19 @@ Level-LevelIndexNumber {
 	color: #68cae8;
 }
 @media (pointer:coarse) {
+	Level-VerticalLevelListScroller::-webkit-scrollbar {
+		width: 0;
+	}
 	Level-VerticalLevelListScroller {
 		scroll-snap-type: y proximity;
 	}
 	Level-LevelListItem {
 		scroll-snap-align: center;
+	}
+}
+@media (pointer:fine) {
+	Level-VerticalLevelListScroller {
+		padding-left: calc(var(--sp) * 30);
+		margin-right: calc(var(--sp) * 15);
 	}
 }
