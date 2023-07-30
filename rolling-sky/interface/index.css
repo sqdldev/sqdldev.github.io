@@ -24,7 +24,7 @@
 	-webkit-transform: translateX(-50%);
 	background-image: url("assets/backgrounds/Background124.png");
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 100% 100%;
 	z-index: 0;
 }
 html, body {
@@ -42,7 +42,7 @@ body {
 }
 Prompt-PromptUI {
 	display: flex;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -68,7 +68,7 @@ Prompt-PromptContent {
 	height: calc(var(--sp) * 310);
 	max-width: 90%;
 	background-image: url("assets/graphics/promptBackground.png");
-	background-size: contain;
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-position: center;
 	align-items: flex-start;
@@ -96,7 +96,7 @@ Prompt-PromptButton {
 	padding-bottom: calc(var(--sp) * 8);
 	color: #2b4c76;
 	background-image: url("assets/graphics/btn_yellow.png");
-	background-size: 100%;
+	background-size: 100% 200%;
 	background-repeat: no-repeat;
 	background-position-y: top;
 	text-align: center;
@@ -145,7 +145,7 @@ Tabs-TabIcon {
 	position: relative;
 	width: calc(var(--sp) * 60);
 	height: calc(var(--sp) * 60);
-	background-size: contain;
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-position: center;
 	margin-bottom: calc(var(--sp) * 2);
@@ -232,7 +232,7 @@ Level-LevelSelectTopDifficulty {
 	width: calc(var(--sp) * 78);
 	height: calc(var(--sp) * 78);
 	background-image: url("assets/graphics/buttonDifficultyStarInactive.png");
-	background-size: contain;
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-position: center;
 	align-items: center;
@@ -244,7 +244,7 @@ Level-LevelSelectTopDifficulty {
 }
 Level-LevelSelectTopDifficulty.active {
 	background-image: url("assets/graphics/buttonDifficultyStarActive.png");
-	background-size: contain;
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-position: center;
 }
@@ -265,7 +265,7 @@ Level-LevelSelectTopPercentIcon {
 	width: calc(var(--sp) * 32);
 	height: calc(var(--sp) * 32);
 	background-image: url("assets/graphics/iconInfo.png");
-	background-size: calc(var(--sp) * 30);
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-position: top left;
 }
@@ -314,7 +314,7 @@ Level-LevelListGroupGlow {
 	width: calc(var(--sp) * 482);
 	height: calc(var(--sp) * 196);
 	background-image: url("assets/graphics/glow3.png");
-	background-size: contain;
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	z-index: 0;
 	pointer-events: none;
@@ -376,7 +376,7 @@ Level-LevelListGroupTopInfoStar {
 	width: calc(var(--sp) * 34);
 	height: calc(var(--sp) * 34);
 	background-image: url("assets/graphics/starYellow.png");
-	background-size: cover;
+	background-size: 100% 100%;
 }
 Level-LevelListGroupTopInfoVerticalGroup {
 	display: flex;
@@ -410,11 +410,11 @@ Level-LevelListGroupTopInfoGemIcon, Level-LevelListGroupTopInfoCrownIcon {
 }
 Level-LevelListGroupTopInfoGemIcon {
 	background-image: url("assets/graphics/gemWhite.png");
-	background-size: cover;
+	background-size: 100% 100%;
 }
 Level-LevelListGroupTopInfoCrownIcon {
 	background-image: url("assets/graphics/crownWhite.png");
-	background-size: cover;
+	background-size: 100% 100%;
 }
 Level-LevelListGroupTopInfoGemText, Level-LevelListGroupTopInfoCrownText {
 	color: #ffffff;
@@ -437,12 +437,12 @@ Level-LevelListGroupTopProgressBar {
 	left: calc(var(--sp) * 8);
 	top: calc(var(--sp) * 6);
 	background-image: url("assets/graphics/barProgresEmpty.png");
-	background-size: calc(var(--sp) * 415) calc(var(--sp) * 34);
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
 Level-LevelListGroupTopProgressBarFilled {
 	background-image: url("assets/graphics/barProgressFilled.png");
-	background-size: calc(var(--sp) * 415) calc(var(--sp) * 34);
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
 Level-LevelListGroupTopProgressBarTextContainer {
@@ -480,7 +480,7 @@ Level-LevelListGroupTopArrow {
 	width: calc(var(--sp) * 40);
 	height: calc(var(--sp) * 24);
 	background-image: url("assets/graphics/arrowDown.png");
-	background-size: calc(var(--sp) * 40) calc(var(--sp) * 24);
+	background-size: 100% 100%;
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -531,7 +531,7 @@ Level-LevelListItemGlow1 {
 	width: calc(var(--sp) * 483);
 	height: calc(var(--sp) * 401);
 	background-image: url("assets/graphics/glow1.png");
-	background-size: cover;
+	background-size: 100% 100%;
 	z-index: -1;
 	pointer-events: none;
 	touch-action: none;
@@ -547,7 +547,7 @@ Level-LevelListItemGlow2 {
 	width: calc(var(--sp) * 764);
 	height: calc(var(--sp) * 682);
 	background-image: url("assets/graphics/glow2.png");
-	background-size: cover;
+	background-size: 100% 100%;
 	z-index: -2;
 	pointer-events: none;
 	touch-action: none;
@@ -570,7 +570,7 @@ Level-LevelIcon {
 	height: calc(var(--sp) * 350);
 	left: 0;
 	background-image: url("assets/worldshow/world0.png");
-	background-size: cover;
+	background-size: 100% 100%;
 	z-index: 2;
 }
 Level-LevelInfo {
@@ -598,7 +598,7 @@ Level-LevelDifficulty {
 	width: calc(var(--sp) * 180);
 	height: calc(var(--sp) * 36);
 	background-image: url("assets/graphics/difficulty.png");
-	background-size: cover;
+	background-size: 100% 100%;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	align-content: center;
@@ -612,7 +612,7 @@ Level-LevelDifficultyStar {
 	width: calc(var(--sp) * 24);
 	height: calc(var(--sp) * 24);
 	background-image: url("assets/graphics/starBlue.png");
-	background-size: cover;
+	background-size: 100% 100%;
 }
 Level-LevelListItem.crown Level-LevelInfoContent {
 	position: relative;
@@ -637,7 +637,7 @@ Level-LevelListItem.crown Level-LevelCrown {
 	width: calc(var(--sp) * 40);
 	height: calc(var(--sp) * 40);
 	background-image: url("assets/graphics/crownFilled.png");
-	background-size: cover;
+	background-size: 100% 100%;
 	margin: 0 calc(var(--sp) * 5);
 }
 Level-LevelGem {
@@ -648,7 +648,7 @@ Level-LevelGem {
 	width: calc(var(--sp) * 32);
 	height: calc(var(--sp) * 32);
 	background-image: url("assets/graphics/gemBlue.png");
-	background-size: cover;
+	background-size: 100% 100%;
 }
 Level-LevelGemNumber {
 	position: relative;
@@ -683,7 +683,7 @@ Level-LevelIndex {
     font-size: calc(var(--sp) * 20);
     display: flex;
     background-image: url("assets/graphics/index.png");
-    background-size: cover;
+    background-size: 100% 100%;
     flex-direction: row-reverse;
     align-items: flex-start;
     align-content: center;
