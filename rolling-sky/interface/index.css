@@ -1,5 +1,6 @@
 :root {
-	--sp: 1px; /* 0.85 */
+	--sp: 0.85px; /* 0.85 */
+	--sp: 0.85px; /* 0.85 */
 	--rp: 1px;
 	color-scheme: dark;
 }
@@ -40,19 +41,124 @@ body {
 	margin: 0;
 	background: #bf812a;
 }
+Views-ViewModules {
+	display: block;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+}
+Logo-LogoView {
+    position: absolute;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+Logo-LogoBiao {
+	position: relative;
+	display: flex;
+	top: calc(var(--sp) * 12);
+	width: calc(var(--sp) * 575);
+	height: calc(var(--sp) * 645);
+	background-image: url("assets/biao.png");
+	background-size: 100% 100%;
+	flex-direction: column;
+	align-content: center;
+	justify-content: space-around;
+	align-items: center;
+}
+Logo-LogoButton {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+	position: absolute;
+	bottom: calc(var(--sp) * 30);
+	width: calc(var(--sp) * 200);
+	height: calc(var(--sp) * 60);
+	padding-bottom: calc(var(--sp) * 10);
+	color: #273753;
+	background-image: url("assets/graphics/btn_yellow_alt.png");
+	background-size: 100% 200%;
+	background-repeat: no-repeat;
+	background-position-y: top;
+	text-align: center;
+	font-size: calc(var(--sp) * 30);
+}
+Logo-LogoButton:active {
+	background-position-y: bottom;
+}
+Logo-LevelGrid {
+	position: relative;
+	height: calc(var(--sp) * 500);
+	top: calc(var(--sp) * -65);
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+}
+Logo-LevelGridItem {
+	display: inline-flex;
+	align-items: center;
+	flex-direction: column;
+	align-content: center;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	overflow: hidden;
+	position: relative;
+	margin: 0 calc(var(--sp) * 7);
+	width: calc(var(--sp) * 170);
+	height: calc(var(--sp) * 289);
+	border: solid calc(var(--sp) * 4) #641fdb;
+	border-radius: calc(var(--sp) * 7);
+	background: #551d85;
+}
+Logo-LevelGridItemWorld {
+	display: block;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: calc(var(--sp) * 260);
+	background-image: url("assets/worldshow/world0.png");
+	background-size: 100% 95%;
+	background-repeat: no-repeat;
+}
+Logo-LevelGridItemText {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: calc(var(--sp) * 50);
+	background: #8637fb;
+}
 Prompt-PromptUI {
 	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	z-index: 32768;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	align-content: center;
-	justify-content: center;
-	align-items: center;
 }
 Prompt-PromptBackground {
 	display: block;
@@ -111,63 +217,13 @@ Prompt-PromptButton {
 Prompt-PromptButton:active {
 	background-position-y: bottom;
 }
-
-Tabs-TabUI {
-	display: flex;
-	position: fixed;
-	background: #282544;
-	width: calc(var(--sp) * 570);
-	height: calc(var(--sp) * 110);
-	bottom: 0;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	align-content: center;
-	justify-content: space-evenly;
-	align-items: center;
-	left: 50%;
-	transform: translateX(-50%);
-	z-index: 32767;
-}
-Tabs-Tab {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	align-content: center;
-	justify-content: center;
-	align-items: center;
-	margin-left: calc(var(--sp) * 20);
-	margin-right: calc(var(--sp) * 20);
-	padding-top: calc(var(--sp) * 2);
-}
-Tabs-TabIcon {
-	display: block;
-	position: relative;
-	width: calc(var(--sp) * 60);
-	height: calc(var(--sp) * 60);
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
-	background-position: center;
-	margin-bottom: calc(var(--sp) * 2);
-}
-Tabs-TabIcon.home {
-	background-image: url("assets/graphics/tabHome.png");
-}
-Tabs-TabIcon.levels {
-	background-image: url("assets/graphics/tabLevels.png");
-}
-Tabs-TabLabel {
-	display: block;
-	position: relative;
-	width: 100%;
-	font-size: calc(var(--sp) * 17);
-	text-align: center;
-}
 Level-VerticalLevelListViewModule {
-	position: relative;
+	position: absolute;
+	left: 0;
+	top: 0;
 	display: block;
 	width: 100vw;
-	z-index: 1;
+	z-index: 2;
 }
 Level-VerticalLevelListBackground {
 	width: calc(var(--sp) * 750); /* 750, 570 */
@@ -182,7 +238,7 @@ Level-VerticalLevelListBackground {
 }
 Level-VerticalLevelListScroller {
 	display: flex;
-	height: 100vh;
+	height: calc(100vh - calc(var(--sp) * 295));
 	overflow-x: clip;
 	overflow-y: scroll;
 	scrollbar-gutter: stable;
@@ -292,7 +348,7 @@ Level-VerticalLevelList {
 	flex-wrap: nowrap;
 	flex-direction: column;
 	padding-top: calc(var(--sp) * 150);
-	margin-bottom: calc(var(--sp) * 185);
+	/* margin-bottom: calc(var(--sp) * 185); */
 }
 Level-LevelListGroup {
 	display: flex;
@@ -605,6 +661,9 @@ Level-LevelDifficulty {
 	justify-content: flex-start;
 	align-items: center;
 }
+Level-LevelListItem.fanmade Level-LevelDifficulty {
+	opacity: 0;
+}
 Level-LevelDifficultyStar {
 	position: relative;
 	display: block;
@@ -615,8 +674,13 @@ Level-LevelDifficultyStar {
 	background-size: 100% 100%;
 }
 Level-LevelListItem.crown Level-LevelInfoContent {
-	position: relative;
-	top: calc(var(--sp) * 17);
+	/*position: relative;
+	top: calc(var(--sp) * 17);*/
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: calc(var(--sp) * 224);
+	top: calc(var(--sp) * 129);
 }
 Level-LevelListItem.crown Level-LevelCrowns {
 	display: inline-flex;
@@ -672,22 +736,22 @@ Level-LevelPercent.full {
 	color: #7f41d7;
 }
 Level-LevelIndex {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding-right: calc(var(--sp) * 5);
-    width: calc(var(--sp) * 82.5);
-    height: calc(var(--sp) * 39);
-    line-height: 2.1;
-    color: #68cae8;
-    font-size: calc(var(--sp) * 20);
-    display: flex;
-    background-image: url("assets/graphics/index.png");
-    background-size: 100% 100%;
-    flex-direction: row-reverse;
-    align-items: flex-start;
-    align-content: center;
-    justify-content: flex-start;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding-right: calc(var(--sp) * 5);
+	width: calc(var(--sp) * 82.5);
+	height: calc(var(--sp) * 39);
+	line-height: 2.1;
+	color: #68cae8;
+	font-size: calc(var(--sp) * 20);
+	display: flex;
+	background-image: url("assets/graphics/index.png");
+	background-size: 100% 100%;
+	flex-direction: row-reverse;
+	align-items: flex-start;
+	align-content: center;
+	justify-content: flex-start;
 }
 /*Level-LevelIndexNumber {
 	position: relative;
@@ -698,16 +762,83 @@ Level-LevelIndex {
 	font-size: calc(var(--sp) * 20);
 	color: #68cae8;
 }*/
+Tabs-TabUI {
+	display: flex;
+	position: fixed;
+	background: #1f2a4ac8;
+	width: 100%;
+	height: calc(var(--sp) * 110);
+	bottom: 0;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: space-evenly;
+	align-items: center;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 32767;
+}
+Tabs-TabWrapper {
+	display: flex;
+	position: fixed;
+	width: calc(var(--sp) * 570);
+	height: calc(var(--sp) * 110);
+	bottom: 0;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: space-evenly;
+	align-items: center;
+}
+Tabs-Tab {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	margin-left: calc(var(--sp) * 20);
+	margin-right: calc(var(--sp) * 20);
+	padding-top: calc(var(--sp) * 2);
+	opacity: 0.5;
+}
+Tabs-Tab.selected {
+	opacity: 1;
+}
+Tabs-TabIcon {
+	display: block;
+	position: relative;
+	width: calc(var(--sp) * 60);
+	height: calc(var(--sp) * 60);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-bottom: calc(var(--sp) * 2);
+}
+Tabs-TabIcon.home {
+	background-image: url("assets/graphics/tabHome.png");
+}
+Tabs-TabIcon.levels {
+	background-image: url("assets/graphics/tabLevels.png");
+}
+Tabs-TabLabel {
+	display: block;
+	position: relative;
+	width: 100%;
+	font-size: calc(var(--sp) * 18);
+	text-align: center;
+}
 @media (pointer:coarse) {
 	Level-VerticalLevelListScroller::-webkit-scrollbar {
 		width: 0;
 	}
-	Level-VerticalLevelListScroller {
+	/*Level-VerticalLevelListScroller {
 		scroll-snap-type: y proximity;
 	}
 	Level-LevelListItem {
 		scroll-snap-align: center;
-	}
+	}*/
 }
 @media (pointer:fine) {
 	Level-VerticalLevelListScroller {

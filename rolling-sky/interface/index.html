@@ -24,36 +24,57 @@
 </head>
 <body>
 	<div id="background"></div>
-	<Level-VerticalLevelListViewModule>
-		<Level-VerticalLevelListBackground></Level-VerticalLevelListBackground>
-		<Level-VerticalLevelListScroller>
-			<Level-LevelSelectTop>
-				<Level-LevelSelectTopDifficulties>
-					<Level-LevelSelectTopDifficulty>1</Level-LevelSelectTopDifficulty>
-					<Level-LevelSelectTopDifficulty>2</Level-LevelSelectTopDifficulty>
-					<Level-LevelSelectTopDifficulty>3</Level-LevelSelectTopDifficulty>
-					<Level-LevelSelectTopDifficulty>4</Level-LevelSelectTopDifficulty>
-					<Level-LevelSelectTopDifficulty>5</Level-LevelSelectTopDifficulty>
-					<Level-LevelSelectTopDifficulty>6</Level-LevelSelectTopDifficulty>
-				</Level-LevelSelectTopDifficulties>
-				<Level-LevelSelectTopPercent>
-					<Level-LevelSelectTopPercentIcon></Level-LevelSelectTopPercentIcon>
-					<Level-LevelSelectTopPercentText>Only {0}%  players can pass all levels of this collection!</Level-LevelSelectTopPercentText>
-				</Level-LevelSelectTopPercent>
-			</Level-LevelSelectTop>
-			<Level-VerticalLevelList>
-			</Level-VerticalLevelList>
-		</Level-VerticalLevelListScroller>
-	</Level-VerticalLevelListViewModule>
+	<Views-ViewModules>
+		<Logo-LogoView>
+			<Logo-LevelGrid>
+				<Logo-LevelGridItem>
+					<Logo-LevelGridItemWorld></Logo-LevelGridItemWorld>
+					<Logo-LevelGridItemText>Play</Logo-LevelGridItemText>
+				</Logo-LevelGridItem>
+				<Logo-LevelGridItem>
+					<Logo-LevelGridItemWorld></Logo-LevelGridItemWorld>
+					<Logo-LevelGridItemText>Play</Logo-LevelGridItemText>
+				</Logo-LevelGridItem>
+				<Logo-LevelGridItem>
+					<Logo-LevelGridItemWorld></Logo-LevelGridItemWorld>
+					<Logo-LevelGridItemText>Last Level</Logo-LevelGridItemText>
+				</Logo-LevelGridItem>
+			</Logo-LevelGrid>
+			<Logo-LogoBiao><logo-logobutton>Play</logo-logobutton></Logo-LogoBiao>
+		</Logo-LogoView>
+		<Level-VerticalLevelListViewModule style="display: none;">
+			<Level-VerticalLevelListBackground></Level-VerticalLevelListBackground>
+			<Level-VerticalLevelListScroller>
+				<Level-LevelSelectTop>
+					<Level-LevelSelectTopDifficulties>
+						<Level-LevelSelectTopDifficulty>1</Level-LevelSelectTopDifficulty>
+						<Level-LevelSelectTopDifficulty>2</Level-LevelSelectTopDifficulty>
+						<Level-LevelSelectTopDifficulty>3</Level-LevelSelectTopDifficulty>
+						<Level-LevelSelectTopDifficulty>4</Level-LevelSelectTopDifficulty>
+						<Level-LevelSelectTopDifficulty>5</Level-LevelSelectTopDifficulty>
+						<Level-LevelSelectTopDifficulty>6</Level-LevelSelectTopDifficulty>
+					</Level-LevelSelectTopDifficulties>
+					<Level-LevelSelectTopPercent>
+						<Level-LevelSelectTopPercentIcon></Level-LevelSelectTopPercentIcon>
+						<Level-LevelSelectTopPercentText>Only {0}%  players can pass all levels of this collection!</Level-LevelSelectTopPercentText>
+					</Level-LevelSelectTopPercent>
+				</Level-LevelSelectTop>
+				<Level-VerticalLevelList>
+				</Level-VerticalLevelList>
+			</Level-VerticalLevelListScroller>
+		</Level-VerticalLevelListViewModule>
+	</Views-ViewModules>
 	<Tabs-TabUI>
-		<Tabs-Tab>
-			<Tabs-TabIcon class="home"></Tabs-TabIcon>
-			<Tabs-TabLabel>Exit</Tab-TabLabel>
-		</Tabs-Tab>
-		<Tabs-Tab>
-			<Tabs-TabIcon class="levels"></Tabs-TabIcon>
-			<Tabs-TabLabel>Levels</Tab-TabLabel>
-		</Tabs-Tab>
+		<Tabs-TabWrapper>
+			<Tabs-Tab class="selected">
+				<Tabs-TabIcon class="home"></Tabs-TabIcon>
+				<Tabs-TabLabel>Home</Tab-TabLabel>
+			</Tabs-Tab>
+			<Tabs-Tab>
+				<Tabs-TabIcon class="levels"></Tabs-TabIcon>
+				<Tabs-TabLabel>Levels</Tab-TabLabel>
+			</Tabs-Tab>
+		</Tabs-TabWrapper>
 	</Tabs-TabUI>
 	<Prompt-PromptUI style="display: none;">
 		<Prompt-PromptBackground></Prompt-PromptBackground>
