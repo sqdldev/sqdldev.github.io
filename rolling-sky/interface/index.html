@@ -40,7 +40,10 @@
 					<Logo-LevelGridItemText>Last Level</Logo-LevelGridItemText>
 				</Logo-LevelGridItem>
 			</Logo-LevelGrid>
-			<Logo-LogoBiao><logo-logobutton>Play</logo-logobutton></Logo-LogoBiao>
+			<Logo-LogoBiao>
+				<logo-logobutton>Play</logo-logobutton>
+				<Logo-LogoEvent>Weekly Match</Logo-LogoEvent>
+			</Logo-LogoBiao>
 		</Logo-LogoView>
 		<Level-VerticalLevelListViewModule style="display: none;">
 			<Level-VerticalLevelListBackground></Level-VerticalLevelListBackground>
@@ -76,6 +79,16 @@
 			</Tabs-Tab>
 		</Tabs-TabWrapper>
 	</Tabs-TabUI>
+	<Views-ViewModules class="top">
+		<Views-ViewDarkenTop style="display: none;"></Views-ViewDarkenTop>
+		<Event-WeeklyMatch style="display: none;">
+			<Event-WeeklyMatchContent>
+				<Event-WeeklyMatchContentExit></Event-WeeklyMatchContentExit>
+				<Event-WeeklyMatchContentTitle>Weekly Match Levels</Event-WeeklyMatchContentTitle>
+				<Event-WeeklyMatchContentContainer></Event-WeeklyMatchContentContainer>
+			</Event-WeeklyMatchContent>
+		</Event-WeeklyMatch>
+	</Views-ViewModules>
 	<Prompt-PromptUI style="display: none;">
 		<Prompt-PromptBackground></Prompt-PromptBackground>
 		<Prompt-PromptContent>

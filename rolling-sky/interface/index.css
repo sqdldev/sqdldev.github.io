@@ -1,6 +1,6 @@
 :root {
 	--sp: 0.85px; /* 0.85 */
-	--sp: 0.85px; /* 0.85 */
+	--sp1: 0.85px; /* 0.85 */
 	--rp: 1px;
 	color-scheme: dark;
 }
@@ -47,17 +47,33 @@ Views-ViewModules {
 	width: 100vw;
 	height: 100vh;
 }
+Views-ViewModules.top {
+	width: 0;
+	height: 0;
+	z-index: 32768;
+}
+Views-ViewDarkenTop {
+	display: block;
+	position: fixed;
+	width: 90vh;
+	height: 100vh;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0;
+	margin: 0;
+	background: #00000080;
+}
 Logo-LogoView {
-    position: absolute;
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    flex-direction: column-reverse;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
+	position: absolute;
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	flex-direction: column-reverse;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
 }
 Logo-LogoBiao {
 	position: relative;
@@ -92,6 +108,23 @@ Logo-LogoButton {
 	background-position-y: top;
 	text-align: center;
 	font-size: calc(var(--sp) * 30);
+}
+Logo-LogoEvent {
+	position: absolute;
+	display: flex;
+	top: calc(var(--sp) * 215);
+	right: calc(var(--sp) * -6);
+	width: calc(var(--sp) * 147);
+	height: calc(var(--sp) * 120);
+	background-image: url("assets/weeklyMatch.png");
+	background-size: 100% 75%;
+	background-repeat: no-repeat;
+	flex-direction: column;
+	align-content: center;
+	justify-content: flex-end;
+	align-items: center;
+	font-size: calc(var(--sp) * 16);
+	text-shadow: 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf;
 }
 Logo-LogoButton:active {
 	background-position-y: bottom;
@@ -145,6 +178,76 @@ Logo-LevelGridItemText {
 	width: 100%;
 	height: calc(var(--sp) * 50);
 	background: #8637fb;
+}
+Event-WeeklyMatch {
+	position: absolute;
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	flex-direction: column-reverse;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+}
+Event-WeeklyMatchContent {
+	display: block;
+	position: relative;
+	width: calc(var(--sp1) * 650);
+	height: calc(var(--sp1) * 975);
+	background-image: url("assets/graphics/eventBackground.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	padding: calc(var(--sp1) * 40) calc(var(--sp1) * 50);
+}
+Event-WeeklyMatchContentExit {
+	display: block;
+	position: absolute;
+	top: calc(var(--sp1) * -15);
+	right: calc(var(--sp1) * -15);
+	width: calc(var(--sp1) * 70);
+	height: calc(var(--sp1) * 70);
+	background-image: url("assets/graphics/close.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+Event-WeeklyMatchContentTitle {
+	color: #00fffe;
+	font-size: calc(var(--sp1) * 30);
+}
+Event-WeeklyMatchContentContainer {
+	display: flex;
+	position: absolute;
+	top: calc(var(--sp1) * 100);
+	width: calc(var(--sp1) * 570);
+	height: calc(var(--sp1) * 820);
+	border-radius: 10px;
+	padding: calc(var(--sp1) * 40);
+	background: #85acfaa6;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	overflow-y: auto;
+}
+Event-WeeklyMatchContentContainer::-webkit-scrollbar{
+	display: none;
+}
+Event-WeeklyMatchContentContainerWorld {
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	width: calc(var(--sp1) * 200);
+	height: calc(var(--sp1) * 312.5);
+	margin: calc(var(--sp1) * 16);
+	border-radius: calc(var(--sp1) * 10);
+	opacity: 0.55;
+}
+Event-WeeklyMatchContentContainerWorld.current {
+	box-shadow: 0 0 15px 8px white;
+	outline: solid 4px white;
+	opacity: 1;
 }
 Prompt-PromptUI {
 	display: flex;
