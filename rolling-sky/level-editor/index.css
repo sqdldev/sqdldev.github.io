@@ -9,6 +9,7 @@
 	scroll-behavior: inherit !important;
 	touch-action: manipulation;
 	overscroll-behavior: none;
+	font-family: 'regular';
 }
 
 html {
