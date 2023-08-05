@@ -467,7 +467,7 @@ input::placeholder {
 	left: 0;
 	background-color: var(--obstaclePreviewCanvasBackgroundColor);
 	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
+	--webkit-backdrop-filter: blur(10px);
 	z-index: 1;
 }
 
@@ -496,4 +496,108 @@ input::placeholder {
 #changelog ul {
 	color: var(--changelogTextColor);
 	margin: 12px 0 0 0;
+}
+
+div#collectionmanagermenu {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 32767;
+}
+div#collectionmanagermenubackground {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--popupBackgroundDarkenColor);
+	backdrop-filter: blur(3px);
+	--webkit-backdrop-filter: blur(3px);
+}
+div#collectionmanagermenucontent {
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: flex-start;
+	align-items: center;
+	overflow-y: auto;
+	overscroll-behavior: contain;
+}
+button.collectionmanagermenuclose {
+	position: fixed;
+	right: 10px;
+	top: 10px;
+	z-index: 5000;
+	background: #00000000;
+	border: none;
+}
+button.collectionmanagermenuclose > img {
+	width: 50px;
+	height: 50px;
+}
+div.collectionItem {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	flex-wrap: nowrap;
+	background: var(--jscolorElementBackgroundColor);
+	border: solid 1px var(--elementButtonBorderColor);
+	color: var(--elementGenericTextColor);
+	padding: 20px;
+	margin: 20px;
+	margin-bottom: 0;
+	border-radius: 10px;
+}
+div.collectionItem:last-child {
+	margin-bottom: 20px;
+}
+div.collectionItem > div {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+}
+div.collectionItem > div > input {
+	width: 200px;
+	text-align: center;
+}
+div.collectionItem > div:last-child {
+	position: relative;
+	margin: 10px 0;
+	margin-bottom: 0;
+	padding: 10px 0px;
+	border-radius: 10px;
+	width: 100%;
+	background: var(--elementButtonBackgroundColor);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+div.collectionItem > div:last-child > button {
+	padding: 5px;
+}
+div.collectionItem > div:last-child > button > img {
+	width: 30px;
+	height: 30px;
+}
+div.collectionItem > div > img {
+	width: 128px;
+	height: 128px;
+	margin: 15px 0;
+}
+
+div#container.collection .hideOnCollection {
+	display: none;
 }

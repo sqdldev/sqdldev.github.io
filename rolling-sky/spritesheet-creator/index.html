@@ -64,6 +64,9 @@
 					<h2>Load Previous Project</h2>
 					<p>Load the previous project you have edited. Your previous project data is saved whenever you modify a spritesheet, which means if you create a new spritesheet accidentally, you can still load the previous project you have edited.</p>
 					<button onclick="MainMenu.LoadPrevious()">Load</button>
+					<h2>Spritesheet Collection</h2>
+					<p>Please do not rely on this feature to keep your Spritesheets safe. Open your Spritesheet Collection. It is stored on your local machine. Do not clear your Local Storage.</p>
+					<button onclick="CollectionManager.Menu.OpenAuto()">Open</button>
 					<h2>Custom Assets</h2>
 					<p>Only edit if you know what you're doing! This will reset on every page reload.</p>
 					<p>Custom Assets allows you to edit the assets used in the SpriteMaker. This allows you to have basically infinite possibilities. Use only black and white. The darker the image, the darker it will appear in the SpriteMaker. Opacity is retained.</p>
@@ -93,6 +96,7 @@
 							<p>
 								<button onclick="renderObstaclePreview(obstaclePreviewTypeSelect.value)">Model Preview</button>
 								<button onclick="SpriteMaker.Data.Draw(sprite, canvas)">Redraw Canvas</button>
+								<button class="hideOnCollection" onclick="CollectionManager.AddSpriteAuto(sprite)">Add to Collections</button>
 							</p>
 						</p>
 					</div>
@@ -140,6 +144,13 @@
 					</label>
 				</div>
 			</div>
+		</div>
+		<div id="collectionmanagermenu" style="display: none;">
+			<button class="collectionmanagermenuclose" onclick="CollectionManager.Menu.Close()">
+				<img src="close.png">
+			</button>
+			<div id="collectionmanagermenubackground"></div>
+			<div id="collectionmanagermenucontent"></div>
 		</div>
 		<script src="data.js"></script>
 		<script src="index.js"></script>
