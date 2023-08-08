@@ -1,3 +1,7 @@
+@font-face {
+	font-family: 'pencil';
+	src: url('assetsLow/pencil.otf');
+}
 :root {
 	--sp: 0.85px; /* 0.85 */
 	--sp1: 0.85px; /* 0.85 */
@@ -23,10 +27,13 @@
 	left: 50%;
 	transform: translateX(-50%);
 	-webkit-transform: translateX(-50%);
-	background-image: url("assets/backgrounds/Background124.png");
+	background-image: url("assets/backgrounds/Background143.png");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	z-index: 0;
+}
+body.bad_quality #background {
+	background-image: url("assetsLow/backgrounds/Background143.png");
 }
 html, body {
 	overscroll-behavior-y: none;
@@ -39,7 +46,11 @@ body {
 	height: 100vh;
 	padding: 0;
 	margin: 0;
-	background: #bf812a;
+	background: /*#bf812a*/#000000;
+}
+body.bad_quality {
+	font-family: 'pencil';
+	font-weight: 1000;
 }
 Views-ViewModules {
 	display: block;
@@ -88,6 +99,9 @@ Logo-LogoBiao {
 	justify-content: space-around;
 	align-items: center;
 }
+body.bad_quality Logo-LogoBiao {
+	background-image: url("assetsLow/biao.png");
+}
 Logo-LogoButton {
 	display: flex;
 	flex-direction: row;
@@ -109,6 +123,9 @@ Logo-LogoButton {
 	text-align: center;
 	font-size: calc(var(--sp) * 30);
 }
+body.bad_quality Logo-LogoButton {
+	background-image: url("assetsLow/graphics/btn_yellow_alt.png");
+}
 Logo-LogoEvent {
 	position: absolute;
 	display: flex;
@@ -125,6 +142,9 @@ Logo-LogoEvent {
 	align-items: center;
 	font-size: calc(var(--sp) * 16);
 	text-shadow: 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf, 0 0 3px #cb31cf;
+}
+body.bad_quality Logo-LogoEvent {
+	background-image: url("assetsLow/weeklyMatch.png");
 }
 Logo-LogoButton:active {
 	background-position-y: bottom;
@@ -156,6 +176,11 @@ Logo-LevelGridItem {
 	border-radius: calc(var(--sp) * 7);
 	background: #551d85;
 }
+body.bad_quality Logo-LevelGridItem {
+	background: url(assetsLow/graphics/levelGridBackground.png);
+	background-size: 100% 100%;
+	border: none;
+}
 Logo-LevelGridItemWorld {
 	display: block;
 	position: absolute;
@@ -165,6 +190,17 @@ Logo-LevelGridItemWorld {
 	background-image: url("assets/worldshow/world0.png");
 	background-size: 100% 95%;
 	background-repeat: no-repeat;
+}
+body.bad_quality Logo-LevelGridItemWorld {
+	-webkit-mask-image: url(assetsLow/graphics/levelGridBackground.png);
+	mask-image: url(assetsLow/graphics/levelGridBackground.png);
+	-webkit-mask-size: 100% 95%;
+	mask-size: 100% 95%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	width: 95%;
+	top: calc(var(--sp) * 3);
+	height: calc(var(--sp) * 248);
 }
 Logo-LevelGridItemText {
 	display: flex;
@@ -211,6 +247,9 @@ Event-WeeklyMatchContentExit {
 	background-image: url("assets/graphics/close.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+}
+body.bad_quality Event-WeeklyMatchContentExit {
+	background-image: url("assetsLow/graphics/close.png");
 }
 Event-WeeklyMatchContentTitle {
 	color: #00fffe;
@@ -286,6 +325,9 @@ Prompt-PromptContent {
 	flex-direction: row;
 	color: #ffffff;
 }
+body.bad_quality Prompt-PromptContent {
+	background-image: url("assetsLow/graphics/promptBackground.png");
+}
 Prompt-PromptText {
 	display: block;
 	position: absolute;
@@ -316,6 +358,9 @@ Prompt-PromptButton {
 	justify-content: center;
 	align-items: center;
 	user-select: none;
+}
+body.bad_quality Prompt-PromptButton {
+	background-image: url("assetsLow/graphics/btn_yellow.png");
 }
 Prompt-PromptButton:active {
 	background-position-y: bottom;
@@ -401,11 +446,17 @@ Level-LevelSelectTopDifficulty {
 	color: white;
 	font-size: calc(var(--sp) * 30);
 }
+body.bad_quality Level-LevelSelectTopDifficulty {
+	background-image: url("assetsLow/graphics/buttonDifficultyStarInactive.png");
+}
 Level-LevelSelectTopDifficulty.active {
 	background-image: url("assets/graphics/buttonDifficultyStarActive.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-position: center;
+}
+body.bad_quality Level-LevelSelectTopDifficulty.active {
+	background-image: url("assetsLow/graphics/buttonDifficultyStarActive.png");
 }
 Level-LevelSelectTopPercent {
 	display: block;
@@ -427,6 +478,9 @@ Level-LevelSelectTopPercentIcon {
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-position: top left;
+}
+body.bad_quality Level-LevelSelectTopPercentIcon {
+	background-image: url("assetsLow/graphics/iconInfo.png");
 }
 Level-LevelSelectTopPercentText {
 	position: absolute;
@@ -482,6 +536,9 @@ Level-LevelListGroupGlow {
 	transition: 0.15s;
 	-webkit-transition: 0.15s;
 }
+body.bad_quality Level-LevelListGroupGlow {
+	background-image: url("assetsLow/graphics/glow3.png");
+}
 Level-LevelListGroup.active Level-LevelListGroupGlow {
 	opacity: 1;
 	transition: 0.15s;
@@ -494,8 +551,16 @@ Level-LevelListGroupTop {
 	height: calc(var(--sp) * 147);
 	background: #8a8ed4;
 }
+body.bad_quality Level-LevelListGroupTop {
+	background: url("assetsLow/graphics/levelListGroup.png");
+	background-size: 100% 100%;
+}
 Level-LevelListGroup.color1 Level-LevelListGroupTop {
 	background: #d48ccc;
+}
+body.bad_quality Level-LevelListGroup.color1 Level-LevelListGroupTop {
+	background: url("assetsLow/graphics/levelListGroupPink.png");
+	background-size: 100% 100%;
 }
 Level-LevelListGroupTopInfo {
 	display: flex;
@@ -509,8 +574,14 @@ Level-LevelListGroupTopInfo {
 	justify-content: flex-start;
 	align-items: center;
 }
+body.bad_quality Level-LevelListGroupTopInfo {
+	background: none;
+}
 Level-LevelListGroup.color1 Level-LevelListGroupTopInfo {
 	background: #9a4890;
+}
+body.bad_quality Level-LevelListGroup.color1 Level-LevelListGroupTopInfo {
+	background: none;
 }
 Level-LevelListGroupTopInfoStars {
 	position: absolute;
@@ -536,6 +607,9 @@ Level-LevelListGroupTopInfoStar {
 	height: calc(var(--sp) * 34);
 	background-image: url("assets/graphics/starYellow.png");
 	background-size: 100% 100%;
+}
+body.bad_quality Level-LevelListGroupTopInfoStar {
+	background-image: url("assetsLow/graphics/starYellow.png");
 }
 Level-LevelListGroupTopInfoVerticalGroup {
 	display: flex;
@@ -571,9 +645,15 @@ Level-LevelListGroupTopInfoGemIcon {
 	background-image: url("assets/graphics/gemWhite.png");
 	background-size: 100% 100%;
 }
+body.bad_quality Level-LevelListGroupTopInfoGemIcon {
+	background-image: url("assetsLow/graphics/gemWhite.png");
+}
 Level-LevelListGroupTopInfoCrownIcon {
 	background-image: url("assets/graphics/crownWhite.png");
 	background-size: 100% 100%;
+}
+body.bad_quality Level-LevelListGroupTopInfoCrownIcon {
+	background-image: url("assetsLow/graphics/crownWhite.png");
 }
 Level-LevelListGroupTopInfoGemText, Level-LevelListGroupTopInfoCrownText {
 	color: #ffffff;
@@ -599,10 +679,16 @@ Level-LevelListGroupTopProgressBar {
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
+body.bad_quality Level-LevelListGroupTopProgressBar {
+	background-image: url("assets/graphics/barProgresEmpty.png");
+}
 Level-LevelListGroupTopProgressBarFilled {
 	background-image: url("assets/graphics/barProgressFilled.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+}
+body.bad_quality Level-LevelListGroupTopProgressBarFilled {
+	background-image: url("assets/graphics/barProgressFilled.png");
 }
 Level-LevelListGroupTopProgressBarTextContainer {
 	position: absolute;
@@ -643,6 +729,9 @@ Level-LevelListGroupTopArrow {
 	background-position: center;
 	background-repeat: no-repeat;
 }
+body.bad_quality Level-LevelListGroupTopArrow {
+	background-image: url("assetsLow/graphics/arrowDown.png");
+}
 Level-LevelListGroup.opened Level-LevelListGroupTopArrow {
 	transform: scaleY(-1);
 	-webkit-transform: scaleY(-1);
@@ -668,6 +757,9 @@ Level-LevelListItem {
 	color: #ffffff;
 	margin: calc(var(--sp) * 30) 0;
 	z-index: 0;
+}
+body.bad_quality Level-LevelListItem {
+	background-image: url("assetsLow/graphics/levelListItem.png");
 }
 Level-LevelListItem:last-child {
 	margin-bottom: 0;
@@ -732,6 +824,14 @@ Level-LevelIcon {
 	background-size: 100% 100%;
 	z-index: 2;
 }
+body.bad_quality Level-LevelIcon {
+	-webkit-mask-image: url(assetsLow/graphics/levelListItem.png);
+	mask-image: url(assetsLow/graphics/levelListItem.png);
+	-webkit-mask-size: 200% 100%;
+	mask-size: 200% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+}
 Level-LevelInfo {
 	display: inline-block;
 	z-index: 2;
@@ -749,6 +849,9 @@ Level-LevelTitle {
 	align-items: center;
 	text-align: center;
 }
+body.bad_quality Level-LevelTitle {
+	background: none;
+}
 Level-LevelDifficulty {
 	display: inline-flex;
 	position: relative;
@@ -764,6 +867,9 @@ Level-LevelDifficulty {
 	justify-content: flex-start;
 	align-items: center;
 }
+body.bad_quality Level-LevelDifficulty {
+	background-image: url("assetsLow/graphics/difficulty.png");
+}
 Level-LevelListItem.fanmade Level-LevelDifficulty {
 	opacity: 0;
 }
@@ -775,6 +881,9 @@ Level-LevelDifficultyStar {
 	height: calc(var(--sp) * 24);
 	background-image: url("assets/graphics/starBlue.png");
 	background-size: 100% 100%;
+}
+body.bad_quality Level-LevelDifficultyStar {
+	background-image: url("assetsLow/graphics/starBlue.png");
 }
 Level-LevelListItem.crown Level-LevelInfoContent {
 	/*position: relative;
@@ -807,6 +916,9 @@ Level-LevelListItem.crown Level-LevelCrown {
 	background-size: 100% 100%;
 	margin: 0 calc(var(--sp) * 5);
 }
+body.bad_quality Level-LevelListItem.crown Level-LevelCrown {
+	background-image: url("assetsLow/graphics/crownFilled.png");
+}
 Level-LevelGem {
 	position: relative;
 	display: block;
@@ -816,6 +928,9 @@ Level-LevelGem {
 	height: calc(var(--sp) * 32);
 	background-image: url("assets/graphics/gemBlue.png");
 	background-size: 100% 100%;
+}
+body.bad_quality Level-LevelGem {
+	background-image: url("assetsLow/graphics/gemBlue.png");
 }
 Level-LevelGemNumber {
 	position: relative;
@@ -834,6 +949,8 @@ Level-LevelPercent {
 	left: calc(var(--sp) * 50);
 	font-size: calc(var(--sp) * 43);
 	letter-spacing: calc(var(--sp) * 1);
+	text-align: center;
+	width: calc(var(--sp) * 100);
 }
 Level-LevelPercent.full {
 	color: #7f41d7;
@@ -855,6 +972,9 @@ Level-LevelIndex {
 	align-items: flex-start;
 	align-content: center;
 	justify-content: flex-start;
+}
+body.bad_quality Level-LevelIndex {
+	background-image: none;
 }
 /*Level-LevelIndexNumber {
 	position: relative;
@@ -922,8 +1042,14 @@ Tabs-TabIcon {
 Tabs-TabIcon.home {
 	background-image: url("assets/graphics/tabHome.png");
 }
+body.bad_quality Tabs-TabIcon.home {
+	background-image: url("assetsLow/graphics/tabHome.png");
+}
 Tabs-TabIcon.levels {
 	background-image: url("assets/graphics/tabLevels.png");
+}
+body.bad_quality Tabs-TabIcon.levels {
+	background-image: url("assetsLow/graphics/tabLevels.png");
 }
 Tabs-TabLabel {
 	display: block;
