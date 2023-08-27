@@ -137,8 +137,31 @@ a {
 	margin: 25px;
 }
 div.title {
+	display: none;
 	font-weight: 900;
 	font-size: 30px;
+}
+div.titleImg {
+	display: inline-block;
+	position: relative;
+	width: 85%;
+	max-width: 512px;
+	height: auto;
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	margin: 15px 0;
+	background-image: url("logo.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	filter: brightness(var(--titleFilterBrightness)) sepia(var(--titleFilterSepia)) saturate(var(--titleFilterSaturate)) hue-rotate(var(--titleFilterHueRotate));
+	-webkit-filter: brightness(var(--titleFilterBrightness)) sepia(var(--titleFilterSepia)) saturate(var(--titleFilterSaturate)) hue-rotate(var(--titleFilterHueRotate));
+	aspect-ratio: 1247/393;
+	transition: 0.15s;
+}
+div.titleImg:active {
+	transform: translateX(-50%) scale(0.99);
+	transition: 0.05s;
 }
 
 #hidden {
@@ -340,7 +363,11 @@ input::placeholder {
 	flex-wrap: wrap;
 }
 
-
+@media screen and (max-width: 830px) {
+	#mainmenu {
+		width: auto;
+	}
+}
 @media screen and (max-width: 700px) {
 	#container {
 		zoom: 0.75;
@@ -359,7 +386,7 @@ input::placeholder {
 	}
 }
 
-@media screen and (max-width: 475px) {	
+@media screen and (max-width: 475px) {
 	#obstaclePreviewMenu .closeButton img {
 		width: 40px;
 	}

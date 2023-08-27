@@ -3,6 +3,10 @@
 	
 	--defaultBaseBackgroundColor: -webkit-linear-gradient(#71152f, #3c1466);
 	--defaultBaseTextColor: #fad6e0;
+	--titleFilterBrightness: 100%;
+	--titleFilterSepia: 100;
+	--titleFilterSaturate: 30;
+	--titleFilterHueRotate: 281deg;
 	--popupBackgroundDarkenColor: #2a081e5e;
 	--popupBorderColor: #ac2e59;
 	--popupBackgroundColor: #62173c;

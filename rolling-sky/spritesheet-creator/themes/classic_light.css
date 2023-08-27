@@ -1,6 +1,10 @@
 :root {
     --defaultBaseBackgroundColor: #f2f3f5;
     --defaultBaseTextColor: #5c5e66;
+	--titleFilterBrightness: 35%;
+	--titleFilterSepia: 0;
+	--titleFilterSaturate: 0;
+	--titleFilterHueRotate: 0deg;
     --popupBackgroundDarkenColor: #00000090;
     --popupBorderColor: #a6a6a6;
     --popupBackgroundColor: #f2f3f5;

@@ -1,10 +1,14 @@
-/* Thank you to extremisea for naming this theme! */
+/* Theme name by extremisea */
 
 :root {
     color-scheme: dark;
 
 	--defaultBaseBackgroundColor: -webkit-linear-gradient(#287d9f, #34436f);
 	--defaultBaseTextColor: #def3ff;
+	--titleFilterBrightness: 95%;
+	--titleFilterSepia: 90;
+	--titleFilterSaturate: 100;
+	--titleFilterHueRotate: 165deg;
 	--popupBackgroundDarkenColor: #2a081e5e;
 	--popupBorderColor: #2e73ac;
 	--popupBackgroundColor: #236194;
