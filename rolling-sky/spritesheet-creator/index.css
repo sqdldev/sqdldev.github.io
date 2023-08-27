@@ -144,8 +144,8 @@ div.title {
 div.titleImg {
 	display: inline-block;
 	position: relative;
-	width: 85%;
-	max-width: 512px;
+	width: 90%;
+	max-width: 550px;
 	height: auto;
 	left: 50%;
 	transform: translateX(-50%);
@@ -377,6 +377,14 @@ input::placeholder {
 		top: 0 !important;
 		right: 0 !important;
 		left: auto !important;
+	}
+}
+@media screen and (max-width: 650px) {
+	div.titleImg {
+		width: 100%;
+		max-width: 700px;
+		height: auto;
+		margin: 5px 0;
 	}
 }
 
