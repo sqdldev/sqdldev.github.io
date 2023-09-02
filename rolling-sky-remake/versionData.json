@@ -1,0 +1,27 @@
+{
+	"latest": "1.0.0",
+	"versions": {
+		"1.0.0": {
+			"changelog": [
+				"Added New Title Screen",
+				"Small UI Fixes",
+				"Fixed Back Button in Play Mode",
+				"Added Falling Ball",
+			],
+			"featured": [
+				{
+					"name": "Level1",
+					"author": "creator 1 name",
+					"path": "/creator1name/Level1.rsr",
+					"thumbnail": "/creatorname/Level1.png"
+				},
+				{
+					"name": "Level2",
+					"author": "creator 2 name",
+					"path": "/creator2name/Level2.rsr",
+					"thumbnail": "/creatorname/Level2.png"
+				}
+			]
+		}
+	}
+}
