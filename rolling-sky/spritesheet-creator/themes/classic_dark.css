@@ -24,7 +24,7 @@
 	--elementSelectBackgroundColor: #3b3b3b;
 	--elementSelectBorderColor: #858585;
 	--elementOptionBackgroundColor: var(--elementSelectBackgroundColor);
-	--elementInputBackgroundColor: var(--elementButtonBackgroundColor);
+	--elementInputBackgroundColor: #3b3b3b;
 	--elementInputBorderColor: var(--elementButtonBorderColor);
 	--elementInputFileButtonBackgroundColor: var(--elementButtonBackgroundColor);
 	--elementInputFileButtonBorderColor: var(--elementButtonBackgroundColor);
