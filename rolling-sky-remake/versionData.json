@@ -11,14 +11,20 @@
 			],
 			"featured": [
 				{
-					"name": "Level1",
-					"author": "creator 1 name",
-					"path": "creator1name/Level1.rsr",
-					"thumbnail": "creator1name/Level1.png"
+					"name": "Bubbles",
+					"author": "Brodraphex",
+					"gems": 10,
+					"crowns": 3,
+					"rating": 4,
+					"path": "brodraphex/Bubbles.rsr",
+					"thumbnail": "brodraphex/Level1.png"
 				},
 				{
 					"name": "Level2",
 					"author": "creator 2 name",
+					"gems": 20,
+					"crowns": 0,
+					"rating": 5,
 					"path": "creator2name/Level2.rsr",
 					"thumbnail": "creator2name/Level2.png"
 				}
