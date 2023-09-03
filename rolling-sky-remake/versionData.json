@@ -14,13 +14,13 @@
 					"name": "Level1",
 					"author": "creator 1 name",
 					"path": "creator1name/Level1.rsr",
-					"thumbnail": "creatorname/Level1.png"
+					"thumbnail": "creator1name/Level1.png"
 				},
 				{
 					"name": "Level2",
 					"author": "creator 2 name",
 					"path": "creator2name/Level2.rsr",
-					"thumbnail": "creatorname/Level2.png"
+					"thumbnail": "creator2name/Level2.png"
 				}
 			]
 		}
