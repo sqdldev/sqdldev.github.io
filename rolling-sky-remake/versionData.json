@@ -2,7 +2,7 @@
 	"latest": "1.0.0",
 	"versions": [
 		{
-			"code": "1.0.0"
+			"code": "1.0.0",
 			"data": {
 				"changelog": [
 					"Added New Title Screen",
