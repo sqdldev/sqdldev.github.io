@@ -1,35 +1,38 @@
 {
 	"latest": "1.0.0",
-	"versions": {
-		"1.0.0": {
-			"changelog": [
-				"Added New Title Screen",
-				"Small UI Fixes",
-				"Fixed Back Button in Play Mode",
-				"Added Crashing Ball",
-				"Added Falling Ball",
-				"Adjustments to Movement System"
-			],
-			"featured": [
-				{
-					"name": "Bubbles",
-					"author": "Brodraphex",
-					"gems": 10,
-					"crowns": 3,
-					"rating": 4,
-					"path": "brodraphex/Bubbles.rsr",
-					"thumbnail": "brodraphex/Bubbles.png"
-				},
-				{
-					"name": "Level2",
-					"author": "creator 2 name",
-					"gems": 20,
-					"crowns": 0,
-					"rating": 5,
-					"path": "creator2name/Level2.rsr",
-					"thumbnail": "creator2name/Level2.png"
-				}
-			]
+	"versions": [
+		{
+			"code": "1.0.0"
+			"data": {
+				"changelog": [
+					"Added New Title Screen",
+					"Small UI Fixes",
+					"Fixed Back Button in Play Mode",
+					"Added Crashing Ball",
+					"Added Falling Ball",
+					"Adjustments to Movement System"
+				],
+				"featured": [
+					{
+						"name": "Bubbles",
+						"author": "Brodraphex",
+						"gems": 10,
+						"crowns": 3,
+						"rating": 4,
+						"path": "brodraphex/Bubbles.rsr",
+						"thumbnail": "brodraphex/Bubbles.png"
+					},
+					{
+						"name": "Level2",
+						"author": "creator 2 name",
+						"gems": 20,
+						"crowns": 0,
+						"rating": 5,
+						"path": "creator2name/Level2.rsr",
+						"thumbnail": "creator2name/Level2.png"
+					}
+				]
+			}
 		}
-	}
+	]
 }
