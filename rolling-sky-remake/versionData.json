@@ -3,6 +3,7 @@
 	"versions": [
 		{
 			"code": "1.0.0",
+			"flags": [],
 			"data": {
 				"changelog": [
 					"Added New Title Screen",
@@ -10,26 +11,23 @@
 					"Fixed Back Button in Play Mode",
 					"Added Crashing Ball",
 					"Added Falling Ball",
-					"Adjustments to Movement System"
+					"Add New Settings Menu",
+					"Add New Volume Settings",
+					"Add New Misc Settings",
+					"New Editor Controls",
+					"Adjustments to Ball Movement System",
+					"Add Obstacles: Poker to Dinosaur Valley",
+					"Add Themes: Massif to Dinosaur Valley"
 				],
 				"featured": [
 					{
-						"name": "Bubbles",
-						"author": "Brodraphex",
+						"name": "Obstacle Demo",
+						"author": "Mama Kat",
 						"gems": 10,
 						"crowns": 3,
-						"rating": 4,
-						"path": "brodraphex/Bubbles.rsr",
-						"thumbnail": "brodraphex/Bubbles.png"
-					},
-					{
-						"name": "Level2",
-						"author": "creator 2 name",
-						"gems": 20,
-						"crowns": 0,
-						"rating": 5,
-						"path": "creator2name/Level2.rsr",
-						"thumbnail": "creator2name/Level2.png"
+						"rating": 2,
+						"path": "mamakat/ObstacleDemo.rsr",
+						"thumbnail": "mamakat/ObstacleDemo.png"
 					}
 				]
 			}
