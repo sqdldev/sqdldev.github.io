@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Download Rolling Sky Remake</title>
+		<link rel="shortcut icon" type="image/png" href="../icon.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="reset.css">
+
+		<meta property="og:title" content="Download Rolling Sky Remake"/>
+		<meta property="og:description" content="Official Download Page for Rolling Sky Remake."/>
+		<meta property="og:url" content="https://sqdldev.github.io/rolling-sky-remake/download/"/>
+		<meta property="og:image" content="https://sqdldev.github.io/rolling-sky-remake/icon.png"/>
+
+		<meta name="twitter:title" content="Download Rolling Sky Remake">
+		<meta name="twitter:description" content="Official Download Page for Rolling Sky Remake.">
+		<meta name="twitter:image" content="https://sqdldev.github.io/rolling-sky-remake/icon.png">
+		<meta name="twitter:card" content="summary_large_image">
+		<style>
+			body {
+				max-width: 90vw;
+				margin: 20px;
+			}
+			h1 {
+				font-weight: bold;
+				font-size: 30px;
+				margin-bottom: 30px;
+			}
+			p, a {
+				max-width: 100%;
+				margin: 20px 0;
+			}
+			a {
+				line-break: anywhere;
+			}
+			#the_rock {
+				max-width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Your android smart redfrigeratour has <span id="scinot"></span> viruses on it</h1>
+		<img id="the_rock" src="https://media.tenor.com/kHcmsxlKHEAAAAAC/rock-one-eyebrow-raised-rock-staring.gif"/>
+		<p>We have your ip adress subscribe to sqdldev or else it is leak</p>
+		<a href="https://www.youtube.com/channel/UCtRHiongiDb63nAL9KU6BtA" target="_blank">https://www.youtube.com/channel/UCtRHiongiDb63nAL9KU6BtA</a>
+		<p id="proof"></p>
+		<script>
+			function randomSciNot(minExponent, maxExponent, decimalPlaces) {
+				const coefficient = Math.random() * 9 + 1;
+				const exponent = Math.floor(Math.random() * (maxExponent - minExponent + 1)) + minExponent;
+				const roundedCoefficient = parseFloat(coefficient.toFixed(decimalPlaces));
+				const result = roundedCoefficient + "e" + exponent;
+				return result;
+			}
+			document.querySelector('#scinot').innerHTML = randomSciNot(-10, 10, 10);
+
+		
+			fetch('https://api.ipify.org?format=json').then(response => response.json()).then(data => { document.querySelector('#proof').innerHTML = 'your ip: ' + data.ip; });
+		</script>
+	</body>
+</html>
+
