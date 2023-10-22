@@ -6,16 +6,19 @@
 			"flags": [],
 			"data": {
 				"changelog": [
-					"Added New Title Screen",
+					"Add New Title Screen",
 					"Small UI Fixes",
-					"Fixed Back Button in Play Mode",
-					"Added Crashing Ball",
-					"Added Falling Ball",
+					"Fix Back Button in Play Mode",
+					"Add Pause Menu",
+					"Add Crashing Ball",
+					"Add Falling Ball",
+					"Adjustments to Ball Movement System",
 					"Add New Settings Menu",
 					"Add New Volume Settings",
 					"Add New Misc Settings",
 					"New Editor Controls",
-					"Adjustments to Ball Movement System",
+					"Add Editor Pick Tile and Global Delete buttons",
+					"Add Custom Theme Ability",
 					"Add Obstacles: Poker to Dinosaur Valley",
 					"Add Themes: Massif to Dinosaur Valley"
 				],
@@ -23,11 +26,32 @@
 					{
 						"name": "Obstacle Demo",
 						"author": "Mama Kat",
+						"authorSocial": "https://www.youtube.com/channel/UC-GnVxUIAwKRfdSSXWcKNuw",
 						"gems": 10,
 						"crowns": 3,
-						"rating": 2,
+						"rating": 3.5,
 						"path": "mamakat/ObstacleDemo.rsr",
 						"thumbnail": "mamakat/ObstacleDemo.png"
+					},
+					{
+						"name": "Dynamical",
+						"author": "BroXGamer",
+						"authorSocial": "https://www.youtube.com/channel/UC6UlQ0w1TDKB8mMlHku_TAA",
+						"gems": 10,
+						"crowns": 0,
+						"rating": 3.7,
+						"path": "broxgamer/Dynamical.rsr",
+						"thumbnail": "broxgamer/Dynamical.png"
+					},
+					{
+						"name": "Monster Friendly",
+						"author": "Mama Kat & Rodri",
+						"authorSocial": "https://www.youtube.com/channel/UC-GnVxUIAwKRfdSSXWcKNuw",
+						"gems": 15,
+						"crowns": 3,
+						"rating": 6,
+						"path": "mamakat/MonsterFriendly.rsr",
+						"thumbnail": "mamakat/MonsterFriendly.png"
 					}
 				]
 			}

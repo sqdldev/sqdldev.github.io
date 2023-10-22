@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Download Rolling Sky Remake</title>
+		<title>Rolling Sky Remake</title>
 		<link rel="shortcut icon" type="image/png" href="../icon.png">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link rel="stylesheet" type="text/css" href="../assets/reset.css">
+		<link rel="stylesheet" type="text/css" href="styles.css">
 
 		<meta property="og:title" content="Download Rolling Sky Remake"/>
 		<meta property="og:description" content="Official Download Page for Rolling Sky Remake."/>
@@ -15,47 +16,332 @@
 		<meta name="twitter:description" content="Official Download Page for Rolling Sky Remake.">
 		<meta name="twitter:image" content="https://sqdldev.github.io/rolling-sky-remake/icon.png">
 		<meta name="twitter:card" content="summary_large_image">
-		<style>
-			body {
-				max-width: 90vw;
-				margin: 20px;
-			}
-			h1 {
-				font-weight: bold;
-				font-size: 30px;
-				margin-bottom: 30px;
-			}
-			p, a {
-				max-width: 100%;
-				margin: 20px 0;
-			}
-			a {
-				line-break: anywhere;
-			}
-			#the_rock {
-				max-width: 100%;
-			}
-		</style>
 	</head>
 	<body>
-		<h1>Your android smart redfrigeratour has <span id="scinot"></span> viruses on it</h1>
-		<img id="the_rock" src="https://media.tenor.com/kHcmsxlKHEAAAAAC/rock-one-eyebrow-raised-rock-staring.gif"/>
-		<p>We have your ip adress subscribe to sqdldev or else it is leak</p>
-		<a href="https://www.youtube.com/channel/UCtRHiongiDb63nAL9KU6BtA" target="_blank">https://www.youtube.com/channel/UCtRHiongiDb63nAL9KU6BtA</a>
-		<p id="proof"></p>
-		<script>
-			function randomSciNot(minExponent, maxExponent, decimalPlaces) {
-				const coefficient = Math.random() * 9 + 1;
-				const exponent = Math.floor(Math.random() * (maxExponent - minExponent + 1)) + minExponent;
-				const roundedCoefficient = parseFloat(coefficient.toFixed(decimalPlaces));
-				const result = roundedCoefficient + "e" + exponent;
-				return result;
-			}
-			document.querySelector('#scinot').innerHTML = randomSciNot(-10, 10, 10);
+		<main>
+			<div id="content">
+				<div id="up">
+					<div id="particles">
+					</div>
+					<video id="logo" muted="muted">
+						<source src="assets/logo.mp4" type="video/mp4">
+						<source src="assets/logo.webm" type="video/webm">
+					</video>
 
-		
-			fetch('https://api.ipify.org?format=json').then(response => response.json()).then(data => { document.querySelector('#proof').innerHTML = 'your ip: ' + data.ip; });
-		</script>
+					<div id="logoPlaceholder"></div>
+					<div id="within_content">
+						<div id="double_within_content">
+							<div id="description"></div>
+							<button id="download">Download</button>
+						</div>
+						<button class="arrowDown" onclick="window_scroll_down()"></button>
+					</div>
+				</div>
+				<div id="down">
+					<div id="contributorsGrid">
+						<span class="header">Development Team</span>
+						<ul>
+							<li>
+								<img src="assets/contributors/devteam/sqdldev.png">
+								<span>
+									<a href="https://www.youtube.com/channel/UCtRHiongiDb63nAL9KU6BtA" target="_blank">
+										<i-social class="youtube"></i-social>
+										sqdldev
+									</a>
+								</span>
+							</li>
+						</ul>
+						<span class="header">Beta Testers</a></span>
+						<ul>
+							<li>
+								<img src="assets/contributors/testers/Untitled126_20230920192622.png">
+								<span>
+									<a href="https://www.youtube.com/channel/UCv4_vBcFF4Mz6rP95d5xFwA" target="_blank">
+										<i-social class="youtube"></i-social>
+										QuantaSplashy
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/20230924_2104422.jpg">
+								<span>
+									<a href="https://www.youtube.com/channel/UC95NTdwd_BqtAEH1c-hlQwg" target="_blank">
+										<i-social class="youtube"></i-social>
+										Rodri
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/Untitled78_20230925041118.png">
+								<span>
+									<a href="https://www.youtube.com/channel/UC-orFe9e0Ct_a-zf5FO89MQ" target="_blank">
+										<i-social class="youtube"></i-social>
+										JetNine
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/1493bc41-b324-42d2-93bc-296890ebd2a0.jpg">
+								<span>
+									<a href="https://www.youtube.com/channel/UCN2dEVmJj73M445vfP_ynnQ" target="_blank">
+										<i-social class="youtube"></i-social>
+										Khanh.06
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/Untitled1551_20230924201930.png">
+								<span>
+									<a href="https://www.youtube.com/channel/UCqVY2QN9Rs1bCys-e4ymEmA" target="_blank">
+										<i-social class="youtube"></i-social>
+										MajorTaco
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/broXgaming.png">
+								<span>
+									<a href="https://www.youtube.com/channel/UC6UlQ0w1TDKB8mMlHku_TAA" target="_blank">
+										<i-social class="youtube"></i-social>
+										BroXGamer
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/42eb4409a28f8ce687e85ef97678cac8.jpg">
+								<span>
+									<a href="https://www.youtube.com/channel/UCtdpNxKxAbiibtRqgGmbbrw" target="_blank">
+										<i-social class="youtube"></i-social>
+										Nacko
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/PSX_20230924_215907.png">
+								<span>
+									<a href="https://www.youtube.com/channel/UC-GnVxUIAwKRfdSSXWcKNuw" target="_blank">
+										<i-social class="youtube"></i-social>
+										Mama Kat
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/pfp.jpg">
+								<span>
+									<a href="https://zutek3134.github.io/Zutek3134/" target="_blank">
+										<i-social class="website"></i-social>
+										Zutek 3134
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/Screenshot_20230925_070025.jpg">
+								<span>
+									<a href="https://www.youtube.com/channel/UC8wWjAVyTeSkWc11NulB5UQ" target="_blank">
+										<i-social class="youtube"></i-social>
+										Sneek22
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/d582ee534e43d8c212e5eaeebe9afe87.png">
+								<span>
+									<a href="https://www.youtube.com/channel/UCt5_rBFLSg7xLjXN9QeMBwQ" target="_blank">
+										<i-social class="youtube"></i-social>
+										AftonIvolvery
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/IMG_20230925_114634_648.jpg">
+								<span>
+									<a href="https://www.youtube.com/channel/UCef0qPw-3_XUmoUx2Ma39Qw" target="_blank">
+										<i-social class="youtube"></i-social>
+										MasterMonivin
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/IMG_1507.jpg">
+								<span>
+									<a href="https://www.youtube.com/channel/UCf8H0tM4TPS2117Mhhghl-w" target="_blank">
+										<i-social class="youtube"></i-social>
+										MoyaiX
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/channels4_profile.png">
+								<span>
+									<a href="https://www.youtube.com/channel/UCE5emLQj-yJ8k8A3FnZe1wQ" target="_blank">
+										<i-social class="youtube"></i-social>
+										Revo
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/967_20230831012733.png">
+								<span>
+									<a href="https://www.youtube.com/channel/UC_wObOQH0S4PMVTkB0WGaUg" target="_blank">
+										<i-social class="youtube"></i-social>
+										CharlieXD
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/IMG_20230925_123740.png">
+								<span>
+									<a href="https://www.youtube.com/channel/UCCTXjiUF1JJG7uKeUOzM-8A" target="_blank">
+										<i-social class="youtube"></i-social>
+										extremisea
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/image0-3.jpg">
+								<span>
+									<a href="https://www.youtube.com/channel/UCr6dG_B3SV2rIJ_nGehtV0Q" target="_blank">
+										<i-social class="youtube"></i-social>
+										HSN
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/IMG_20230525_120336_833.webp">
+								<span>
+									<a href="https://www.youtube.com/channel/UC1Ve9GG6ei3MvjE4eOiuFVQ" target="_blank">
+										<i-social class="youtube"></i-social>
+										Pao
+									</a>
+								</span>
+							</li>
+							<li>
+								<img src="assets/contributors/testers/Adobe_20210822_222115_Original.jpg">
+								<span>
+									<a href="https://www.youtube.com/channel/UC1liz36D31iiruOgTnW0xgg" target="_blank">
+										<i-social class="youtube"></i-social>
+										Porygon Axolotl
+									</a>
+								</span>
+							</li>
+						</ul>
+						<!--<span class="header small-space" id="translation">Localization</span>
+						<div class="space vertical">
+							<span class="header-small" id="localization-en"><a href="#localization-en">English</a></span>
+							<ul class="small-space">
+								<li>
+									<img src="assets/contributors/devteam/sqdldev.png">
+									<span>
+										<a href="https://www.youtube.com/channel/UCtRHiongiDb63nAL9KU6BtA" target="_blank">
+											<i-social class="youtube"></i-social>
+											sqdldev
+										</a>
+									</span>
+								</li>
+							</ul>
+							<span class="header-small" id="localization-zh"><a href="#localization-zh">Chinese</a></span>
+							<ul class="small-space">
+								<li>
+								</li>
+							</ul>
+						</div>-->
+					</div>
+				</div>
+				<div id="segments">
+					<div class="segment segment_black" style="display: none;">
+						<span class="header">Changelog</span>
+						<div class="space"></div>
+						<img class="promo" src="assets/promo.png">
+						<div class="space" id="changelogText"></div>
+					</div>
+					<div class="segment segment_black">
+						<span class="header">Levels</span>
+						<div class="space medium-light">Check out some levels we made! Click on any level and it will open inside of Rolling Sky Remake!</div>
+						<div class="space red">(You must have RSR installed before you try clicking a level!)</div>
+						<div class="space">
+							<div class="levels-container">
+								<div class="levels-container-inner-heading">Homepage Levels</div>
+								<div class="levels-container-inner">
+									<div class="levels-container-inner-level">
+										<div class="levels-container-inner-level-info no-margin">
+											<div class="levels-container-inner-level-info-title">Submit your levels in #homepage-submissions in our <a href="../discord/" class="blue">Discord Server</a>!</div>
+										</div>
+									</div>
+									<!--<a class="levels-container-inner-level" target="_blank" href="rolling-sky-remake://load?type=level&path=https://sqdldev.github.io/rolling-sky-remake/download/levels/creatorname/levelname.rsr">
+										<div class="levels-container-inner-level-icon">
+											<img src="assets/icons/default_world.png">
+										</div>
+										<div class="levels-container-inner-level-info">
+											<div class="levels-container-inner-level-info-title">levelname.rsr</div>
+											<div class="levels-container-inner-level-info-description">creatorname</div>
+											<div class="levels-container-inner-level-info-stuff">
+												<div class="levels-container-inner-level-info-stuff-part">
+													<img src="assets/icons/gem.png">
+													<span>10</span>
+												</div>
+												<div class="levels-container-inner-level-info-stuff-part">
+													<img src="assets/icons/crown.png">
+													<span>3</span>
+												</div>
+												<div class="levels-container-inner-level-info-stuff-part">
+													<img src="assets/icons/star.png">
+													<span>2.1</span>
+												</div>
+											</div>
+										</div>
+									</a>-->
+									<a class="levels-container-inner-level" target="_blank" href="../load/?type=1&path=../featured/broxgamer/Dynamical.rsr">
+										<div class="levels-container-inner-level-icon">
+											<img src="../featured/broxgamer/Dynamical.png">
+										</div>
+										<div class="levels-container-inner-level-info">
+											<div class="levels-container-inner-level-info-title">Dynamical</div>
+											<div class="levels-container-inner-level-info-description">BroXGamer</div>
+											<div class="levels-container-inner-level-info-stuff">
+												<div class="levels-container-inner-level-info-stuff-part">
+													<img src="assets/icons/gem.png">
+													<span>10</span>
+												</div>
+												<div class="levels-container-inner-level-info-stuff-part">
+													<img src="assets/icons/star.png">
+													<span>3.7</span>
+												</div>
+												<div class="levels-container-inner-level-info-stuff-part"></div>
+											</div>
+										</div>
+									</a>
+									<a class="levels-container-inner-level" target="_blank" href="../load/?type=1&path=../featured/mamakat/MonsterFriendly.rsr">
+										<div class="levels-container-inner-level-icon">
+											<img src="../featured/mamakat/MonsterFriendly.png">
+										</div>
+										<div class="levels-container-inner-level-info">
+											<div class="levels-container-inner-level-info-title">Monster Friendly</div>
+											<div class="levels-container-inner-level-info-description">Mama Kat</div>
+											<div class="levels-container-inner-level-info-stuff">
+												<div class="levels-container-inner-level-info-stuff-part">
+													<img src="assets/icons/gem.png">
+													<span>15</span>
+												</div>
+												<div class="levels-container-inner-level-info-stuff-part">
+													<img src="assets/icons/crown.png">
+													<span>3</span>
+												</div>
+												<div class="levels-container-inner-level-info-stuff-part">
+													<img src="assets/icons/star.png">
+													<span>6</span>
+												</div>
+												<div class="levels-container-inner-level-info-stuff-part"></div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script type="text/javascript" src="app.js"></script>
 	</body>
 </html>
 

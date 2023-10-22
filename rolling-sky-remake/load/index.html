@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title id="title">&#65279;</title>
+		<link rel="shortcut icon" type="image/png" href="../icon.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../assets/reset.css">
+		
+		<meta property="og:title" content="Open a file in Rolling Sky Remake"/>
+		<meta property="og:description" content=""/>
+		<meta property="og:image" content="https://sqdldev.github.io/rolling-sky-remake/icon.png"/>
+
+		<meta name="twitter:title" content="Open a file in Rolling Sky Remake">
+		<meta name="twitter:description" content="">
+		<meta name="twitter:image" content="https://sqdldev.github.io/rolling-sky-remake/icon.png">
+		<meta name="twitter:card" content="summary_large_image">
+		<style>
+			@font-face {
+				font-family: "rsr";
+				src: url("../assets/sen.ttf");
+			}
+			:root {
+				color-scheme: dark;
+				scroll-behavior: smooth;
+			}
+			html {
+				overflow: hidden;
+			}
+			body {
+				background: #000000;
+				font-family: "rsr";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+			}
+			a {
+				color: #52b3ff;
+				text-decoration: underline;
+			}
+			.content {
+				box-sizing: border-box;
+				height: 100%;
+				padding: 50px;
+				display: flex;
+				flex-direction: column;
+				flex-wrap: nowrap;
+				align-content: center;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				display: none;
+			}
+			span.big {
+				font-size: 30px;
+				font-weight: bold;
+				margin-bottom: 10px;
+				line-height: 1.35;
+			}
+			span.small {
+				font-size: 18px;
+				font-weight: normal;
+				margin-bottom: 10px;
+				line-height: 1.35;
+			}
+			span#level-name {
+				text-decoration: underline;
+			}
+			span.small.windowsonly {
+				display: none;
+				opacity: 0.5;
+			}
+			span.small.windowsonly a {
+				color: #ffffff;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content success">
+			<span class="big">Attempting to open <span id="level-name"></span> in Rolling Sky Remake...</span>
+			<span class="small">If you didn"t get a prompt, click <a id="retry">here</a> to try again.</span>
+			<span class="small">If it does not open, make sure you have Rolling Sky Remake installed!!!</span>
+			<span class="small windowsonly"><a target="_blank" id="video-link" href="">ⓘ How to setup Web Loading in Windows</a></span>
+		</div>
+		<div class="content failure">
+			<span class="big">The URL Parameters are incorrect!!!</span>
+			<span class="small">Please fix it!!!!</span>
+		</div>
+		<script>
+			//(function () { var script = document.createElement("script"); script.src="https://cdn.jsdelivr.net/npm/eruda"; document.body.append(script); script.onload = function () { eruda.init(); } })();
+			window.params = new URLSearchParams(window.location.search);
+			window.newParams = new URLSearchParams();
+			let steps = 0;
+			let method = parseInt(window.params.get("type"));
+			const maxSteps = 3;
+			let success = false;
+		
+			function chineseUser() {
+				let isChinese = false;
+				try {
+					fetch("https://ipinfo.io").then(response => response.json()).then(data => {
+						if (data.country === "CN" || data.country === "HK") {
+							isChinese = true;
+						}
+					}).catch(error => {
+					});
+				} catch {}
+				if (!isChinese) {
+					try {
+						let language = window.navigator.userLanguage || window.navigator.language;
+						isChinese = (["zh", "zh-CN", "zh-Hans", "zh-Hans-CN", "zh-Hans-HK", "zh-Hans-MO", "zh-Hans-SG", "zh-Hant", "zh-Hant-HK", "zh-Hant-MO", "zh-Hant-TW", "zu", "zu-ZA"].includes(language));
+					} catch {}
+				}
+				return isChinese;
+			}
+			
+		
+			function absolute(relative) {
+				const base = window.location.href;
+				const absolute = new URL(relative, base);
+				return absolute.href;
+			}
+			function filename(filepath) {
+				const parts = filepath.split("/");
+				const filename = parts[parts.length - 1];
+				return filename;
+			}
+			
+			switch (method) {
+				case 0:
+				window.newParams.set("type", "level");
+				steps++;
+				
+				window.loadData = {
+					author: window.params.get("author"),
+					file: window.params.get("file")
+				};
+				if (loadData.author && loadData.file) {
+					steps++
+				}
+				switch (parseInt(window.params.get("location"))) {
+					case 0:
+					window.newParams.set("path", window.location.protocol + "//" + window.location.host + "/rolling-sky-remake/featured/" + loadData.author + "/" + loadData.file);
+					steps++;
+					break;
+					case 1:
+					window.newParams.set("path", window.location.href.replace(/[^/\\]*(\.[^/\\]+)?$/, "") + "home-levels/" + loadData.author + "/" + loadData.file);
+					steps++;
+					break;
+				}
+				success = steps == maxSteps;
+				break;
+				case 1:
+				window.newParams.set("type", "level");
+				window.loadData = {
+					file: filename(window.params.get("path"))
+				};
+				
+				window.newParams.set("path", absolute(window.params.get("path")));
+				success = true;
+				break;
+			}
+			function stringColor(inputString) {
+				let hash = 0;
+				for (let i = 0; i < inputString.length; i++) {
+					const char = inputString.charCodeAt(i);
+					hash = (hash << 5) - hash + char;
+				}
+				const color = "#" + (hash & 0x00FFFFFF).toString(16).toUpperCase();
+				return color;
+			}
+			let newLocation = null;
+			let title = document.querySelector("#title");
+			let levelName = document.querySelector("#level-name");
+			let successElement = document.querySelector(".success");
+			let failureElement = document.querySelector(".failure");
+			let videoLink = document.querySelector("#video-link");
+			if (success) {
+				levelName.innerText = loadData.file;
+				levelName.style.color = stringColor(loadData.file);
+				title.innerText = loadData.file;
+				if (chineseUser()) {
+					videoLink.href = "https://www.youtube.com/watch?v=hJ3_UlN0oeU";
+				} else {
+					videoLink.href = "https://www.youtube.com/watch?v=x8tLLswkhEY";
+				}
+				newLocation = "rolling-sky-remake://load?" + window.newParams.toString();
+				successElement.style.display = "flex";
+				window.location.href = newLocation;
+			} else {
+				title.innerText = "Error";
+				failureElement.style.display = "flex";
+			}
+			console.log(decodeURIComponent(newLocation));
+			if (navigator.appVersion.indexOf("Win")!=-1) 
+			{
+				document.querySelectorAll(".windowsonly").forEach((e) => {
+					e.style.display = "block";
+				});
+			}
+			document.querySelector("#retry").href = newLocation;
+		</script>
+	</body>
+</html>
