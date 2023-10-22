@@ -1,8 +1,8 @@
 {
-	"latest": "1.0.0",
+	"latest": "1.0.2",
 	"versions": [
 		{
-			"code": "1.0.0",
+			"code": ["1.0.0", "1.0.1", "1.0.2"],
 			"flags": [],
 			"data": {
 				"changelog": [
