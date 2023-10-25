@@ -1,5 +1,5 @@
 {
-	"latest": "1.0.4",
+	"latest": "1.1.0",
 	"versions": [
 		{
 			"code": ["1.0.0", "1.0.1", "1.0.2", "1.0.3"],
@@ -57,7 +57,49 @@
 			}
 		},
 		{
-			"code": ["1.0.4", "1.0.5", "1.0.6", "1.0.7", "1.0.8", "1.0.9", "1.0.10"],
+			"code": ["1.0.4"],
+			"flags": [],
+			"data": {
+				"changelog": [],
+				"featured": [
+					{
+						"name": "Obstacle Demo",
+						"author": "Mama Kat",
+						"authorSocial": "https://www.youtube.com/channel/UC-GnVxUIAwKRfdSSXWcKNuw",
+						"type": 0,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 3.5,
+						"path": "mamakat/ObstacleDemo.rsr",
+						"thumbnail": "mamakat/ObstacleDemo.png"
+					},
+					{
+						"name": "Dynamical",
+						"author": "BroXGamer",
+						"authorSocial": "https://www.youtube.com/channel/UC6UlQ0w1TDKB8mMlHku_TAA",
+						"type": 0,
+						"gems": 10,
+						"crowns": 0,
+						"rating": 3.7,
+						"path": "broxgamer/Dynamical.rsr",
+						"thumbnail": "broxgamer/Dynamical.png"
+					},
+					{
+						"name": "Monster Friendly",
+						"author": "Mama Kat & Rodri",
+						"authorSocial": "https://www.youtube.com/channel/UC-GnVxUIAwKRfdSSXWcKNuw",
+						"type": 0,
+						"gems": 15,
+						"crowns": 3,
+						"rating": 6,
+						"path": "mamakat/MonsterFriendly.rsr",
+						"thumbnail": "mamakat/MonsterFriendly.png"
+					}
+				]
+			}
+		},
+		{
+			"code": ["1.1.0"],
 			"flags": [],
 			"data": {
 				"changelog": [],
