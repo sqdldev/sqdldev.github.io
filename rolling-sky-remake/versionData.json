@@ -112,8 +112,8 @@
 						"gems": 10,
 						"crowns": 3,
 						"rating": 5,
-						"path": "_halloween/amberrs/Torment Smiles.rsr",
-						"thumbnail": "_halloween/amberrs/Torment Smiles.png"
+						"path": "_halloween/amberrs/TormentSmiles.rsr",
+						"thumbnail": "_halloween/amberrs/TormentSmiles.png"
 					},
 					{
 						"name": "Eerie Alley",
@@ -123,8 +123,8 @@
 						"gems": 10,
 						"crowns": 3,
 						"rating": 5,
-						"path": "_halloween/cosmos/Eerie Alley.rsr",
-						"thumbnail": "_halloween/cosmos/Eerie Alley.png"
+						"path": "_halloween/cosmos/EerieAlley.rsr",
+						"thumbnail": "_halloween/cosmos/EerieAlley.png"
 					},
 					{
 						"name": "Electr-O-Lantern",
@@ -134,8 +134,8 @@
 						"gems": 10,
 						"crowns": 3,
 						"rating": 5,
-						"path": "_halloween/jetnine/Electr-O-Lantern.rsr",
-						"thumbnail": "_halloween/jetnine/Electr-O-Lantern.png"
+						"path": "_halloween/jetnine/ElectrOLantern.rsr",
+						"thumbnail": "_halloween/jetnine/ElectrOLantern.png"
 					},
 					{
 						"name": "Obstacle Demo",
