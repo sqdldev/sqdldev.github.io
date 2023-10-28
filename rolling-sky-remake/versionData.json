@@ -105,6 +105,39 @@
 				"changelog": [],
 				"featured": [
 					{
+						"name": "Torment Smiles",
+						"author": "AmberRS",
+						"authorSocial": "https://www.youtube.com/channel/UC5kq7yyPKdH83gMdi_3vj0Q",
+						"type": 1,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 5,
+						"path": "_halloween/amberrs/Torment Smiles.rsr",
+						"thumbnail": "_halloween/amberrs/Torment Smiles.png"
+					},
+					{
+						"name": "Eerie Alley",
+						"author": "CosmoS",
+						"authorSocial": "https://www.youtube.com/channel/UCdsV5moTKWHgf_RswuIwSbA",
+						"type": 1,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 5,
+						"path": "_halloween/cosmos/Eerie Alley.rsr",
+						"thumbnail": "_halloween/cosmos/Eerie Alley.png"
+					},
+					{
+						"name": "Electr-O-Lantern",
+						"author": "JetNine",
+						"authorSocial": "https://www.youtube.com/channel/UC-orFe9e0Ct_a-zf5FO89MQ",
+						"type": 1,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 5,
+						"path": "_halloween/jetnine/Electr-O-Lantern.rsr",
+						"thumbnail": "_halloween/jetnine/Electr-O-Lantern.png"
+					},
+					{
 						"name": "Obstacle Demo",
 						"author": "Mama Kat",
 						"authorSocial": "https://www.youtube.com/channel/UC-GnVxUIAwKRfdSSXWcKNuw",
