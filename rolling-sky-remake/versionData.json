@@ -30,8 +30,8 @@
 						"gems": 10,
 						"crowns": 3,
 						"rating": 3.5,
-						"path": "mamakat/ObstacleDemo.rsr",
-						"thumbnail": "mamakat/ObstacleDemo.png"
+						"path": "weekly/mamakat/ObstacleDemo.rsr",
+						"thumbnail": "weekly/mamakat/ObstacleDemo.png"
 					},
 					{
 						"name": "Dynamical",
@@ -40,8 +40,8 @@
 						"gems": 10,
 						"crowns": 0,
 						"rating": 3.7,
-						"path": "broxgamer/Dynamical.rsr",
-						"thumbnail": "broxgamer/Dynamical.png"
+						"path": "weekly/broxgamer/Dynamical.rsr",
+						"thumbnail": "weekly/broxgamer/Dynamical.png"
 					},
 					{
 						"name": "Monster Friendly",
@@ -50,8 +50,8 @@
 						"gems": 15,
 						"crowns": 3,
 						"rating": 6,
-						"path": "mamakat/MonsterFriendly.rsr",
-						"thumbnail": "mamakat/MonsterFriendly.png"
+						"path": "weekly/mamakat/MonsterFriendly.rsr",
+						"thumbnail": "weekly/mamakat/MonsterFriendly.png"
 					}
 				]
 			}
@@ -70,8 +70,8 @@
 						"gems": 10,
 						"crowns": 3,
 						"rating": 3.5,
-						"path": "mamakat/ObstacleDemo.rsr",
-						"thumbnail": "mamakat/ObstacleDemo.png"
+						"path": "weekly/mamakat/ObstacleDemo.rsr",
+						"thumbnail": "weekly/mamakat/ObstacleDemo.png"
 					},
 					{
 						"name": "Dynamical",
@@ -81,8 +81,8 @@
 						"gems": 10,
 						"crowns": 0,
 						"rating": 3.7,
-						"path": "broxgamer/Dynamical.rsr",
-						"thumbnail": "broxgamer/Dynamical.png"
+						"path": "weekly/broxgamer/Dynamical.rsr",
+						"thumbnail": "weekly/broxgamer/Dynamical.png"
 					},
 					{
 						"name": "Monster Friendly",
@@ -92,14 +92,14 @@
 						"gems": 15,
 						"crowns": 3,
 						"rating": 6,
-						"path": "mamakat/MonsterFriendly.rsr",
-						"thumbnail": "mamakat/MonsterFriendly.png"
+						"path": "weekly/mamakat/MonsterFriendly.rsr",
+						"thumbnail": "weekly/mamakat/MonsterFriendly.png"
 					}
 				]
 			}
 		},
 		{
-			"code": ["1.1.0", "1.1.1"],
+			"code": ["1.1.0", "1.1.1", "1.1.2"],
 			"flags": [],
 			"data": {
 				"changelog": [],
@@ -138,6 +138,61 @@
 						"thumbnail": "halloween/jetnine/ElectrOLantern.png"
 					},
 					{
+						"name": "HYPE",
+						"author": "Sneek22",
+						"authorSocial": "https://www.youtube.com/channel/UC8wWjAVyTeSkWc11NulB5UQ",
+						"type": 0,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 4,
+						"path": "weekly/sneek22/HYPE.rsr",
+						"thumbnail": "weekly/sneek22/HYPE.png"
+					},
+					{
+						"name": "Cipher",
+						"author": "CosmoS",
+						"authorSocial": "https://www.youtube.com/channel/UCdsV5moTKWHgf_RswuIwSbA",
+						"type": 0,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 3,
+						"path": "weekly/cosmos/Cipher.rsr",
+						"thumbnail": "weekly/cosmos/Cipher.png"
+					},
+					{
+						"name": "Vacation",
+						"author": "Huy Trien",
+						"authorSocial": "https://www.youtube.com/channel/UC9ZNO3WWEsd1aiLXuwLDNGg",
+						"type": 0,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 1,
+						"path": "weekly/huy_trien/Vacation.rsr",
+						"thumbnail": "weekly/huy_trien/Vacation.png"
+					},
+					{
+						"name": "Home Sweet Home",
+						"author": "FrogB",
+						"authorSocial": "https://www.youtube.com/channel/UCtxgAtJxXIKyXKXnnJpsj3w",
+						"type": 0,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 5,
+						"path": "weekly/frogb/HomeSweetHome.rsr",
+						"thumbnail": "weekly/frogb/HomeSweetHome.png"
+					},
+					{
+						"name": "Renaissance Time",
+						"author": "KaizyRS",
+						"authorSocial": "https://www.youtube.com/channel/UCp4ILW0F2K85MJ5-Q4SjYbw",
+						"type": 0,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 4,
+						"path": "weekly/kaizyrs/RenaissanceTime.rsr",
+						"thumbnail": "weekly/kaizyrs/RenaissanceTime.png"
+					},
+					{
 						"name": "Obstacle Demo",
 						"author": "Mama Kat",
 						"authorSocial": "https://www.youtube.com/channel/UC-GnVxUIAwKRfdSSXWcKNuw",
@@ -145,8 +200,8 @@
 						"gems": 10,
 						"crowns": 3,
 						"rating": 3.5,
-						"path": "mamakat/ObstacleDemo.rsr",
-						"thumbnail": "mamakat/ObstacleDemo.png"
+						"path": "weekly/mamakat/ObstacleDemo.rsr",
+						"thumbnail": "weekly/mamakat/ObstacleDemo.png"
 					},
 					{
 						"name": "Dynamical",
@@ -156,8 +211,8 @@
 						"gems": 10,
 						"crowns": 0,
 						"rating": 3.7,
-						"path": "broxgamer/Dynamical.rsr",
-						"thumbnail": "broxgamer/Dynamical.png"
+						"path": "weekly/broxgamer/Dynamical.rsr",
+						"thumbnail": "weekly/broxgamer/Dynamical.png"
 					},
 					{
 						"name": "Monster Friendly",
@@ -167,8 +222,8 @@
 						"gems": 15,
 						"crowns": 3,
 						"rating": 6,
-						"path": "mamakat/MonsterFriendly.rsr",
-						"thumbnail": "mamakat/MonsterFriendly.png"
+						"path": "weekly/mamakat/MonsterFriendly.rsr",
+						"thumbnail": "weekly/mamakat/MonsterFriendly.png"
 					}
 				]
 			}
