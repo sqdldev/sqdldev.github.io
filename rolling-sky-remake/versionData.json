@@ -99,7 +99,7 @@
 			}
 		},
 		{
-			"code": ["1.1.0", "1.1.1", "1.1.2", "1.1.3", "1.1.4", "1.1.5", "1.1.6", "1.1.7", "1.1.8", "1.1.9", "1.1.10"],
+			"code": ["10-29-2023 - 11-05-2023"],
 			"flags": [],
 			"data": {
 				"changelog": [
@@ -193,6 +193,105 @@
 						"rating": 4,
 						"path": "weekly/kaizyrs/RenaissanceTime.rsr",
 						"thumbnail": "weekly/kaizyrs/RenaissanceTime.png"
+					},
+					{
+						"name": "Obstacle Demo",
+						"author": "Mama Kat",
+						"authorSocial": "https://www.youtube.com/channel/UC-GnVxUIAwKRfdSSXWcKNuw",
+						"type": 0,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 3.5,
+						"path": "weekly/mamakat/ObstacleDemo.rsr",
+						"thumbnail": "weekly/mamakat/ObstacleDemo.png"
+					},
+					{
+						"name": "Dynamical",
+						"author": "BroXGamer",
+						"authorSocial": "https://www.youtube.com/channel/UC6UlQ0w1TDKB8mMlHku_TAA",
+						"type": 0,
+						"gems": 10,
+						"crowns": 0,
+						"rating": 3.7,
+						"path": "weekly/broxgamer/Dynamical.rsr",
+						"thumbnail": "weekly/broxgamer/Dynamical.png"
+					},
+					{
+						"name": "Monster Friendly",
+						"author": "Mama Kat & Rodri",
+						"authorSocial": "https://www.youtube.com/channel/UC-GnVxUIAwKRfdSSXWcKNuw",
+						"type": 0,
+						"gems": 15,
+						"crowns": 3,
+						"rating": 6,
+						"path": "weekly/mamakat/MonsterFriendly.rsr",
+						"thumbnail": "weekly/mamakat/MonsterFriendly.png"
+					}
+				]
+			}
+		},
+		{
+			"code": ["1.1.0", "1.1.1", "1.1.2", "1.1.3", "1.1.4", "1.1.5", "1.1.6", "1.1.7", "1.1.8", "1.1.9", "1.1.10"],
+			"flags": [],
+			"data": {
+				"changelog": [
+					"amon gus"
+				],
+				"featured": [
+					{
+						"name": "Cheese Paradise",
+						"author": "AmberRS",
+						"authorSocial": "https://www.youtube.com/channel/UC5kq7yyPKdH83gMdi_3vj0Q",
+						"type": 0,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 5,
+						"path": "weekly/amberrs/CheeseParadise.rsr",
+						"thumbnail": "weekly/amberrs/CheeseParadise.png"
+					},
+					{
+						"name": "Checkmate",
+						"author": "ObleDoesStuff",
+						"authorSocial": "https://www.youtube.com/channel/UCZ5DL57TREfnKLHbgFp4oGQ",
+						"type": 0,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 2,
+						"path": "weekly/obledoesstuff/Checkmate.rsr",
+						"thumbnail": "weekly/obledoesstuff/Checkmate.png"
+					},
+					{
+						"name": "Alone Part II",
+						"author": "HebJose",
+						"authorSocial": "https://www.reddit.com/user/HebJose_23/",
+						"type": 0,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 4,
+						"path": "weekly/hebjose/AlonePartII.rsr",
+						"thumbnail": "weekly/hebjose/AlonePartII.png"
+					},
+					{
+						"name": "Shipwreck'd",
+						"author": "TJAT (RSO)",
+						"authorSocial": "https://www.youtube.com/channel/UCyKjA3LoUWfH26e5OuJVuJg",
+						"type": 0,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 3,
+						"path": "weekly/tjat_rso/Shipwreckd.rsr",
+						"thumbnail": "weekly/tjat_rso/Shipwreckd.png"
+					},
+					{
+						"name": "Neo City",
+						"author": "Lexay",
+						"authorSocial": "https://www.youtube.com/channel/UCabzQTpX5Q9JBEzLH2I4kJg",
+						"type": 0,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 5,
+						"path": "weekly/lexay/NeoCity.rsr",
+						"thumbnail": "weekly/lexay/NeoCity.png"
 					},
 					{
 						"name": "Obstacle Demo",
