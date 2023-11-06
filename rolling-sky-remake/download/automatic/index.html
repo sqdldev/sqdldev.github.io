@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rolling Sky Remake</title>
+		<link rel="shortcut icon" type="image/png" href="../../icon.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../../assets/reset.css">
+
+		<meta property="og:title" content="Download Latest Version of Rolling Sky Remake"/>
+		<meta property="og:description" content="Official Download Page for Rolling Sky Remake."/>
+		<meta property="og:url" content="https://sqdldev.github.io/rolling-sky-remake/download/"/>
+		<meta property="og:image" content="https://sqdldev.github.io/rolling-sky-remake/icon.png"/>
+
+		<meta name="twitter:title" content="Download Latest Version of Rolling Sky Remake">
+		<meta name="twitter:description" content="Official Download Page for Rolling Sky Remake.">
+		<meta name="twitter:image" content="https://sqdldev.github.io/rolling-sky-remake/icon.png">
+		<meta name="twitter:card" content="summary_large_image">
+		
+		<style>
+			body {
+				background-color: #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			const OSType = {
+				'Null': 0,
+				'Windows': 1,
+				'Linux': 2,
+				'MacOS': 3,
+				'Android': 4,
+				'iOS': 5,
+			};
+			const OS = {
+				Get() {
+					const userAgent = navigator.userAgent.toLowerCase();
+					if (userAgent.indexOf("windows") !== -1) {
+						return OSType.Windows;
+					} else if (userAgent.indexOf("android") !== -1) {
+						return OSType.Android;
+					} else if (userAgent.indexOf("iphone") !== -1 || userAgent.indexOf("ipad") !== -1 || userAgent.indexOf("ipod") !== -1) {
+						return OSType.iOS;
+					} else if (userAgent.indexOf("linux") !== -1) {
+						return OSType.Linux;
+					} else if (userAgent.indexOf("macintosh") !== -1 || userAgent.indexOf("mac os x") !== -1) {
+						return OSType.MacOS;
+					} else {
+						return OSType.Null;
+					}
+				}
+			};
+			console.log('os:', OS.Get());
+			fetch('../../versionData.json').then((e) => e.json()).then((f) => {
+				let url = f.latestUrl[OS.Get()];
+				if (url.startsWith('http')) {
+					window.location.href = url;
+				}
+			})
+		</script>
+	</body>
+</html>

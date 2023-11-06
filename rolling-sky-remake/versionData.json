@@ -1,5 +1,13 @@
 {
-	"latest": "1.1.5",
+	"latest": "1.1.6",
+	"latestUrl": [
+		"Null",
+		"https://www.mediafire.com/file/waj20fu3euus5k3/RollingSkyRemake-1.1.6r-Windows.zip/file",
+		"Linux",
+		"MacOS",
+		"https://www.mediafire.com/file/3swf9uh3z4yq9ca/RollingSkyRemake-1.1.6r-Android.apk/file",
+		"iOS"
+	],
 	"versions": [
 		{
 			"code": ["1.0.0", "1.0.1", "1.0.2", "1.0.3"],
