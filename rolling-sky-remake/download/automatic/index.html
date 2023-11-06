@@ -19,11 +19,30 @@
 		<style>
 			body {
 				background-color: #000000;
+				font-family: sans-serif;
+				margin: 40px;
+				font-size: 18px;
+				color: #ffffff;
+			}
+			ul {
+				list-style: disc inside;
+			}
+			a {
+				color: #5ea2ff;
+				display: inline-block;
+				margin-bottom: 10px;
+			}
+			span#title {
+				display: block;
+				font-size: 30px;
+				margin-bottom: 15px;
+				font-weight: bold;
 			}
 		</style>
 	</head>
 	<body>
 		<script>
+			const urlParams = new URLSearchParams(window.location.search);
 			const OSType = {
 				'Null': 0,
 				'Windows': 1,
@@ -53,8 +72,16 @@
 			console.log('os:', OS.Get());
 			fetch('../../versionData.json').then((e) => e.json()).then((f) => {
 				let url = f.latestUrl[OS.Get()];
-				if (url.startsWith('http')) {
+				if (!urlParams.get('all') && url.startsWith('http')) {
 					window.location.href = url;
+				} else {
+					document.body.innerHTML = '<span id="title">All Downloads (' + f.latest + 'r)</span><ul>' + f.latestUrl.map((e, i) => {
+						if (e.startsWith('http')) {
+							return '<li><a target="_blank" href="' + e + '">' + Object.keys(OSType)[i] + '</a></li>';
+						} else {
+							return '';
+						}
+					}).join('') + '</ul>';
 				}
 			})
 		</script>
