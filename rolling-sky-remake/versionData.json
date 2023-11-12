@@ -1,11 +1,11 @@
 {
-	"latest": "1.1.8",
+	"latest": "1.2.0",
 	"latestUrl": [
 		"Null",
-		"https://www.mediafire.com/file/2n4pkcmdrmivrx6/RollingSkyRemake-1.1.8r-Windows.zip/file",
+		"https://www.mediafire.com/file/5ofmnqffdxozo5e/RollingSkyRemake-1.2.0r-Windows.zip/file",
 		"Linux",
 		"MacOS",
-		"https://www.mediafire.com/file/he6ctqxnmwuza0s/RollingSkyRemake-1.1.8r-Android.apk/file",
+		"https://www.mediafire.com/file/qu9olp8wn9oe4qo/RollingSkyRemake-1.2.0r-Android.apk/file",
 		"iOS"
 	],
 	"versions": [
@@ -338,7 +338,7 @@
 			}
 		},
 {
-			"code": ["1.1.0", "1.1.1", "1.1.2", "1.1.3", "1.1.4", "1.1.5", "1.1.6", "1.1.7", "1.1.8", "1.1.9", "1.1.10"],
+			"code": ["1.1.0", "1.1.1", "1.1.2", "1.1.3", "1.1.4", "1.1.5", "1.1.6", "1.1.7", "1.1.8", "1.2.0", "1.2.1", "1.2.2", "1.2.3", "1.2.4", "1.2.5", "1.2.6", "1.2.7", "1.2.8", "1.2.9"],
 			"flags": [],
 			"data": {
 				"changelog": [
