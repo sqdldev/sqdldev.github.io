@@ -337,8 +337,8 @@
 				]
 			}
 		},
-{
-			"code": ["1.1.0", "1.1.1", "1.1.2", "1.1.3", "1.1.4", "1.1.5", "1.1.6", "1.1.7", "1.1.8", "1.2.0", "1.2.1", "1.2.2", "1.2.3", "1.2.4", "1.2.5", "1.2.6", "1.2.7", "1.2.8", "1.2.9"],
+		{
+			"code": ["week 3"],
 			"flags": [],
 			"data": {
 				"changelog": [
@@ -394,6 +394,100 @@
 						"rating": 4,
 						"path": "weekly/asherytn/ElectricMystery.rsr",
 						"thumbnail": "weekly/asherytn/ElectricMystery.png"
+					},
+					{
+						"name": "Obstacle Demo",
+						"author": "Mama Kat",
+						"authorSocial": "https://www.youtube.com/channel/UC-GnVxUIAwKRfdSSXWcKNuw",
+						"type": 0,
+						"gems": 10,
+						"crowns": 3,
+						"rating": 3.5,
+						"path": "weekly/mama_kat/ObstacleDemo.rsr",
+						"thumbnail": "weekly/mama_kat/ObstacleDemo.png"
+					},
+					{
+						"name": "Dynamical",
+						"author": "BroXGamer",
+						"authorSocial": "https://www.youtube.com/channel/UC6UlQ0w1TDKB8mMlHku_TAA",
+						"type": 0,
+						"gems": 10,
+						"crowns": 0,
+						"rating": 3.7,
+						"path": "weekly/broxgamer/Dynamical.rsr",
+						"thumbnail": "weekly/broxgamer/Dynamical.png"
+					},
+					{
+						"name": "Monster Friendly",
+						"author": "Mama Kat & Rodri",
+						"authorSocial": "https://www.youtube.com/channel/UC-GnVxUIAwKRfdSSXWcKNuw",
+						"type": 0,
+						"gems": 15,
+						"crowns": 3,
+						"rating": 6,
+						"path": "weekly/mama_kat/MonsterFriendly.rsr",
+						"thumbnail": "weekly/mama_kat/MonsterFriendly.png"
+					}
+				]
+			}
+		},
+		{
+			"code": ["1.1.0", "1.1.1", "1.1.2", "1.1.3", "1.1.4", "1.1.5", "1.1.6", "1.1.7", "1.1.8", "1.2.0", "1.2.1", "1.2.2", "1.2.3", "1.2.4", "1.2.5", "1.2.6", "1.2.7", "1.2.8", "1.2.9"],
+			"flags": [],
+			"data": {
+				"changelog": [
+					"amon gus"
+				],
+				"featured": [
+					{
+						"name": "Adventure",
+						"author": "extremisea",
+						"authorSocial": "https://www.youtube.com/channel/UCCTXjiUF1JJG7uKeUOzM-8A",
+						"gems": 10,
+						"crowns": 0,
+						"rating": 3.7,
+						"path": "weekly/extremisea/Adventure.rsr",
+						"thumbnail": "weekly/extremisea/Adventure.png"
+					},
+					{
+						"name": "Constellation",
+						"author": "MasterMonivin",
+						"authorSocial": "https://www.youtube.com/MasterMonivin45M45",
+						"gems": 10,
+						"crowns": 3,
+						"rating": 4.6,
+						"path": "weekly/mastermonivin/Constellation.rsr",
+						"thumbnail": "weekly/mastermonivin/Constellation.png"
+					},
+					{
+						"name": "Shock-out",
+						"author": "Aran",
+						"authorSocial": "https://www.youtube.com/@aran767",
+						"gems": 15,
+						"crowns": 3,
+						"rating": 4.6,
+						"path": "weekly/aran/Shock-out.rsr",
+						"thumbnail": "weekly/aran/Shock-out.png"
+					},
+					{
+						"name": "Guiding Light",
+						"author": "FrogB",
+						"authorSocial": "https://linktr.ee/FrogB",
+						"gems": 10,
+						"crowns": 3,
+						"rating": 5,
+						"path": "weekly/frogb/GuidingLight.rsr",
+						"thumbnail": "weekly/frogb/GuidingLight.png"
+					},
+					{
+						"name": "ACF",
+						"author": "JetNine",
+						"authorSocial": "",
+						"gems": 10,
+						"crowns": 3,
+						"rating": 5.6,
+						"path": "weekly/jetnine/acf.rsr",
+						"thumbnail": "weekly/jetnine/ACF.png"
 					},
 					{
 						"name": "Obstacle Demo",
